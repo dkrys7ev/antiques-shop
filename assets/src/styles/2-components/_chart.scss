@@ -1,0 +1,113 @@
+/* ------------------------------------------------------------ *\
+	Chart 
+\* ------------------------------------------------------------ */
+
+.chart-arrow {
+	display: none;
+
+	@include mobile {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: -5.9rem;
+		width: 7.8rem;
+		height: 7.8rem;
+		background: rgba($c-base, 0.8);
+		border-radius: 50%;
+		border: none;
+		outline: none !important;
+		z-index: 50;
+	}
+}
+
+.chart-arrow svg {
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	margin: auto;
+	left: 2.2rem;
+}
+.chart-holder-outer {
+	@include mobile {
+		overflow-y: auto;
+	}
+}
+.chart-holder {
+	@include mobile {
+		position: relative;
+		width: 52.3rem;
+		/* width: 100vw;
+		margin-left: -50vw;
+		margin-right: -50vw;
+		left: 50%;
+		right: 50%;
+		padding-left: 2rem; */
+	}
+}
+
+.chart {
+	width: 100%;
+
+	@include mobile {
+		width: 50rem !important;
+	}
+
+	.canvasjs-chart-tooltip {
+		box-shadow: none !important;
+		border: none !important;
+		bottom: auto !important;
+		top: -5rem !important;
+		margin-left: 3.7rem !important;
+	}
+
+	.canvasjs-chart-tooltip div {
+		padding: 2.2rem 3rem !important;
+		border: none !important;
+
+		@include mobile {
+			padding: 0.6rem 1rem !important;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			right: 1.2rem;
+			top: 100%;
+			width: auto;
+			height: auto;
+			border-left: 1.5rem solid transparent;
+			border-right: 1.5rem solid transparent;
+			border-top: 1.5rem solid $c-base;
+
+			@include mobile {
+				border-left: 1rem solid transparent;
+				border-right: 1rem solid transparent;
+				border-top: 1rem solid $c-base;
+			}
+		}
+	}
+
+	.canvasjs-chart-tooltip p {
+		margin-bottom: 0;
+
+		@include mobile {
+			font-size: 1.4rem !important;
+			line-height: 1.36;
+		}
+	}
+
+	.canvasjs-chart-tooltip p + p {
+		margin-top: 0.5rem;
+		padding-top: 0.5rem;
+		border-top: 0.1rem solid $c-gray-2;
+
+		@include mobile {
+			margin-top: 0.2rem;
+			padding-top: 0.2rem;
+		}
+	}
+
+	.canvasjs-chart-credit {
+		display: none !important;
+	}
+}

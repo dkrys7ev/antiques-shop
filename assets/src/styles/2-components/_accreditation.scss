@@ -1,0 +1,95 @@
+/* ------------------------------------------------------------ *\
+	Accreditations
+\* ------------------------------------------------------------ */
+
+.accreditations {
+	@include mobile {
+		position: relative;
+	}
+
+	.accreditations__items {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -1.6rem -7.5rem;
+	}
+
+	.accreditations__item {
+		max-width: 25%;
+		flex: 0 0 25%;
+		padding: 0 1.6rem 7.5rem;
+
+		@include tablet-portrait {
+			max-width: 33.33%;
+			flex: 0 0 33.33%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+}
+
+.accreditations--slider {
+	.slick-slide {
+		@include mobile {
+			max-width: 32.5rem;
+			width: 100%;
+		}
+
+		&:last-child .accreditations__item {
+			@include mobile {
+				border-right: none;
+			}
+		}
+	}
+
+	.accreditations__items {
+		@include mobile {
+			margin: 0 -2rem 0;
+			border-top: 0.2rem solid $c-beige-2;
+			border-bottom: 0.2rem solid $c-beige-2;
+		}
+	}
+
+	.accreditations__item {
+		@include mobile {
+			padding: 3.6rem 2rem 5rem;
+			border-right: 0.2rem solid $c-beige-2;
+		}
+	}
+}
+
+.accreditation {
+	padding-top: 2.7rem;
+	border-top: 0.2rem solid $c-beige-1;
+
+	@include mobile {
+		padding-top: 0;
+		border-top: none;
+	}
+
+	.accreditation__title {
+		margin-bottom: 1.6rem;
+	}
+
+	.accreditation__entry {
+		font-weight: 500;
+		line-height: 1.38;
+
+		@include mobile {
+			font-size: 1.5rem;
+			line-height: 1.4;
+		}
+	}
+
+	.accreditation__link {
+		margin-top: 2.8rem;
+		display: inline-block;
+
+		@include mobile {
+			font-size: 1.4rem;
+			margin-top: 2.3rem;
+		}
+	}
+}

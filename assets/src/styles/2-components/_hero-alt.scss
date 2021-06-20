@@ -1,0 +1,115 @@
+/* ------------------------------------------------------------ *\
+	Hero Alt
+\* ------------------------------------------------------------ */
+
+.hero-alt {
+	position: relative;
+	padding-top: 51.9rem;
+
+	@include tablet-portrait {
+		padding-top: 27.9rem;
+	}
+
+	@include mobile {
+		padding-top: 22rem;
+	}
+
+	.hero__bg {
+		@include bg;
+		height: calc(100vh - 32rem);
+
+		@include mobile {
+			height: 23rem;
+		}
+	}
+
+	.hero__shell {
+		position: relative;
+		z-index: 2;
+
+		@include mobile {
+			padding: 0;
+		}
+	}
+
+	.hero__content {
+		text-align: center;
+		background-color: $c-base;
+		color: $white;
+		padding: 6.2rem 5.2rem 7rem;
+
+		@include mobile {
+			padding: 4.4rem 2rem 4.8rem;
+			text-align: left;
+		}
+	}
+
+	.hero__title {
+		max-width: 60rem;
+		margin: 0 auto 2.1rem;
+		line-height: 1.1;
+		font-weight: 500;
+		letter-spacing: -0.005em;
+
+		@include mobile {
+			line-height: 1.25;
+			margin-bottom: 1.1rem;
+		}
+	}
+
+	.hero__entry {
+		max-width: 83.8rem;
+		margin: auto;
+		font-size: 2.4rem;
+		font-weight: 400;
+		line-height: 1.25;
+		letter-spacing: 0.01em;
+
+		@include mobile {
+			font-size: 1.6rem;
+			line-height: 1.38;
+		}
+	}
+
+	.hero__entry address {
+		font-weight: 700;
+
+		@include mobile {
+			margin-bottom: 0;
+		}
+	}
+
+	.hero__entry a {
+		text-decoration: none;
+	}
+
+	.hero__actions {
+		max-width: 81.6rem;
+		margin: 5.9rem auto 0;
+
+		@include mobile {
+			margin-top: 2.9rem;
+		}
+	}
+}
+
+.hero-alt--primary {
+	padding-top: 47.9rem;
+	@include tablet-portrait {
+		padding-top: 27.9rem;
+	}
+
+	@include mobile {
+		padding-top: 22rem;
+	}
+	.hero__bg {
+		height: calc(100vh - 38rem);
+		@include mobile {
+			height: 23rem;
+		}
+	}
+
+	.hero__content {
+		padding-bottom: 9rem;
+	}
+}

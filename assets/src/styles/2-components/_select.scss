@@ -1,0 +1,170 @@
+/* ------------------------------------------------------------ *\
+	Select 
+\* ------------------------------------------------------------ */
+
+.select {
+	.selectric > label {
+		font-size: 2rem !important;
+		font-weight: 700 !important;
+		color: $c-base !important;
+		margin-bottom: 0 !important;
+		display: inline-block !important;
+		vertical-align: middle;
+		float: none !important;
+		padding-right: 0.4rem;
+
+		&.hidden {
+			display: none !important;
+		}
+
+		@include mobile {
+			font-size: 1.6rem !important;
+		}
+	}
+
+	.selectric .label {
+		font-size: 2rem;
+		font-weight: 300;
+		margin-left: 0;
+		color: $c-base;
+		display: inline-block;
+		vertical-align: middle;
+		padding-left: 0;
+
+		@include mobile {
+			font-size: 1.6rem;
+			height: 3.4rem;
+		}
+	}
+
+	.selectric {
+		border-radius: 0;
+		border: none;
+		border-bottom: 0.1rem solid $c-base;
+		padding: 0;
+		background-color: transparent;
+
+		@include mobile {
+			height: 3.4rem;
+		}
+	}
+
+	.selectric-hover .selectric {
+		border-color: $c-base;
+	}
+
+	.selectric .button {
+		background-color: transparent;
+		font-size: 0;
+		line-height: 0;
+		height: 4.5rem;
+		width: 2.5rem;
+
+		&:after {
+			border: none;
+			background-image: url(../images/ico-arrow-filter.svg);
+			width: 1.9rem;
+			height: 1.1rem;
+			background-size: 100% 100%;
+			transition: transform 0.4s;
+
+			@include mobile {
+				width: 1.7rem;
+				height: 0.8rem;
+			}
+		}
+	}
+
+	.selectric-items {
+		position: relative;
+		box-shadow: none;
+		border: none;
+		border-top: 0;
+		border-right: none;
+		overflow: visible;
+		background-color: transparent;
+		padding: 2.4rem 0 0;
+	}
+
+	.selectric-items li {
+		font-size: 1.6rem;
+		color: $c-base;
+		font-weight: 400;
+		padding: 0.5rem 0;
+		border: none;
+	}
+
+	.selectric-items li:last-child {
+		border-bottom: none;
+	}
+
+	.selectric-items li:hover {
+		background-color: transparent;
+		color: $c-base;
+		font-style: italic;
+		text-decoration: underline;
+	}
+
+	.selectric-items li.highlighted {
+		background-color: transparent;
+		color: $c-base;
+		font-weight: 700;
+		font-style: italic;
+		text-decoration: underline;
+	}
+
+	.selectric-open .selectric {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.selectric-open {
+		.selectric .button {
+			&:after {
+				transform: rotate(180deg);
+			}
+		}
+	}
+}
+
+.select--light {
+	.selectric {
+		border-bottom-color: $white;
+
+		@include tablet-portrait {
+			border-bottom-color: $c-base;
+		}
+	}
+}
+
+.select--large {
+	.selectric {
+		padding: 0 0 0.5rem;
+	}
+
+	.selectric .label {
+		font-size: 2.2rem;
+
+		@include mobile {
+			font-size: 1.6rem;
+		}
+	}
+
+	.selectric > label {
+		font-size: 2.2rem !important;
+
+		@include mobile {
+			font-size: 1.6rem !important;
+		}
+	}
+
+	.selectric .button:after {
+		width: 2.3rem;
+		height: 1.5rem;
+
+		@include mobile {
+			width: 1.9rem;
+			height: 1.1rem;
+		}
+	}
+}

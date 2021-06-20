@@ -1,0 +1,10 @@
+// Shorten the height of ACF WYSIWYG editors
+.acf-editor-short {
+	iframe {
+		height: 150px !important; // sass-lint:disable-line no-important
+	}
+
+	.acf-editor-wrap iframe {
+		min-height: 150px;
+	}
+}

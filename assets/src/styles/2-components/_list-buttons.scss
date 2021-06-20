@@ -1,0 +1,50 @@
+/* ------------------------------------------------------------ *\
+	List Buttons
+\* ------------------------------------------------------------ */
+
+.list-buttons {
+	text-align: center;
+	padding: 3rem;
+
+	@include tablet-portrait {
+		padding: 1.8rem 2rem 3.3rem;
+	}
+
+	li + li {
+		margin-top: 0.5rem;
+
+		@include tablet-portrait {
+			margin-top: 1.5rem;
+		}
+	}
+}
+
+.list-buttons--alt {
+	display: flex;
+	align-items: center;
+	padding: 0;
+	margin: 0 -0.9rem;
+
+	@include mobile {
+		flex-wrap: wrap;
+	}
+
+	li {
+		max-width: 33.33%;
+		flex: 0 1 100%;
+		padding: 0 0.9rem;
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	li + li {
+		margin-top: 0;
+
+		@include mobile {
+			margin-top: 1rem;
+		}
+	}
+}

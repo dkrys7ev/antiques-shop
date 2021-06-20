@@ -1,0 +1,69 @@
+/* ------------------------------------------------------------ *\
+	Section support
+\* ------------------------------------------------------------ */
+
+.section-support {
+	padding: 9.1rem 0 11rem;
+
+	@include mobile {
+		padding: 4.3rem 0 4.8rem;
+	}
+
+	.section__head {
+		margin: 0 auto 2.5rem;
+		text-align: center;
+
+		@include mobile {
+			text-align: left;
+			margin: 0 auto 1.4rem;
+		}
+	}
+
+	.section__body {
+		max-width: 89.2rem;
+		margin: auto;
+		text-align: center;
+
+		@include mobile {
+			text-align: left;
+		}
+	}
+
+	.section__entry {
+		font-size: 2.2rem;
+		letter-spacing: 0.01em;
+		line-height: 1.27;
+
+		@include mobile {
+			font-size: 1.6rem;
+			line-height: 1.38;
+		}
+	}
+
+	.section__list {
+		margin-top: 7.5rem;
+
+		@include mobile {
+			margin-top: 3rem;
+		}
+	}
+
+	.list-partners {
+		margin-top: 9.1rem;
+
+		@include mobile {
+			margin-top: 2.1rem;
+		}
+	}
+}
+
+.section-support--alt {
+	.section__body {
+		max-width: 100%;
+	}
+
+	.section__entry {
+		max-width: 89.2rem;
+		margin: auto;
+	}
+}

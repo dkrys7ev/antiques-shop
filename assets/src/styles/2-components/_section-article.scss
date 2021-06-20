@@ -1,0 +1,19 @@
+/* ------------------------------------------------------------ *\
+	Section article
+\* ------------------------------------------------------------ */
+
+.section-article {
+	padding: 9.2rem 0 10.9rem;
+
+	@include mobile {
+		padding: 4.5rem 0 4.9rem;
+	}
+}
+
+.section-article--alt {
+	padding: 10.5rem 0 11.5rem;
+
+	@include mobile {
+		padding: 4.5rem 0 4.9rem;
+	}
+}

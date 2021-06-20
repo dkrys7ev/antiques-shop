@@ -1,0 +1,254 @@
+/* ------------------------------------------------------------ *\
+	Plans
+\* ------------------------------------------------------------ */
+
+.plans {
+	max-width: 96rem;
+	margin: auto;
+	.plans__items {
+		display: flex;
+		position: relative;
+		margin: 0 -10rem;
+
+		@include mobile {
+			flex-wrap: wrap;
+		}
+	}
+
+	.plans__item {
+		max-width: 50%;
+		flex: 0 0 50%;
+		padding: 0 10rem;
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	.plans__item + .plans__item {
+		@include mobile {
+			margin-top: 5rem;
+		}
+	}
+
+	.plans__separater {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		height: 100%;
+		transform: translateX(-50%);
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			width: 0.1rem;
+			height: 100%;
+			background-color: $c-base;
+			z-index: 1;
+		}
+
+		@include mobile {
+			display: none;
+		}
+	}
+
+	.plans__circle {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: $c-base;
+		text-align: center;
+		width: 5.6rem;
+		height: 5.6rem;
+		border-radius: 50%;
+		font: 600 2.6rem/5.6rem $font-family-serif;
+		color: $white;
+		z-index: 2;
+
+		@include mobile {
+			display: none;
+		}
+	}
+
+	.plans__foot {
+		padding-top: 9.3rem;
+		text-align: center;
+
+		@include mobile {
+			text-align: left;
+			padding-top: 0;
+		}
+	}
+
+	.plans__head {
+		@include mobile {
+			border-top: 0.1rem solid $c-base;
+			padding-top: 4.2rem;
+			margin-top: 4.8rem;
+		}
+	}
+
+	.plans__head p {
+		font-size: 2.4rem;
+		letter-spacing: 0.01em;
+		line-height: 1.25;
+		margin-bottom: 0.5rem;
+
+		@include mobile {
+			font-size: 1.6rem;
+			line-height: 1.56;
+			margin-bottom: 2.3rem;
+		}
+	}
+
+	.plans__entry {
+		padding-top: 3rem;
+		margin-top: 4.4rem;
+		border-top: 0.1rem solid $c-base;
+		line-height: 1.38;
+		letter-spacing: 0.01em;
+
+		@include mobile {
+			font-size: 1.3rem;
+			line-height: 1.31;
+			padding-top: 4.5rem;
+		}
+	}
+}
+
+.plan {
+	text-align: center;
+
+	@include mobile {
+		text-align: left;
+	}
+
+	.plan__subtitle {
+		position: relative;
+		text-align: center;
+		margin-bottom: 5rem;
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			width: 100%;
+			height: 0.1rem;
+			background-color: $c-base;
+			margin: auto;
+			z-index: 0;
+		}
+	}
+
+	.plan__subtitle span {
+		position: relative;
+		z-index: 1;
+		font: 500 1.8rem/1.5 $font-family-serif;
+		color: $white;
+		background-color: $c-base;
+		padding: 0.8rem 2.9rem 0.9rem;
+		border-radius: 10rem;
+	}
+
+	.plan__title {
+		margin-bottom: 0.6rem;
+
+		@include mobile {
+			font-size: 2.4rem;
+			line-height: 1.13;
+		}
+	}
+
+	.plan__head {
+		margin-bottom: 3rem;
+
+		@include mobile {
+			margin-bottom: 2.5rem;
+		}
+	}
+
+	.plan__head p {
+		font-size: 2rem;
+		font-weight: 700;
+		letter-spacing: 0.01em;
+		line-height: 1.1;
+
+		@include mobile {
+			font-size: 1.6rem;
+		}
+	}
+
+	.plan__price p {
+		text-transform: uppercase;
+		font-weight: 700;
+		letter-spacing: 0.01em;
+		line-height: 1.38;
+		margin-bottom: 1rem;
+
+		@include mobile {
+			font-size: 1.5rem;
+			line-height: 1.4;
+			margin-bottom: 0.6rem;
+		}
+	}
+
+	.plan__price span {
+		font: 400 4rem/0.68 $font-family-serif;
+		display: block;
+		margin-bottom: 1.2rem;
+
+		@include mobile {
+			font-size: 2.4rem;
+			line-height: 1.13;
+			margin-bottom: 0.4rem;
+		}
+	}
+
+	.plan__price small {
+		font-size: 1.6rem;
+		font-weight: 500;
+	}
+
+	.plan__info {
+		font-weight: 500;
+		font-style: italic;
+		line-height: 1.38;
+		letter-spacing: 0.01em;
+		margin: 2.8rem 0 0;
+
+		@include mobile {
+			font-size: 1.5rem;
+			line-height: 1.4;
+			margin-top: 2.1rem;
+		}
+	}
+
+	.plan__actions {
+		margin-top: 4.3rem;
+
+		@include mobile {
+			margin-top: 3rem;
+		}
+	}
+
+	.plan__entry {
+		margin-top: 3.9rem;
+		line-height: 1.38;
+		letter-spacing: 0.01em;
+
+		@include mobile {
+			font-size: 1.3rem;
+			margin-top: 3rem;
+		}
+	}
+}

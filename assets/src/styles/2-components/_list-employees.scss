@@ -1,0 +1,32 @@
+/* ------------------------------------------------------------ *\
+	List employees
+\* ------------------------------------------------------------ */
+
+.list-employees {
+	max-width: 64.4rem;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	li {
+		max-width: 48%;
+		flex: 0 0 48%;
+		border-top: 0.2rem solid $c-beige-1;
+		padding: 2.7rem 0 0;
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+			font-size: 1.5rem;
+			padding: 2.7rem 0 4.4rem;
+		}
+	}
+
+	h6 {
+		margin-bottom: 1.4rem;
+		@include mobile {
+			margin-bottom: 1.1rem;
+		}
+	}
+}

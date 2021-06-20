@@ -1,0 +1,178 @@
+/* ------------------------------------------------------------ *\
+	Event
+\* ------------------------------------------------------------ */
+
+.events {
+	@include mobile {
+		position: relative;
+	}
+
+	.events__items {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -1.5rem -2.9rem;
+
+		@include mobile {
+			margin: 0 -2rem 0;
+		}
+	}
+
+	.events__item {
+		max-width: 33.33%;
+		flex: 0 0 100%;
+		padding: 0 1.5rem 2.9rem;
+
+		@include tablet-portrait {
+			max-width: 50%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+		}
+	}
+
+	.events__paging {
+		margin-top: 10rem;
+
+		@include mobile {
+			margin-top: 2rem;
+		}
+	}
+}
+
+.events--slider {
+	.slick-slide {
+		@include mobile {
+			max-width: 32.5rem;
+			width: 100%;
+		}
+
+		&:last-child .events__item {
+			@include mobile {
+				border-right: none;
+			}
+		}
+	}
+
+	.events__items {
+		@include mobile {
+			margin: 0 -2rem 0;
+			border-top: 0.2rem solid $c-beige-2;
+			border-bottom: 0.2rem solid $c-beige-2;
+		}
+	}
+
+	.events__item {
+		@include mobile {
+			padding: 3.3rem 2rem;
+			border-right: 0.2rem solid $c-beige-2;
+		}
+	}
+}
+
+.event {
+	background-color: $c-beige-1;
+	height: 100%;
+	min-height: 35rem;
+	padding: 2rem 2.2rem 5.6rem;
+	position: relative;
+
+	@include mobile {
+		min-height: 22rem;
+		padding: 1.5rem;
+	}
+
+	& > a {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
+		z-index: 1;
+	}
+
+	.event__tag {
+		display: flex;
+		align-items: center;
+		margin-bottom: 2.2rem;
+		@include mobile {
+			font-size: 1.3rem;
+			margin-bottom: 1.7rem;
+		}
+	}
+
+	.event__icon img {
+		@include mobile {
+			max-width: 2.1rem;
+		}
+	}
+
+	.event__date {
+		margin-left: 0.9rem;
+
+		@include mobile {
+			margin-left: 0.4rem;
+		}
+	}
+
+	.event__title {
+		font-weight: 500;
+
+		@include mobile {
+			font-size: 2.2rem;
+		}
+	}
+
+	.event__title i {
+		display: block;
+	}
+
+	.event__link {
+		position: absolute;
+		left: 2.1rem;
+		bottom: 3.6rem;
+
+		@include mobile {
+			left: 1.3rem;
+			bottom: 2rem;
+		}
+	}
+
+	&:hover .event__link {
+		opacity: 0.6;
+	}
+}
+
+.event--alt {
+	background-color: $c-beige-2;
+
+	.event__title {
+		margin-bottom: 2.7rem;
+
+		@include mobile {
+			margin-bottom: 1.4rem;
+		}
+	}
+
+	.event__date {
+		@include mobile {
+			margin-left: 1rem;
+		}
+	}
+
+	.event__entry {
+		font-weight: 600;
+		font-size: 1.6rem;
+		line-height: 1.38;
+
+		@include mobile {
+			font-size: 1.4rem;
+			line-height: 1.14;
+		}
+	}
+}
+
+.event--light {
+	background-color: $c-beige-2;
+}

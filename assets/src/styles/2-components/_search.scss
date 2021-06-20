@@ -1,0 +1,161 @@
+/* ------------------------------------------------------------ *\
+	Search
+\* ------------------------------------------------------------ */
+
+.search {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 150;
+	width: 100%;
+	background-color: $c-beige-1;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity 0.3s, visibility 0.3s;
+
+	&.is-active {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: all;
+	}
+
+	.search__close {
+		position: absolute;
+		top: 4.5rem;
+		right: 6.2rem;
+		text-decoration: none;
+
+		@include mobile {
+			top: 1.5rem;
+			right: 2.2rem;
+		}
+	}
+
+	.search__close span {
+		padding-right: 0.8rem;
+	}
+
+	.search__content {
+		max-width: 72rem;
+		margin: auto;
+		padding-top: 18rem;
+
+		@include mobile {
+			padding-top: 5.6rem;
+		}
+	}
+
+	.search__form {
+		@include mobile {
+			padding: 3.3rem 2rem;
+			border-bottom: 0.1rem solid rgba($white, 0.3);
+			border-top: 0.1rem solid rgba($white, 0.3);
+		}
+	}
+	.search__form form {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.search__field {
+		background-color: $white;
+		border-radius: 4rem;
+		max-width: 53.5rem;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		padding: 1.2rem 2rem 1.4rem;
+
+		@include mobile {
+			flex-direction: row-reverse;
+			padding: 1rem 1.7rem 1.2rem;
+		}
+	}
+
+	.search__field input {
+		border: none;
+		background-color: transparent;
+		font-size: 1.8rem;
+		width: 100%;
+		margin-left: 1.3rem;
+		color: $c-base;
+		outline: none;
+
+		@include mobile {
+			font-size: 1.6rem;
+			margin-left: 0;
+		}
+
+		&::focus {
+			outline: none;
+		}
+
+		&::placeholder {
+			color: $c-base;
+			opacity: 1;
+		}
+	}
+
+	.search__field img {
+		@include mobile {
+			max-width: 1.7rem;
+			width: 100%;
+		}
+	}
+
+	.search__list {
+		padding: 9.3rem 1.9rem;
+
+		@include mobile {
+			padding: 4.3rem 2.5rem;
+		}
+	}
+
+	.search__list p {
+		font-size: 1.5rem;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+		margin-bottom: 0.7rem;
+
+		@include mobile {
+			font-size: 1.6rem;
+			margin-bottom: 1.9rem;
+		}
+	}
+
+	.search__list ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+
+	.search__list li {
+		@include mobile {
+			margin-bottom: 1.2rem;
+		}
+	}
+
+	.search__list a {
+		font-size: 2.6rem;
+		font-weight: 300;
+		letter-spacing: 0.015em;
+		text-decoration: none;
+		transition: opacity 0.3s;
+
+		@include mobile {
+			font-size: 1.6rem;
+		}
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	.search__btn {
+		@include mobile {
+			display: none;
+		}
+	}
+}

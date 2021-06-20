@@ -1,0 +1,48 @@
+/* ------------------------------------------------------------ *\
+	Contact
+\* ------------------------------------------------------------ */
+
+.contacts {
+	.contacts__items {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -1.5rem -2.7rem;
+
+		@include mobile {
+			margin-bottom: -2rem;
+		}
+	}
+
+	.contacts__item {
+		max-width: 33.33%;
+		flex: 0 0 33.33%;
+		padding: 0 1.5rem 2.7rem;
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+			padding-bottom: 2rem;
+		}
+	}
+}
+
+.contact {
+	.contact__title {
+		font-weight: 500;
+		margin-bottom: 1.3rem;
+
+		@include mobile {
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	.contact__content {
+		font-size: 1.6rem;
+		font-weight: 700;
+		line-height: 1.38;
+	}
+
+	.contact__content address {
+		margin-bottom: 0;
+	}
+}

@@ -1,0 +1,19 @@
+/* ------------------------------------------------------------ *\
+	Hero default
+\* ------------------------------------------------------------ */
+
+.hero-default {
+	text-align: center;
+	background-color: $c-base;
+	color: $white;
+	padding: 5.8rem 0;
+
+	@include mobile {
+		padding: 4.3rem 0 4rem;
+		text-align: left;
+	}
+
+	.hero__title {
+		font-weight: 500;
+	}
+}

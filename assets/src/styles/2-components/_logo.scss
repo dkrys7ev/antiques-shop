@@ -1,0 +1,25 @@
+/* ------------------------------------------------------------ *\
+	Logo
+\* ------------------------------------------------------------ */
+
+.logo {
+	width: 23.9rem;
+	height: 2.9rem;
+	display: inline-block;
+
+	@include tablet-portrait {
+		width: 13.2rem;
+		height: 1.6rem;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+}
+
+.logo--rotate {
+	height: 19rem;
+	width: 2.3rem;
+}

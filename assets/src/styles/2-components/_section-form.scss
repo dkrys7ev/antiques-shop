@@ -1,0 +1,27 @@
+/* ------------------------------------------------------------ *\
+	Section form
+\* ------------------------------------------------------------ */
+
+.section-form {
+	padding: 9.3rem 0 9.8rem;
+
+	@include mobile {
+		padding: 5.3rem 0 3.1rem;
+	}
+
+	.section__head {
+		margin-bottom: 6.5rem;
+		text-align: center;
+
+		@include mobile {
+			text-align: left;
+			margin-bottom: 3.5rem;
+		}
+	}
+
+	.section__head--alt {
+		@include mobile {
+			margin-bottom: 3.5rem;
+		}
+	}
+}

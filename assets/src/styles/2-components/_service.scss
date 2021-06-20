@@ -1,0 +1,203 @@
+/* ------------------------------------------------------------ *\
+	Services
+\* ------------------------------------------------------------ */
+
+.services {
+	.services__items {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -2.7rem -5.4rem;
+
+		@include mobile {
+			margin-bottom: -2.4rem;
+		}
+	}
+
+	.services__item {
+		max-width: 50%;
+		flex: 0 0 50%;
+		padding: 0 2.7rem 5.4rem;
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+			padding-bottom: 2.4rem;
+		}
+	}
+}
+
+.service {
+	background-color: $c-beige-2;
+	padding: 3.1rem 3.1rem 2.9rem;
+
+	@include tablet-portrait {
+		padding: 2.1rem 2rem 3.3rem;
+	}
+
+	.service__image {
+		margin-bottom: 2.4rem;
+		transition: opacity 0.3s;
+
+		@include mobile {
+			margin-bottom: 2.1rem;
+		}
+	}
+
+	.service__body {
+		min-height: 18rem;
+	}
+
+	.service__body > a {
+		display: flex;
+		justify-content: space-between;
+		text-decoration: none;
+
+		@include tablet-portrait {
+			flex-wrap: wrap;
+		}
+	}
+
+	.service__content {
+		max-width: 55%;
+		flex: 0 0 55%;
+		padding-top: 0.6rem;
+
+		@include tablet-portrait {
+			max-width: 100%;
+			flex: 0 0 100%;
+			margin-bottom: 1rem;
+		}
+	}
+
+	.service__aside {
+		max-width: 37.5%;
+		flex: 0 0 37.5%;
+
+		@include tablet-portrait {
+			max-width: 100%;
+			flex: 0 0 100%;
+			margin-top: 1.3rem;
+		}
+	}
+
+	.service__title {
+		font-size: 3.4rem;
+		font-weight: 400;
+		line-height: 0.91;
+		margin-bottom: 0.8rem;
+
+		@include mobile {
+			font-size: 2.4rem;
+			line-height: 1.25;
+		}
+	}
+
+	.service__subtitle {
+		font-size: 2.3rem;
+		font-weight: 500;
+		line-height: 1.17;
+		margin-bottom: 1.1rem;
+
+		@include mobile {
+			font-size: 1.9rem;
+			line-height: 1.88;
+			margin-bottom: 0.1rem;
+		}
+	}
+
+	.service__entry {
+		@include mobile {
+			font-size: 1.5rem;
+			line-height: 1.4;
+		}
+	}
+
+	.service__info {
+		font: 600 2.8rem/0.96 $font-family-serif;
+		margin-bottom: 1.2rem;
+
+		@include mobile {
+			font-size: 2.2rem;
+			line-height: 1.23;
+		}
+	}
+
+	.service__info span {
+		padding-left: 0.8rem;
+	}
+
+	.service__info span,
+	.service__info i {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.service__info i svg {
+		@include mobile {
+			max-width: 3.2rem;
+		}
+	}
+
+	.service__list {
+		padding-left: 0;
+		list-style-type: none;
+		margin-bottom: 0;
+	}
+
+	.service__list li {
+		padding: 1rem 3.3rem 1.3rem;
+		border-top: 0.1rem solid $c-gray-1;
+		font-weight: 700;
+		line-height: 1.38;
+		position: relative;
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin: auto;
+			background-image: url(../images/ico-check.svg);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+
+			@include mobile {
+				width: 2.2rem;
+				height: 2.2rem;
+			}
+		}
+
+		@include mobile {
+			font-size: 1.5rem;
+			padding: 0.9rem 3.3rem 1.1rem;
+		}
+	}
+
+	.service__list li:last-child {
+		border-bottom: 0.1rem solid $c-gray-1;
+	}
+
+	.service__btn {
+		padding: 1rem 4.1rem 1.2rem;
+
+		@include mobile {
+			padding: 0.8rem 2.4rem 1.1rem;
+		}
+	}
+
+	.service__actions {
+		@include tablet-portrait {
+			margin-top: 3.3rem;
+		}
+
+		@include mobile {
+			margin-top: 3.3rem;
+		}
+	}
+
+	&:hover .service__image {
+		opacity: 0.8;
+	}
+}

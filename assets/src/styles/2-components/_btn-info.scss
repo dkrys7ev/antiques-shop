@@ -1,0 +1,62 @@
+/* ------------------------------------------------------------ *\
+	Button info
+\* ------------------------------------------------------------ */
+
+.btn-info {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	appearance: none;
+	font: 700 1.5rem/1 $font-family-acumin-pro;
+	color: $white;
+	border: 0.2rem solid $c-purple-2;
+	border-radius: 5rem;
+	padding: 0.8rem 1.1rem 1.2rem;
+	display: block;
+	background-color: transparent;
+	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+	@include tablet-portrait {
+		font-size: 1.4rem;
+		padding: 1.2rem 1.1rem;
+	}
+
+	&:hover {
+		background-color: $white;
+		color: $c-base;
+		border-color: $white;
+	}
+}
+
+.btn-info--base {
+	border-color: $c-base;
+	color: $c-base;
+
+	&:hover {
+		background-color: $c-base;
+		color: $white;
+		border-color: $c-base;
+	}
+}
+
+.btn-info--size-1 {
+	font-size: 1.6rem;
+	padding: 1rem 1.1rem 1.1rem;
+
+	@include mobile {
+		font-size: 1.4rem;
+		padding: 0.5rem 1.1rem 0.8rem;
+	}
+}
+
+.btn-info--size-2 {
+	font-size: 2rem;
+	padding: 1.4rem 1.1rem;
+
+	@include mobile {
+		font-size: 1.4rem;
+		padding: 0.8rem 1.1rem;
+	}
+}

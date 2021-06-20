@@ -1,0 +1,22 @@
+/* ------------------------------------------------------------ *\
+	Socials
+\* ------------------------------------------------------------ */
+
+.socials {
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+
+	li {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 0.9rem;
+	}
+
+	a {
+		min-width: 2rem;
+		display: block;
+		width: 100%;
+	}
+}

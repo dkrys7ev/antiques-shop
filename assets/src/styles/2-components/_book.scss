@@ -1,0 +1,64 @@
+/* ------------------------------------------------------------ *\
+	Book
+\* ------------------------------------------------------------ */
+
+.book {
+	.book__cols {
+		display: flex;
+		align-items: center;
+
+		@include mobile {
+			flex-wrap: wrap;
+		}
+	}
+
+	.book__col {
+		flex: 0 0 100%;
+		margin-right: 3.2rem;
+
+		@include mobile {
+			margin-right: 0;
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	.book__col p {
+		font: 700 2rem/1.25 $font-family-acumin-pro;
+
+		@include mobile {
+			font-size: 1.6rem;
+		}
+	}
+
+	.book__col--size-1 {
+		max-width: 16.4rem;
+
+		@include mobile {
+			max-width: 100%;
+		}
+	}
+
+	.book__col--size-2 {
+		max-width: 2rem;
+
+		@include mobile {
+			max-width: 100%;
+		}
+	}
+
+	.select .selectric-items {
+		position: absolute;
+		box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+		border-top: 0;
+		border-right: none;
+		background-color: $c-beige-2;
+		padding: 1.4rem 1.5rem 2.4rem;
+	}
+
+	.select--large .selectric .button:after {
+		@include mobile {
+			width: 1.9rem;
+			height: 1rem;
+		}
+	}
+}

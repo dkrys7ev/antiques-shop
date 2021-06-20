@@ -1,0 +1,124 @@
+/* ------------------------------------------------------------ *\
+	Article
+\* ------------------------------------------------------------ */
+
+.article {
+	max-width: 95.9rem;
+	margin: auto;
+
+	.article__head {
+		text-align: center;
+		margin-bottom: 6.1rem;
+
+		@include mobile {
+			text-align: left;
+			margin-bottom: 2.5rem;
+		}
+	}
+
+	.article__meta {
+		font-size: 1.8rem;
+		margin-bottom: 2.4rem;
+
+		@include mobile {
+			font-size: 1.4rem;
+			margin-bottom: 1.2rem;
+		}
+	}
+
+	.article__title {
+		line-height: 1.1;
+
+		@include mobile {
+			line-height: 1.25;
+		}
+	}
+
+	.article__subtitle {
+		margin-bottom: 0.9rem;
+		font-weight: 500;
+
+		@include mobile {
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	.article__image {
+		border-bottom: 0.1rem solid $c-base;
+		padding-bottom: 1.6rem;
+		margin-bottom: 6.7rem;
+
+		@include mobile {
+			padding-bottom: 1rem;
+			margin-bottom: 2.7rem;
+		}
+	}
+
+	.article__image img {
+		margin-bottom: 1.8rem;
+		@include mobile {
+			margin-bottom: 0.6rem;
+		}
+	}
+
+	.article__credits,
+	.article__caption {
+		font-size: 1.3rem;
+		line-height: 1.15;
+		margin-bottom: 0;
+
+		@include mobile {
+			line-height: 1.23;
+		}
+	}
+
+	.article__entry {
+		line-height: 1.38;
+
+		@include mobile {
+			font-size: 1.5rem;
+			line-height: 1.4;
+		}
+	}
+
+	.article__foot {
+		margin-top: 5rem;
+
+		@include mobile {
+			margin-top: 2.8rem;
+		}
+	}
+
+	.article__btn {
+		padding: 1.4rem 7.4rem 1.7rem;
+
+		@include mobile {
+			padding: 0.7rem 3.9rem 1rem;
+		}
+	}
+}
+
+.article--alt {
+	.article__head {
+		margin-bottom: 6.6rem;
+
+		@include mobile {
+			margin-bottom: 1rem;
+		}
+	}
+
+	.article__subtitle {
+		margin-bottom: 1.5rem;
+	}
+
+	.article__entry {
+		font-size: 1.8rem;
+		letter-spacing: 0.01em;
+		line-height: 1.28;
+
+		@include mobile {
+			font-size: 1.5rem;
+			line-height: 1.4;
+		}
+	}
+}

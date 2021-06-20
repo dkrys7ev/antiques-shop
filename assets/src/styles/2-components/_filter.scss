@@ -1,0 +1,303 @@
+/* ------------------------------------------------------------ *\
+	Filter
+\* ------------------------------------------------------------ */
+
+.filter {
+	background-color: $c-beige-1;
+	padding: 2.8rem 0 4.1rem;
+
+	@include mobile {
+		padding: 4.2rem 0 4.9rem;
+	}
+
+	.filter__shell {
+		max-width: 134rem;
+	}
+
+	.filter__title {
+		letter-spacing: -0.005em;
+		margin-bottom: 1.1rem;
+	}
+
+	.filter__cols {
+		display: flex;
+		align-items: flex-start;
+
+		@include large-desktop {
+			justify-content: space-between;
+		}
+
+		@include mobile {
+			flex-wrap: wrap;
+		}
+	}
+
+	.filter__col--size-1 {
+		max-width: 39%;
+		flex: 0 0 39%;
+		margin-right: 5rem;
+
+		@include large-desktop {
+			margin-right: 0;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	.filter__col--size-2 {
+		max-width: 11%;
+		flex: 0 0 11%;
+		margin-left: 1.2rem;
+
+		@include large-desktop {
+			margin-left: 0;
+			max-width: 15%;
+			flex: 0 0 15%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+			margin-top: 1.8rem;
+		}
+	}
+
+	.filter__col--size-3 {
+		max-width: 33%;
+		flex: 0 0 33%;
+		margin-right: 10.6rem;
+
+		@include small-desktop {
+			max-width: 50%;
+			flex: 0 0 50%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	.filter__col--size-4 {
+		max-width: 16%;
+		flex: 0 0 16%;
+
+		@include small-desktop {
+			max-width: 30%;
+			flex: 0 0 30%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	.filter__col--size-5 {
+		max-width: 23.8%;
+		flex: 0 0 23.8%;
+
+		@include small-desktop {
+			max-width: 48%;
+			flex: 0 0 48%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	.filter__col--size-6 {
+		max-width: 17%;
+		flex: 0 0 17%;
+
+		@include small-desktop {
+			max-width: 48%;
+			flex: 0 0 48%;
+			text-align: right;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+			text-align: left;
+		}
+	}
+
+	.btn {
+		@include small-desktop {
+			padding: 1rem 3rem 1.2rem;
+		}
+
+		@include mobile {
+			padding: 0.7rem 4rem 0.9rem;
+		}
+	}
+}
+
+.filter--alt {
+	padding: 7rem 0;
+
+	@include mobile {
+		padding: 3.3rem 0 5rem;
+	}
+
+	.filter__cols {
+		width: 100%;
+		justify-content: center;
+
+		@include mobile {
+			justify-content: flex-start;
+		}
+	}
+
+	.filter__btn {
+		padding: 1.3rem 8rem 1.9rem;
+		font-size: 2rem;
+
+		@include mobile {
+			padding: 0.7rem 4rem 0.9rem;
+			font-size: 1.4rem;
+			margin-top: 3.4rem;
+		}
+	}
+}
+
+.filter--home {
+	padding: 7rem 0;
+
+	@include mobile {
+		padding: 3.4rem 0 4.7rem;
+	}
+
+	.filter__shell {
+		max-width: 131rem;
+	}
+
+	.filter__cols {
+		width: 100%;
+		justify-content: space-between;
+
+		@include small-desktop {
+			flex-wrap: wrap;
+		}
+	}
+
+	.filter__btn {
+		padding: 1.3rem 8rem 1.9rem;
+		font-size: 2rem;
+
+		@include large-desktop {
+			padding: 1.3rem 5rem 1.9rem;
+		}
+
+		@include small-desktop {
+			margin-top: 3rem;
+		}
+
+		@include mobile {
+			padding: 0.7rem 4rem 0.9rem;
+			font-size: 1.4rem;
+			margin-top: 1.9rem;
+		}
+	}
+
+	.filter__col--size-3 {
+		margin-right: 0;
+
+		@include small-desktop {
+			max-width: 40%;
+			flex: 0 0 40%;
+		}
+
+		@include tablet-portrait {
+			max-width: 100%;
+			flex: 0 0 100%;
+			margin-bottom: 1.5rem;
+		}
+	}
+}
+
+.filter--careers {
+	padding: 6.5rem 0 7rem;
+
+	@include mobile {
+		padding: 3.9rem 0 3rem;
+		text-align: left;
+	}
+
+	.filter__shell {
+		max-width: 130rem;
+	}
+
+	.filter__cols {
+		justify-content: space-between;
+
+		@include small-desktop {
+			flex-wrap: wrap;
+			align-items: flex-start;
+		}
+	}
+
+	.filter__col {
+		@include small-desktop {
+			margin-bottom: 1.6rem;
+		}
+	}
+
+	.filter__btn {
+		padding: 1.3rem 8rem 1.9rem;
+		font-size: 2rem;
+
+		@include large-desktop {
+			padding: 1.3rem 5rem 1.9rem;
+		}
+
+		@include mobile {
+			padding: 0.7rem 4rem 0.9rem;
+			font-size: 1.4rem;
+			margin-top: 1.9rem;
+		}
+	}
+
+	.filter__title {
+		text-align: center;
+		margin-bottom: 3rem;
+
+		@include mobile {
+			text-align: left;
+			margin-bottom: 1.2rem;
+		}
+	}
+
+	.filter__col--size-1 {
+		max-width: 37%;
+		flex: 0 0 37%;
+		margin-right: 0;
+	}
+}
+
+.filter--footer {
+	.filter__col--size-1 {
+		@include tablet-portrait {
+			max-width: 48%;
+			flex: 0 0 48%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	.filter__col--size-6 {
+		@include tablet-portrait {
+			text-align: left;
+		}
+	}
+}

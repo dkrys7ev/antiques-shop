@@ -1,0 +1,212 @@
+/* ------------------------------------------------------------ *\
+	Section
+\* ------------------------------------------------------------ */
+
+.section {
+	padding: 9rem 0 10rem;
+
+	@include mobile {
+		padding: 4.1rem 0 4.9rem;
+	}
+
+	.section__head {
+		text-align: center;
+		margin-bottom: 5.6rem;
+	}
+
+	.section__head--alt {
+		@include mobile {
+			margin-bottom: 2.6rem;
+		}
+	}
+
+	.section__title {
+		letter-spacing: -0.01em;
+		font-weight: 500;
+	}
+
+	.section__foot {
+		text-align: center;
+		margin-top: 8rem;
+
+		@include mobile {
+			margin-top: 4.1rem;
+		}
+	}
+
+	.section__group {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		min-height: 35rem;
+
+		@include mobile {
+			flex-wrap: wrap;
+			min-height: auto;
+		}
+	}
+
+	.section__group--alt {
+		padding-bottom: 6.5rem;
+
+		@include mobile {
+			padding-bottom: 0;
+		}
+	}
+
+	.section__group + .section__group {
+		margin-top: 7.1rem;
+		padding-top: 13.1rem;
+		border-top: 0.2rem solid $c-beige-1;
+
+		@include mobile {
+			margin-top: 4.8rem;
+			padding-top: 4.3rem;
+		}
+	}
+
+	.section__aside {
+		max-width: 42%;
+		flex: 0 0 42%;
+
+		@include tablet-portrait {
+			max-width: 50%;
+			flex: 0 0 50%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+}
+
+/* Section Alt */
+
+.section--alt {
+	.section__content {
+		max-width: 37%;
+		flex: 0 0 37%;
+		padding-left: 1rem;
+
+		@include tablet-portrait {
+			max-width: 50%;
+			flex: 0 0 50%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+			order: 2;
+			padding-left: 0;
+		}
+	}
+
+	.section__aside {
+		@include mobile {
+			order: 1;
+			margin-bottom: 3rem;
+		}
+	}
+
+	.section__title {
+		margin-bottom: 1rem;
+	}
+
+	.section__entry {
+		font-size: 2.1rem;
+		font-weight: 500;
+		line-height: 1.33;
+
+		@include mobile {
+			font-size: 1.6rem;
+			line-height: 1.38;
+		}
+	}
+
+	.section__link {
+		margin-top: 2.4rem;
+		display: inline-block;
+	}
+
+	.section__image > a:hover {
+		opacity: 0.7;
+	}
+}
+
+.section--calculator {
+	.section__head {
+		margin-bottom: 14.4rem;
+
+		@include mobile {
+			text-align: left;
+			margin-bottom: 3rem;
+		}
+	}
+}
+
+.section--calculate {
+	@include mobile {
+		padding: 3rem 0 4.9rem;
+	}
+
+	.section__head {
+		max-width: 87rem;
+		margin: 0 auto 7.3rem;
+
+		@include mobile {
+			text-align: left;
+			margin-bottom: 4.3rem;
+		}
+	}
+
+	.section__head p {
+		font-size: 2.2rem;
+		line-height: 1.27;
+		letter-spacing: 0.001em;
+
+		@include mobile {
+			font-size: 1.5rem;
+			line-height: 1.4;
+		}
+	}
+
+	.section__title {
+		margin-bottom: 1.5rem;
+	}
+}
+
+.section--border {
+	border: 0.1rem solid $c-gray-1;
+}
+
+.section--accreditations {
+	padding-bottom: 7.8rem;
+	.section__head {
+		margin-bottom: 8.4rem;
+	}
+}
+
+.section--image {
+	padding-bottom: 5rem;
+}
+
+.section--gallery {
+	padding-top: 5rem;
+	padding-bottom: 0;
+}
+
+.section--images {
+	padding-bottom: 0;
+}
+
+.section--map {
+	padding-top: 5.5rem;
+}
+
+.section--slider {
+	padding: 9rem 0;
+	@include mobile {
+		padding: 4.1rem 0;
+	}
+}

@@ -1,0 +1,23 @@
+/* ------------------------------------------------------------ *\
+	Link search
+\* ------------------------------------------------------------ */
+
+.link-search {
+	display: block;
+	padding: 3.3rem 3rem;
+
+	@include tablet-portrait {
+		padding: 0;
+	}
+
+	img {
+		border-bottom: 0.1rem solid $c-beige-1;
+		padding: 0 0.3rem 0.8rem;
+
+		@include tablet-portrait {
+			border-bottom: none;
+			max-width: 1.9rem;
+			padding: 0;
+		}
+	}
+}

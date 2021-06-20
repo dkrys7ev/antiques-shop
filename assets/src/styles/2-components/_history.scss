@@ -1,0 +1,114 @@
+/* ------------------------------------------------------------ *\
+	History
+\* ------------------------------------------------------------ */
+
+.history {
+	max-width: 76%;
+	width: 100%;
+	margin: 1.1rem auto 0;
+	position: relative;
+	padding: 4.8rem 0 3.6rem;
+
+	@include large-desktop {
+		max-width: 90%;
+	}
+
+	@include small-desktop {
+		max-width: 100%;
+	}
+
+	@include mobile {
+		padding: 0;
+	}
+
+	.history__line {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 0.3rem;
+		height: 100%;
+		margin: auto;
+		background-color: $c-beige-1;
+
+		@include mobile {
+			display: none;
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			width: 2.8rem;
+			height: 0.3rem;
+			background-color: $c-beige-1;
+			transform: translateX(-50%);
+		}
+
+		&:before {
+			top: 0;
+		}
+
+		&:after {
+			bottom: 0;
+		}
+	}
+
+	.history__item {
+		width: 50%;
+		margin-bottom: 1.3rem;
+		position: relative;
+
+		@include tablet-portrait {
+			width: 46%;
+		}
+
+		@include mobile {
+			width: 100%;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: calc(100% - 1.25rem);
+			transform: translateY(-50%);
+			width: 2.5rem;
+			height: 2.5rem;
+			background-color: $c-base;
+			border: 0.3rem solid $white;
+			border-radius: 50%;
+
+			@include tablet-portrait {
+				left: calc(100% + 1.75rem);
+			}
+		}
+	}
+
+	.history__item:nth-child(odd) {
+		margin-left: auto;
+	}
+
+	.history__item:nth-child(odd) .history-block {
+		margin-left: auto;
+	}
+
+	.history__item:nth-child(odd):before {
+		left: auto;
+		right: calc(100% - 1.25rem);
+
+		@include tablet-portrait {
+			right: calc(100% + 1.75rem);
+		}
+	}
+
+	.history__item:nth-child(even) .history-block:after {
+		left: 100%;
+		border-top: 1.6rem solid transparent;
+		border-left: 1.6rem solid $c-base;
+		border-bottom: 1.6rem solid transparent;
+		border-right: none;
+	}
+}

@@ -1,0 +1,35 @@
+/* ------------------------------------------------------------ *\
+	List Contacts
+\* ------------------------------------------------------------ */
+
+.list-contacts {
+	a {
+		display: block;
+		font-size: 1.8rem;
+		line-height: 1.33;
+		font-weight: 600;
+
+		@include mobile {
+			font-size: 1.4rem;
+			line-height: 1.43;
+		}
+	}
+
+	a span {
+		font-style: italic;
+		font-weight: 300;
+	}
+
+	a[href^='mailto'] {
+		font-weight: 700;
+		color: $c-beige-1;
+	}
+
+	li + li {
+		margin-top: 1.2rem;
+
+		@include mobile {
+			margin-top: 0.7rem;
+		}
+	}
+}

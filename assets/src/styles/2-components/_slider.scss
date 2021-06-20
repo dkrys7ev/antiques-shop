@@ -1,0 +1,87 @@
+/* ------------------------------------------------------------ *\
+	Slider
+\* ------------------------------------------------------------ */
+
+.slick-slider {
+}
+
+.slider-arrows {
+	position: absolute;
+	top: 30%;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+
+.slider-arrow {
+	position: absolute;
+	width: 7.8rem;
+	height: 7.8rem;
+	background: rgba($c-base, 0.8);
+	border-radius: 50%;
+	border: none;
+	outline: none !important;
+}
+
+.slider-arrow.slick-disabled {
+	opacity: 0;
+}
+
+.slider-arrow svg {
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	margin: auto;
+}
+
+.slider-arrow--prev {
+	left: -5.9rem;
+}
+
+.slider-arrow--prev svg {
+	transform: rotate(180deg);
+	right: 2.2rem;
+}
+
+.slider-arrow--next {
+	right: -5.9rem;
+}
+
+.slider-arrow--next svg {
+	left: 2.2rem;
+}
+
+.slider-dots {
+	margin-top: 2.4rem;
+	display: none;
+
+	@include mobile {
+		display: block;
+	}
+}
+
+.slick-dots {
+	list-style-type: none;
+	padding-left: 0;
+	text-align: center;
+}
+
+.slick-dots li {
+	display: inline-block;
+}
+
+.slick-dots li button {
+	width: 3.3rem;
+	height: 0.5rem;
+	border-radius: 0;
+	background-color: $c-beige-1;
+	opacity: 1;
+	vertical-align: middle;
+	margin: 0 0.5rem;
+	border: none;
+	font-size: 0;
+}
+
+.slick-dots .slick-active button {
+	background-color: $c-base;
+}

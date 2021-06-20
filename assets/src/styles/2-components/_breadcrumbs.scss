@@ -1,0 +1,34 @@
+/* ------------------------------------------------------------ *\
+	Breadcrumbs
+\* ------------------------------------------------------------ */
+
+.breadcrumbs {
+	margin-bottom: 0;
+	background-color: $c-beige-2;
+	font-size: 1.4rem;
+	letter-spacing: 0.01em;
+	padding: 0.4rem 0.8rem 0.9rem;
+
+	@include mobile {
+		padding: 0.6rem 0;
+		font-size: 1.3rem;
+	}
+
+	a {
+		display: inline-block;
+		vertical-align: middle;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	span {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.current {
+		font-weight: 600;
+	}
+}

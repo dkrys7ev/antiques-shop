@@ -1,0 +1,38 @@
+/* ------------------------------------------------------------ *\
+	Gallery
+\* ------------------------------------------------------------ */
+
+.gallery {
+	.gallery__cols {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -2.7rem;
+	}
+
+	.gallery__col--1of2 {
+		max-width: 50%;
+		flex: 0 0 50%;
+		padding: 0 2.7rem;
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	img {
+		width: 100%;
+
+		@include mobile {
+			padding-bottom: 1rem;
+		}
+	}
+
+	img + img {
+		margin-top: 5.3rem;
+
+		@include mobile {
+			margin-top: 0;
+		}
+	}
+}

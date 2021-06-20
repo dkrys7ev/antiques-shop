@@ -1,0 +1,109 @@
+/* ------------------------------------------------------------ *\
+	Wrapper
+\* ------------------------------------------------------------ */
+
+.wrapper {
+	position: relative;
+	z-index: 10;
+	min-height: 100vh;
+	overflow: hidden;
+
+	.wrapper__inner {
+		padding-left: 32.9rem;
+		min-height: 160vh;
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+		z-index: 2;
+		transition: padding-left 0.8s ease;
+
+		@include tablet-portrait {
+			padding-left: 0;
+		}
+
+		@include tablet-portrait {
+			padding-top: 5.8rem;
+		}
+
+		&.is-large {
+			padding-left: 8.9rem;
+
+			@include tablet-portrait {
+				padding-left: 0;
+			}
+		}
+
+		&.is-have-bar {
+			@include tablet-portrait {
+				padding-top: 9.6rem;
+			}
+		}
+	}
+
+	&.is-contrast .block,
+	&.is-contrast .event,
+	&.is-contrast .breadcrumbs,
+	&.is-contrast .bg-beige,
+	&.is-contrast .bg-beige-1,
+	&.is-contrast .filter {
+		background-color: $c-beige-4;
+	}
+
+	&.is-contrast .section .section__group + .section__group {
+		border-color: $c-purple-4;
+	}
+
+	&.is-contrast .btn--border-white,
+	&.is-contrast .btn-info {
+		border-color: $white;
+	}
+
+	&.is-contrast .list-contacts a[href^='mailto'] {
+		color: $white;
+	}
+
+	&.is-contrast .search {
+		background-color: $c-beige-4;
+	}
+
+	&.is-contrast .search .search__field {
+		border: 0.1rem solid $c-purple-4;
+	}
+
+	&.is-contrast .list-employees li,
+	&.is-contrast .accreditation {
+		border-color: $c-purple-4;
+	}
+
+	&.is-contrast .calculator .calculator__controls input,
+	&.is-contrast .calculator .calculator__controls select {
+		border: 0.1rem solid $c-purple-4;
+		background-color: $white;
+	}
+
+	&.is-contrast .section--calculator {
+		background-color: $white;
+	}
+
+	&.is-contrast .service .service__list li:after {
+		background-image: url(../images/ico-check-base.svg);
+	}
+
+	&.is-contrast .feature .feature__icon img,
+	&.is-contrast .phone,
+	&.is-contrast .logo {
+		filter: contrast(200%);
+	}
+
+	&.is-contrast .gform_wrapper textarea,
+	&.is-contrast .gform_wrapper input[type='email'],
+	&.is-contrast .gform_wrapper input[type='number'],
+	&.is-contrast .gform_wrapper input[type='password'],
+	&.is-contrast .gform_wrapper input[type='tel'],
+	&.is-contrast .gform_wrapper input[type='text'],
+	&.is-contrast .gform_wrapper input[type='url'],
+	&.is-contrast .gform_wrapper .ginput_container_select select {
+		border: 0.1rem solid $c-purple-4;
+		background-color: $white;
+	}
+}

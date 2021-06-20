@@ -1,0 +1,42 @@
+/* ------------------------------------------------------------ *\
+	Section plans
+\* ------------------------------------------------------------ */
+
+.section-plans {
+	padding: 9.3rem 0 9.6rem;
+
+	@include mobile {
+		padding: 4.3rem 0 4.6rem;
+	}
+
+	.section__head {
+		max-width: 77rem;
+		margin: 0 auto 9.7rem;
+		text-align: center;
+
+		@include mobile {
+			text-align: left;
+			margin-bottom: 5rem;
+		}
+	}
+
+	.section__head p {
+		font-size: 2.2rem;
+		line-height: 1.36;
+		letter-spacing: 0.01em;
+
+		@include mobile {
+			font-size: 1.6rem;
+			line-height: 1.38;
+		}
+	}
+
+	.section__title {
+		font-weight: 500;
+		margin-bottom: 2.2rem;
+
+		@include mobile {
+			margin-bottom: 1.2rem;
+		}
+	}
+}

@@ -1,0 +1,30 @@
+/* ------------------------------------------------------------ *\
+	Section cta
+\* ------------------------------------------------------------ */
+
+.section-cta {
+	background-color: $c-base;
+	color: $white;
+	padding: 8.9rem 0 10rem;
+	text-align: center;
+
+	@include mobile {
+		padding: 4.6rem 0 4.8rem;
+		text-align: left;
+	}
+
+	.section__title {
+		font-style: italic;
+		max-width: 96rem;
+		margin: 0 auto 4.6rem;
+		font-weight: 400;
+		letter-spacing: -0.01em;
+		line-height: 1.18;
+
+		@include mobile {
+			font-size: 2.4rem;
+			line-height: 1.29;
+			margin-bottom: 2.6rem;
+		}
+	}
+}

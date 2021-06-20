@@ -1,0 +1,56 @@
+/* ------------------------------------------------------------ *\
+	Article history
+\* ------------------------------------------------------------ */
+
+.article-history {
+	max-width: 96rem;
+	margin: auto;
+
+	.article__title {
+		letter-spacing: -0.005em;
+		margin-bottom: 0;
+		margin-bottom: 1.4rem;
+	}
+
+	.article__title + .article__subtitle {
+		margin-top: 3rem;
+	}
+
+	.article__subtitle {
+		font-weight: 500;
+	}
+
+	.article__head {
+		margin-bottom: 3.1rem;
+
+		@include mobile {
+			margin-bottom: 1.2rem;
+		}
+	}
+
+	.article__head p {
+		font-size: 2.2rem;
+		font-weight: 400;
+		letter-spacing: 0.01em;
+		line-height: 1.27;
+
+		@include mobile {
+			font-size: 1.9rem;
+		}
+	}
+
+	.article__entry {
+		font-size: 1.8rem;
+		line-height: 1.28;
+		letter-spacing: 0.01em;
+
+		@include mobile {
+			font-size: 1.5rem;
+			line-height: 1.4;
+		}
+	}
+
+	.article__foot {
+		margin-top: 5.8rem;
+	}
+}

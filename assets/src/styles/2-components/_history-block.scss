@@ -1,0 +1,49 @@
+/* ------------------------------------------------------------ *\
+	History Block
+\* ------------------------------------------------------------ */
+
+.history-block {
+	background-color: $c-base;
+	color: $white;
+	padding: 3.3rem 2.7rem;
+	position: relative;
+	max-width: 41.9rem;
+
+	&:after {
+		content: '';
+		position: absolute;
+		right: 100%;
+		top: 50%;
+		width: 0;
+		height: 0;
+		transform: translateY(-50%);
+		border-top: 1.6rem solid transparent;
+		border-right: 1.6rem solid $c-base;
+		border-bottom: 1.6rem solid transparent;
+
+		@include mobile {
+			display: none;
+		}
+	}
+
+	.history__title {
+		font-size: 3.2rem;
+		font-weight: 500;
+		line-height: 0.84;
+		letter-spacing: 0;
+		margin-bottom: 1.2rem;
+	}
+
+	.history__entry {
+		font-weight: 500;
+		line-height: 1.38;
+	}
+
+	.history__entry p {
+		margin-bottom: 0;
+	}
+
+	.history__entry p + p {
+		margin-top: 1.2rem;
+	}
+}

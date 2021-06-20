@@ -1,0 +1,14 @@
+/* ------------------------------------------------------------ *\
+	Map
+\* ------------------------------------------------------------ */
+
+.map {
+	padding-bottom: 71%;
+	width: 100%;
+	border: 0.2rem solid $c-base;
+	@include mobile {
+		min-height: 20.6rem;
+		padding-bottom: 0;
+		width: 28.5rem;
+	}
+}

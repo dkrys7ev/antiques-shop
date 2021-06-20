@@ -1,0 +1,63 @@
+/* ------------------------------------------------------------ *\
+	Section default
+\* ------------------------------------------------------------ */
+
+.section-default {
+	padding: 9rem 0 6em;
+
+	@include mobile {
+		padding: 4.2rem 0 6rem;
+	}
+
+	.section__title {
+		font-weight: 500;
+		letter-spacing: -0.005em;
+		margin-bottom: 1rem;
+	}
+
+	.section__head h2 {
+		font-weight: 400;
+	}
+
+	.section__head {
+		text-align: center;
+		max-width: 89rem;
+		margin: 0 auto 3.6rem;
+
+		@include mobile {
+			text-align: left;
+			margin-bottom: 2.5rem;
+		}
+	}
+
+	.section__head p {
+		font-size: 2.2rem;
+		line-height: 1.27;
+		letter-spacing: 0.01em;
+
+		@include mobile {
+			font-size: 1.6rem;
+			line-height: 1.38;
+		}
+	}
+
+	.section__foot {
+		margin-top: 0;
+		text-align: center;
+
+		@include mobile {
+			text-align: left;
+		}
+	}
+}
+
+.section-default--alt {
+	.section__head {
+		max-width: 46rem;
+		margin-bottom: 4.5rem;
+	}
+
+	.section__title {
+		line-height: 1.18;
+	}
+}

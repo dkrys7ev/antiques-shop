@@ -1,0 +1,35 @@
+/* ------------------------------------------------------------ *\
+	BAr info
+\* ------------------------------------------------------------ */
+
+.bar-info {
+	width: 100%;
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	background-color: $white;
+	font: 700 1.4rem/1 $font-family-acumin-pro;
+	padding: 1.2rem 0 1.4rem;
+	p {
+		margin-bottom: 0;
+		margin-left: 0.6rem;
+	}
+
+	.shell {
+		display: flex;
+		align-items: center;
+	}
+
+	.bar__close {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 2.3rem;
+		margin: auto;
+		width: 2rem;
+		height: 2rem;
+	}
+}

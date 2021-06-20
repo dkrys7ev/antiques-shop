@@ -1,0 +1,83 @@
+/* ------------------------------------------------------------ *\
+	Footer
+\* ------------------------------------------------------------ */
+
+.footer {
+	padding: 4rem 0;
+	color: $white;
+
+	.footer__shell {
+		display: flex;
+		justify-content: space-between;
+
+		@include mobile {
+			flex-wrap: wrap;
+			padding: 0 1rem;
+		}
+	}
+
+	.footer__content {
+		max-width: 26%;
+		flex: 0 0 26%;
+		padding-left: 1rem;
+
+		@include tablet-portrait {
+			max-width: 50%;
+			flex: 0 0 50%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	.footer__aside {
+		max-width: 24%;
+		flex: 0 0 24%;
+
+		@include tablet-portrait {
+			max-width: 50%;
+			flex: 0 0 50%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	.footer__title {
+		font-size: 3.2rem;
+		line-height: 1.41;
+		letter-spacing: 0;
+		margin-bottom: 0.5rem;
+
+		@include mobile {
+			font-size: 2.4rem;
+			margin-bottom: 0.9rem;
+		}
+	}
+
+	.list-buttons {
+		padding: 1rem 0 0;
+
+		@include mobile {
+			padding: 3.5rem 1rem 0;
+		}
+	}
+
+	.list-buttons li + li {
+		@include mobile {
+			margin-top: 1.2rem;
+		}
+	}
+
+	.socials {
+		padding: 2.3rem 0 3.9rem;
+
+		@include mobile {
+			padding: 2.9rem 0 2rem;
+		}
+	}
+}

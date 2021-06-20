@@ -1,0 +1,69 @@
+// Variables
+
+// Colors
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$c-error: #af1f1f;
+$c-base: #1c0e38;
+
+$c-beige-1: #d7cec6;
+$c-beige-2: #efedeb;
+$c-beige-3: #d5ccc4;
+$c-beige-4: #f4f3f8;
+
+$c-purple-1: #453f53;
+$c-purple-2: #605a6e;
+$c-purple-3: #281a42;
+$c-purple-4: #1d0e39;
+
+$c-gray-1: #707070;
+$c-gray-2: #c2c4c4;
+
+// Font Defaults
+$font-family-acumin-pro-cond: acumin-pro-semi-condensed, Arial, sans-serif !default;
+$font-family-acumin-pro: acumin-pro, Arial, sans-serif !default;
+$font-family-serif: le-monde-livre-std, 'Times New Roman', serif !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+	'Liberation Mono', 'Courier New', monospace !default;
+
+$font-family-base: $font-family-acumin-pro-cond;
+$font-size-base: 1.6rem !default; // Assumes the browser default, typically `16px`
+
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+
+$font-weight-base: $font-weight-normal !default;
+$line-height-base: 1.38 !default;
+
+// Body
+$body-bg: $white !default;
+$body-color: $black !default;
+
+// Links
+$link-color: inherit !default;
+$link-decoration: none !default;
+$link-hover-color: inherit !default;
+$link-hover-decoration: underline !default;
+
+$shell-max-width: 126rem;
+$shell-gutter: 2rem;
+
+$breakpoint-mobile-small: 374px;
+$breakpoint-mobile: 767px;
+$breakpoint-tablet-portrait: 1023px;
+$breakpoint-small-desktop: 1199px;
+$breakpoint-large-desktop: 1399px;
+$breakpoint-larger-desktop: 1439px;
+$breakpoint-larger-alt-desktop: 1499px;
+$breakpoint-largest-desktop: 1499px;

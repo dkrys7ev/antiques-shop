@@ -1,0 +1,179 @@
+/* ------------------------------------------------------------ *\
+	Slider gallery
+\* ------------------------------------------------------------ */
+
+.slider-gallery {
+	.flickity-viewport {
+		padding-left: 0;
+
+		@include mobile {
+			padding-left: 0;
+		}
+	}
+
+	.slider__clip {
+		padding-bottom: 7.9rem;
+
+		@include mobile {
+			padding-bottom: 3.9rem;
+		}
+	}
+
+	.slider__slide {
+		margin: 0 9.05rem;
+		opacity: 0.5;
+		transition: opacity 0.3s;
+
+		@include tablet-portrait {
+			margin: 0;
+			padding: 0 5rem;
+		}
+
+		@include mobile {
+			margin: 0;
+			padding: 3.3rem 2rem;
+			border-top: 0.2rem solid $c-beige-1;
+			border-bottom: 0.2rem solid $c-beige-1;
+			border-right: 0.2rem solid $c-beige-1;
+			opacity: 1;
+		}
+
+		&.is-selected {
+			opacity: 1;
+		}
+
+		&:last-child {
+			@include mobile {
+				border-right: none;
+			}
+		}
+	}
+
+	.slider__image {
+		width: 71.9rem;
+		min-height: 49.1rem;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+
+		@include mobile {
+			min-height: 20.6rem;
+			width: 28.5rem;
+		}
+	}
+
+	.flickity-page-dots {
+		bottom: -7.9rem;
+
+		@include mobile {
+			bottom: -4.5rem;
+		}
+	}
+
+	.flickity-page-dots .dot {
+		width: 6rem;
+		height: 0.2rem;
+		border-radius: 0;
+		background-color: $c-base;
+		opacity: 0.5;
+		vertical-align: middle;
+		margin: 0 1rem;
+
+		@include mobile {
+			width: 3.3rem;
+			height: 0.5rem;
+			opacity: 1;
+			background-color: $c-beige-1;
+			margin: 0 0.5rem;
+		}
+	}
+
+	.flickity-page-dots .dot.is-selected {
+		height: 0.6rem;
+		opacity: 1;
+
+		@include mobile {
+			height: 0.5rem;
+			background-color: $c-base;
+		}
+	}
+
+	.flickity-prev-next-button {
+		width: 5rem;
+		height: 5rem;
+	}
+
+	.flickity-button {
+		padding: 0;
+		background-color: $c-base;
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			width: 1.4rem;
+			height: 2.6rem;
+			margin: auto;
+			background-image: url(../images/ico-arrow-slider.svg);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+
+			@include mobile {
+				/* left: auto;
+				right: 1rem; */
+				width: 1.2rem;
+				height: 2.1rem;
+				right: 2rem;
+			}
+		}
+
+		@include mobile {
+			width: 7.8rem;
+			height: 7.8rem;
+		}
+	}
+
+	.flickity-button:disabled {
+		@include mobile {
+			opacity: 0;
+		}
+	}
+
+	.flickity-prev-next-button .flickity-button-icon {
+		display: none;
+	}
+
+	.flickity-prev-next-button.next {
+		right: 13.3rem;
+
+		@include tablet-portrait {
+			right: 0;
+		}
+
+		@include mobile {
+			right: -3.9rem;
+		}
+	}
+
+	.flickity-prev-next-button.previous {
+		left: 13.3rem;
+
+		@include tablet-portrait {
+			left: 0;
+		}
+
+		@include mobile {
+			left: -3.9rem;
+		}
+	}
+
+	.flickity-prev-next-button.previous:after {
+		transform: rotate(180deg);
+
+		@include mobile {
+			left: 4rem;
+		}
+	}
+}

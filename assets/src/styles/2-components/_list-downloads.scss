@@ -1,0 +1,78 @@
+/* ------------------------------------------------------------ *\
+	List downloads
+\* ------------------------------------------------------------ */
+
+.list-downloads {
+	max-width: 96rem;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	li {
+		max-width: 44%;
+		flex: 0 0 44%;
+
+		@include tablet-portrait {
+			max-width: 48%;
+			flex: 0 0 48%;
+		}
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	a {
+		border-top: 0.1rem solid $c-base;
+		border-bottom: 0.1rem solid $c-base;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 2rem;
+		padding: 1.3rem 0.8rem;
+		font-weight: 300;
+		font-family: $font-family-acumin-pro;
+		transition: opacity 0.3s;
+
+		&:hover {
+			opacity: 0.7;
+		}
+
+		@include mobile {
+			border-bottom: none;
+			font-size: 1.6rem;
+			padding: 1.1rem 0;
+		}
+	}
+
+	a strong {
+		font-weight: 700;
+	}
+
+	li:last-child a {
+		@include mobile {
+			border-bottom: 0.1rem solid $c-base;
+		}
+	}
+}
+
+.list-downloads--alt {
+	max-width: 59.9rem;
+	flex-wrap: wrap;
+
+	li {
+		max-width: 100%;
+		flex: 0 0 100%;
+	}
+
+	a {
+		border-bottom: none;
+	}
+
+	li:last-child a {
+		border-bottom: 0.1rem solid $c-base;
+	}
+}

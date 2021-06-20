@@ -1,0 +1,103 @@
+/* ------------------------------------------------------------ *\
+	Bar
+\* ------------------------------------------------------------ */
+
+.bar {
+	position: fixed;
+	top: 0;
+	left: 8.9rem;
+	right: 0;
+	width: 100%;
+	background-color: $white;
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+	z-index: 5;
+	transform: translateY(-100%);
+	transition: transform 0.3s;
+	z-index: 51;
+
+	@include tablet-portrait {
+		left: 0;
+		top: 5.8rem;
+	}
+
+	.shell {
+		@include mobile {
+			padding: 0;
+		}
+	}
+
+	.bar__outer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 1.7rem;
+		font-weight: 700;
+		font-family: $font-family-acumin-pro;
+		padding: 0.8rem 2rem;
+	}
+
+	.bar__outer p {
+		margin-bottom: 0;
+	}
+
+	.bar__outer a img {
+		transition: transform 0.3s;
+	}
+
+	.bar__outer a.is-active img {
+		transform: rotate(180deg);
+	}
+
+	.bar__inner {
+		padding: 1.2rem 0;
+		max-width: 70rem;
+		margin: auto;
+
+		@include mobile {
+			padding: 3.3rem 2rem;
+			border-top: 0.1rem solid $c-beige-2;
+		}
+	}
+
+	.btn-info {
+		@include mobile {
+			font-size: 1.4rem;
+			padding: 0.8rem 1.1rem;
+		}
+	}
+
+	&.is-visible {
+		transform: translateY(0);
+	}
+}
+
+.bar-holder {
+	display: none;
+	position: relative;
+	width: 100%;
+	min-height: 4.2rem;
+
+	@include mobile {
+		display: block;
+	}
+}
+
+.bar--contact {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transform: translateY(0);
+	background-color: $white;
+
+	.bar__inner {
+		background-color: $white;
+	}
+
+	&.is-fixed {
+		position: fixed;
+		bottom: auto;
+		top: 5.7rem;
+	}
+}

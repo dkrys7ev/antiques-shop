@@ -1,0 +1,268 @@
+/* ------------------------------------------------------------ *\
+	Header
+\* ------------------------------------------------------------ */
+
+.header {
+	width: 32.9rem;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 100;
+	//height: 100vh;
+	border-right: 0.1rem solid $white;
+	transition: width 0.2s;
+
+	@include tablet-portrait {
+		right: 0;
+		width: 100%;
+		height: 5.8rem;
+		transition: height 0.2s;
+		overflow: hidden;
+	}
+
+	.header__bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: rgba($white, 0.6);
+		z-index: 99;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: opacity 0.3s, visibility 0.3s;
+
+		&.is-active {
+			opacity: 1;
+			visibility: visible;
+			pointer-events: all;
+		}
+	}
+
+	.header__content,
+	.header__foot,
+	.header__head {
+		width: 100%;
+	}
+
+	.header__inner .header__content,
+	.header__inner .header__foot,
+	.header__inner .header__head {
+		opacity: 1;
+		visibility: visible;
+		/* transform: translateX(0); */
+		transition: opacity 0.8s, visibility 0.8s, transform 0.8s;
+	}
+
+	.header__inner .header__content,
+	.header__inner .header__foot {
+		@include tablet-portrait {
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.1s, visibility 0.1s, transform 0.1s;
+		}
+	}
+
+	.header__inner .header__foot {
+		@include tablet-portrait {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: rgba($white, 0.05);
+		}
+
+		@include mobile {
+			bottom: 7em;
+		}
+	}
+
+	.header__inner .header__content {
+		@include tablet-portrait {
+			border-top: 0.1rem solid $c-purple-1;
+		}
+	}
+
+	.header__logo {
+		padding: 4.7rem 3rem 2.7rem;
+		border-bottom: 0.1rem solid $c-purple-1;
+		width: 100%;
+
+		@include tablet-portrait {
+			padding: 0;
+			border-bottom: none;
+			width: auto;
+		}
+	}
+
+	.header__inner {
+		background-color: $c-base;
+		display: flex;
+		/* display: none; */
+		justify-content: space-between;
+		flex-flow: column;
+		height: 100%;
+		position: relative;
+		z-index: 100;
+		overflow-y: auto;
+
+		@include tablet-portrait {
+			justify-content: flex-start;
+			padding-bottom: 35rem;
+			display: block;
+			min-height: 100vh;
+			height: auto;
+		}
+
+		@include mobile {
+			padding-bottom: 38.5rem;
+		}
+	}
+
+	.header__head {
+		@include tablet-portrait {
+			padding: 1.8rem 2rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+		}
+	}
+
+	.header__aside {
+		@include tablet-portrait {
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	.header__aside .link-search {
+		@include tablet-portrait {
+			padding: 0 2rem;
+		}
+	}
+
+	.phone {
+		padding: 2.3rem 3rem;
+		display: inline-block;
+
+		@include tablet-portrait {
+			padding: 0;
+		}
+	}
+
+	.header__outer {
+		background-color: $c-base;
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		flex-flow: column wrap;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 100;
+		@include tablet-portrait {
+			display: none;
+		}
+	}
+
+	.header__outer .header__head {
+		width: 100%;
+	}
+
+	.header__outer .header__logo {
+		padding: 2.5rem 3.3rem 2.5rem 3.3rem;
+		border-bottom: none;
+		border-bottom: 0.1rem solid $c-purple-1;
+		margin-bottom: 2.4rem;
+	}
+
+	.header__outer .header__foot {
+		transform: rotate(-90deg);
+		position: absolute;
+		bottom: 10.2rem;
+		left: -1rem;
+	}
+
+	.header__outer .phone {
+		padding: 0;
+	}
+
+	&.is-small {
+		width: 8.9rem;
+		transition: width 0.8s;
+
+		@include tablet-portrait {
+			width: 100%;
+		}
+	}
+
+	&.is-small .header__inner .header__foot,
+	&.is-small .header__inner .header__content,
+	&.is-small .header__inner .header__head {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+
+		@include tablet-portrait {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	&.is-small .header__outer {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+		transition-delay: 1s;
+
+		@include tablet-portrait {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	&.is-active {
+		height: 100vh;
+		transition: height 0.8s;
+		overflow-y: auto;
+	}
+
+	&.is-active.is-have-bar {
+		transition: height 0.8s;
+		height: calc(100vh - 4.2rem);
+	}
+
+	&.is-active.is-have-bar .header__inner {
+		min-height: calc(100vh - 4.2rem);
+	}
+
+	&.is-active .header__inner .header__foot,
+	&.is-active .header__inner .header__content {
+		@include tablet-portrait {
+			transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+			opacity: 1;
+			visibility: visible;
+			transition-delay: 1s;
+		}
+	}
+
+	.btn-info {
+		@include mobile {
+			border-color: $white;
+		}
+	}
+
+	.list-buttons {
+		@include mobile {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+	}
+}

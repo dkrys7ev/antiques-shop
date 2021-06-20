@@ -1,0 +1,24 @@
+/* ------------------------------------------------------------ *\
+	Form
+\* ------------------------------------------------------------ */
+
+.form--alt {
+	.gform_wrapper .ginput_container_select select {
+		background-color: $white !important;
+	}
+
+	.gform_wrapper textarea,
+	.gform_wrapper input[type='email'],
+	.gform_wrapper input[type='number'],
+	.gform_wrapper input[type='password'],
+	.gform_wrapper input[type='tel'],
+	.gform_wrapper input[type='text'],
+	.gform_wrapper input[type='url'] {
+		background-color: $white;
+	}
+
+	.gform_wrapper .gform_footer {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}

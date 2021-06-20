@@ -1,0 +1,95 @@
+/* ------------------------------------------------------------ *\
+	Button
+\* ------------------------------------------------------------ */
+
+.btn {
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	appearance: none;
+	font-size: 1.8rem;
+	font-weight: 700;
+	line-height: 1;
+	border-radius: 10rem;
+	padding: 1rem 5.1rem 1.2rem;
+	transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+	@include mobile {
+		font-size: 1.4rem;
+	}
+}
+
+.btn--border {
+	border: 0.2rem solid;
+}
+
+.btn--border-base {
+	background-color: transparent;
+	border-color: $c-base;
+	color: $c-base;
+
+	&:hover {
+		background-color: $c-base;
+		color: $white;
+	}
+}
+
+.btn--border-white {
+	background-color: transparent;
+	border-color: rgba($white, 0.6);
+	color: $white;
+
+	&:hover {
+		background-color: $white;
+		color: $c-base;
+	}
+}
+
+.btn--size-1 {
+	padding: 1.4rem 5.8rem 1.7rem;
+
+	@include mobile {
+		padding: 0.7rem 2.8rem 1rem;
+	}
+}
+
+.btn--size-2 {
+	padding: 1.3rem 8.8rem 1.9rem;
+	font-size: 2rem;
+
+	@include mobile {
+		font-size: 1.4rem;
+		padding: 0.7rem 4.2rem 1rem;
+	}
+}
+
+.btn--size-3 {
+	padding: 0.7rem 4.4rem 0.8rem;
+	font-size: 1.6rem;
+}
+
+.btn--size-4 {
+	padding: 1.4rem 3.8rem 1.7rem;
+
+	@include mobile {
+		padding: 0.7rem 3.3rem 1rem;
+	}
+}
+
+.btn--size-5 {
+	padding: 1.2rem 6.5rem 1.6rem;
+	font-size: 2rem;
+	font-family: $font-family-acumin-pro;
+
+	@include mobile {
+		font-size: 1.4rem;
+		padding: 0.7rem 3.3rem 1rem;
+	}
+}
+
+.btn--size-6 {
+	padding: 0.7rem 2rem 0.8rem;
+	font-size: 1.6rem;
+}

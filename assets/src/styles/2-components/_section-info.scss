@@ -1,0 +1,86 @@
+/* ------------------------------------------------------------ *\
+	Section Info
+\* ------------------------------------------------------------ */
+
+.section-info {
+	background-color: $c-base;
+	color: $white;
+	padding: 9.1rem 0 10rem;
+
+	@include mobile {
+		padding: 4rem 0 4.8rem;
+	}
+
+	.section__content {
+		text-align: center;
+		max-width: 84rem;
+		margin: auto;
+
+		@include mobile {
+			text-align: left;
+		}
+	}
+
+	.section__title {
+		font-weight: 500;
+		letter-spacing: -0.005em;
+		margin-bottom: 1.4rem;
+	}
+
+	.section__entry {
+		font-size: 2.4rem;
+		line-height: 1.25;
+		letter-spacing: 0.01em;
+
+		@include mobile {
+			font-size: 1.6rem;
+			line-height: 1.38;
+		}
+	}
+
+	.section__foot {
+		margin-top: 5rem;
+
+		@include mobile {
+			margin-top: 2.7rem;
+		}
+	}
+
+	.section__foot a + a {
+		margin-left: 2rem;
+
+		@include mobile {
+			margin-left: 0;
+			margin-top: 1rem;
+		}
+	}
+}
+
+.section-info--light {
+	background-color: $white;
+	color: $c-base;
+}
+
+.section-info--alt {
+	padding: 6rem 0 10.1rem;
+
+	@include mobile {
+		padding: 4rem 0 4.8rem;
+	}
+
+	.section__foot {
+		margin-top: 6.9rem;
+
+		@include mobile {
+			margin-top: 2.9rem;
+			max-width: 28rem;
+		}
+	}
+
+	.btn {
+		@include mobile {
+			font-size: 1.4rem;
+			padding: 0.7rem 3.7rem 1rem;
+		}
+	}
+}

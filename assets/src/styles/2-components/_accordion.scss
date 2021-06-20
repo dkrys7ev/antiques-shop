@@ -1,0 +1,162 @@
+/* ------------------------------------------------------------ *\
+	Accordion
+\* ------------------------------------------------------------ */
+
+.accordion {
+	max-width: 96rem;
+	margin: auto;
+
+	.accordion__section {
+		border-bottom: 0.1rem solid $c-base;
+	}
+
+	.accordion__section:first-child {
+		border-top: 0.1rem solid $c-base;
+	}
+
+	.accordion__head {
+		position: relative;
+		cursor: pointer;
+		padding: 1.2rem 3.5rem 1.8rem 0;
+		transition: padding 0.3s;
+
+		@include mobile {
+			padding: 2rem 4.5rem 2.1rem 0;
+		}
+	}
+
+	.accordion__head h6 {
+		font: 700 2rem/1.25 $font-family-acumin-pro;
+		margin-bottom: 0;
+
+		@include mobile {
+			font-size: 1.7rem;
+			line-height: 1.29;
+		}
+	}
+
+	.accordion__expand {
+		position: absolute;
+		top: 1.5rem;
+		right: 0.9rem;
+		background-color: $c-base;
+		width: 2.6rem;
+		height: 2.6rem;
+		border-radius: 50%;
+
+		@include mobile {
+			right: 0.2rem;
+			top: 2rem;
+		}
+	}
+
+	.accordion__expand svg {
+		position: absolute;
+		top: 0.3rem;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		transition: transform 0.3s;
+		width: 1.5rem;
+		height: 9rem;
+	}
+
+	.accordion__entry {
+		max-width: 83.6rem;
+		font: 500 1.8rem/1.39 $font-family-acumin-pro;
+		padding: 0 0 2.7rem;
+
+		@include mobile {
+			font-size: 1.5rem;
+			line-height: 1.4;
+		}
+	}
+
+	/* .accordion__section.is-current .accordion__head {
+		padding-bottom: 0.8rem;
+	} */
+
+	.accordion__section.is-current .accordion__expand svg {
+		transform: rotate(180deg);
+		top: -0.2rem;
+	}
+}
+
+.accordion--alt {
+	.accordion__head {
+		display: flex;
+		align-items: center;
+		padding: 1.5rem 0 1.6rem;
+		min-height: 9rem;
+
+		@include mobile {
+			min-height: auto;
+			padding: 1.9rem 0 2.5rem;
+			align-items: flex-start;
+		}
+	}
+
+	.accordion__head h5 {
+		margin-left: 3.1rem;
+		margin-bottom: 0;
+		transition: padding 0.3s;
+
+		@include mobile {
+			font-size: 1.8rem;
+			margin-left: 0.7rem;
+			line-height: 1.33;
+		}
+	}
+
+	.accordion__expand {
+		top: 3.2rem;
+
+		@include mobile {
+			top: 1.9rem;
+		}
+	}
+
+	.accordion__body {
+		padding: 0 9.7rem 5.8rem;
+
+		@include tablet-portrait {
+			padding: 0 4rem 3rem 0;
+		}
+	}
+
+	.accordion__entry {
+		@include mobile {
+			font-size: 1.4rem;
+			line-height: 1.43;
+		}
+	}
+
+	.accordion__icon {
+		max-width: 6.6rem;
+		width: 100%;
+		text-align: center;
+
+		@include mobile {
+			max-width: 3.3rem;
+		}
+	}
+
+	.accordion__icon img {
+		@include mobile {
+			max-width: 2.5rem;
+		}
+	}
+
+	/* .accordion__section.is-current .accordion__head {
+		padding-bottom: 2.2rem;
+	} */
+
+	.accordion__section.is-current .accordion__head h5 {
+		/* padding-top: 1.8rem; */
+
+		@include mobile {
+			padding-top: 0;
+		}
+	}
+}

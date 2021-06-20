@@ -1,0 +1,29 @@
+/* ------------------------------------------------------------ *\
+	List partners
+\* ------------------------------------------------------------ */
+
+.list-partners {
+	display: flex;
+	margin: 0 -4rem;
+	align-items: center;
+
+	@include mobile {
+		margin: 0 -1.2rem;
+	}
+
+	li {
+		padding: 0 4rem;
+
+		@include mobile {
+			padding: 0 1.2rem;
+		}
+	}
+
+	li + li {
+		border-left: 0.1rem solid $c-base;
+
+		@include mobile {
+			border: none;
+		}
+	}
+}

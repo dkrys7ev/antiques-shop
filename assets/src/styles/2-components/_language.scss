@@ -1,0 +1,46 @@
+/* ------------------------------------------------------------ *\
+	Language
+\* ------------------------------------------------------------ */
+
+.language {
+	width: 100%;
+	border-top: 0.1rem solid $c-purple-1;
+	color: $white;
+	text-align: center;
+	padding-bottom: 0.4rem;
+
+	@include tablet-portrait {
+		padding: 1.1rem 0 1.8rem;
+	}
+
+	.language__select {
+		border: none;
+		color: $white;
+		outline: none;
+		font-size: 1.3rem;
+		line-height: 1.46;
+		font-weight: 500;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		text-indent: 1px;
+		text-overflow: '';
+		background: transparent url(../images/ico-arrow-select.svg) no-repeat
+			right center;
+		background-size: 1.1rem 0.5rem;
+		max-width: 11.9rem;
+		margin: auto;
+		width: 100%;
+
+		&::-ms-expand {
+			display: none;
+		}
+
+		@include tablet-portrait {
+			background-size: 1.8rem 1rem;
+			font-size: 1.6rem;
+			font-family: $font-family-acumin-pro;
+			max-width: 15.2rem;
+			background-position: right top 0.9rem;
+		}
+	}
+}

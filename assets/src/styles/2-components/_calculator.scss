@@ -1,0 +1,281 @@
+/* ------------------------------------------------------------ *\
+	Calculator
+\* ------------------------------------------------------------ */
+
+.calculator {
+	max-width: 95.9rem;
+	margin: auto;
+
+	.calculator__cols {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	.calculator__col {
+		@include mobile {
+			position: relative;
+		}
+	}
+
+	.calculator__col--size-1 {
+		max-width: 40%;
+		flex: 0 0 40%;
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+		}
+	}
+
+	.calculator__col--size-2 {
+		position: relative;
+		max-width: 52%;
+		flex: 0 0 52%;
+		padding-left: 2rem;
+		padding-top: 5rem;
+
+		@include mobile {
+			max-width: 100%;
+			flex: 0 0 100%;
+			padding-left: 0;
+			padding-top: 0;
+		}
+	}
+
+	.calculator__col + .calculator__col {
+		@include mobile {
+			margin-top: 7.5rem;
+		}
+	}
+
+	.calculator__info {
+		font-size: 2.2rem;
+		font-weight: 700;
+		margin-top: 4.7rem;
+
+		@include mobile {
+			margin-top: 3.7rem;
+			font-size: 2rem;
+			margin-bottom: 4rem;
+		}
+	}
+
+	.calculator__controls {
+		position: relative;
+	}
+
+	.calculator__controls select {
+		color: $c-base;
+		background-color: $c-beige-2;
+		width: 100%;
+		display: block;
+		padding: 0.7rem 5.6rem 1rem;
+		font-size: 2.2rem;
+		font-weight: 700;
+		border: none;
+		background-image: url(../images/ico-arrow-filter.svg);
+		background-size: 1.8rem 1rem;
+		background-repeat: no-repeat;
+		background-position: right 1.1rem center;
+		appearance: none;
+		&::-ms-expand {
+			display: none;
+		}
+
+		@include mobile {
+			font-size: 1.6rem;
+		}
+	}
+
+	.calculator__controls input {
+		color: $c-base;
+		background-color: $c-beige-2;
+		width: 100%;
+		display: block;
+		padding: 0.7rem 5.6rem 1rem;
+		font-size: 2.2rem;
+		font-weight: 700;
+		border: none;
+
+		@include mobile {
+			font-size: 1.6rem;
+		}
+	}
+
+	.calculator__stamp {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		background-color: $c-base;
+		color: $white;
+		font-weight: 700;
+		width: 4rem;
+		text-align: center;
+		line-height: 4rem;
+	}
+
+	.calculator__label {
+		font-family: $font-family-acumin-pro;
+		font-weight: 300;
+		margin-bottom: 1.2rem;
+		display: block;
+
+		@include mobile {
+			font-size: 1.5rem;
+			line-height: 1.4;
+			margin-bottom: 1.8rem;
+		}
+	}
+
+	.calculator__label strong {
+		font-weight: 700;
+	}
+
+	.calculator__row + .calculator__row {
+		margin-top: 3rem;
+	}
+
+	.calculator__actions {
+		margin-top: 5rem;
+	}
+
+	.calculator__btn {
+		padding: 1.3rem 7.8rem 1.9rem;
+
+		@include mobile {
+			font-size: 1.4rem;
+			padding: 0.5rem 3.2rem 1rem;
+		}
+	}
+
+	.calculator__list {
+		margin-top: 10rem;
+
+		@include mobile {
+			margin-top: 7.5rem;
+		}
+	}
+
+	.calculator__list ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+
+	.calculator__list li {
+		font-weight: 500;
+		padding-top: 3rem;
+		border-top: 0.1rem solid $c-base;
+		font-family: $font-family-acumin-pro;
+
+		@include mobile {
+			font-size: 1.3rem;
+			padding-top: 1.3rem;
+		}
+	}
+
+	.calculator__list li + li {
+		margin-top: 3rem;
+
+		@include mobile {
+			margin-top: 2.3rem;
+		}
+	}
+
+	.calculator__list p {
+		margin-bottom: 0.7rem;
+	}
+
+	.select .selectric-items {
+		position: absolute;
+		box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+		border-top: 0;
+		border-right: none;
+		background-color: $c-beige-2;
+		padding: 1.4rem 1.5rem 2.4rem;
+	}
+
+	.chart-holder {
+		position: relative;
+		margin-right: -20px;
+
+		#myChart {
+			/*height: 328px !important; */
+		}
+
+		#chartjs-tooltip {
+			position: absolute;
+			width: 170px;
+			background: #1c0e38;
+			color: #fff;
+			font-weight: 500;
+			font-size: 16px;
+			padding: 25px 31px;
+			text-transform: uppercase;
+			transform: translate(-50%, -100%);
+			margin: -51px 0 0 -57px;
+
+			@include mobile {
+				margin-top: 0;
+				top: auto !important;
+				bottom: 15rem;
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 100%;
+				right: 14px;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 16px 15px 0 15px;
+				border-color: #1c0e38 transparent transparent transparent;
+			}
+
+			strong {
+				font-weight: 700;
+				padding-right: 3px;
+			}
+
+			p {
+				margin: 0;
+
+				+ p {
+					border-top: 1px solid #fff;
+					margin-top: 5px;
+					padding-top: 6px;
+				}
+			}
+		}
+	}
+
+	.chart-holder-title {
+		font-family: $font-family-acumin-pro;
+		font-size: 16px;
+		font-weight: 700;
+		text-align: center;
+		margin-top: 2rem;
+	}
+
+	.chart-holder-title span {
+		font-weight: 300;
+	}
+
+	.chart-holder-title--vertical {
+		position: absolute;
+		left: 5.6rem;
+		top: 0;
+		bottom: 0;
+		transform: rotate(90deg) scale(-1);
+
+		@include mobile {
+			left: 3.6rem;
+		}
+	}
+
+	.calculator__col--size-2 {
+		padding-left: 0;
+	}
+}

@@ -1,0 +1,40 @@
+/* ------------------------------------------------------------ *\
+	list-font-charger
+\* ------------------------------------------------------------ */
+
+.list-font-charger {
+	display: flex;
+	justify-content: space-between;
+	border-top: 0.1rem solid $c-purple-1;
+
+	li {
+		flex-grow: 1;
+		text-align: center;
+
+		@include tablet-portrait {
+			padding: 1.6rem;
+		}
+	}
+
+	li + li {
+		border-left: 0.1rem solid $c-purple-1;
+	}
+
+	img {
+		@include tablet-portrait {
+			max-width: 2.6rem;
+			width: 100%;
+		}
+	}
+
+	a {
+		display: block;
+		padding: 0.3rem 0 0.5rem;
+	}
+
+	li:first-child img {
+		@include tablet-portrait {
+			max-width: 2rem;
+		}
+	}
+}

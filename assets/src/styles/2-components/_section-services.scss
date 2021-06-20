@@ -1,0 +1,32 @@
+/* ------------------------------------------------------------ *\
+	Section services
+\* ------------------------------------------------------------ */
+
+.section-services {
+	padding: 9.5rem 0 9.8rem;
+
+	@include mobile {
+		padding: 4rem 0 4.8rem;
+	}
+
+	.section__head {
+		max-width: 89.2rem;
+		margin: 0 auto 9.8rem;
+		text-align: center;
+
+		@include mobile {
+			margin-bottom: 4.4rem;
+		}
+	}
+
+	.section__head p {
+		letter-spacing: 0.01em;
+		font-size: 2.4rem;
+		line-height: 1.25;
+
+		@include mobile {
+			font-size: 1.6rem;
+			line-height: 1.38;
+		}
+	}
+}
