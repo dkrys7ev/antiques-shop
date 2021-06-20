@@ -3,9 +3,18 @@
 \* ------------------------------------------------------------ */
 
 .logo {
+	color: #fff;
+	text-decoration: none;
+	font-family: 'Milestone', monospace;
 	width: 23.9rem;
 	height: 2.9rem;
 	display: inline-block;
+	font-size: 33px;
+	text-align: center;
+
+	&:hover {
+		color: #fff;
+	}
 
 	@include tablet-portrait {
 		width: 13.2rem;
@@ -20,6 +29,5 @@
 }
 
 .logo--rotate {
-	height: 19rem;
-	width: 2.3rem;
+	width: 100%;
 }
