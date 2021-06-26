@@ -1,4 +1,11 @@
-<?php include_once 'partials/header.php'; ?>
+<?php
+if ( ! isset( $_COOKIE['app_user_id'] ) ) {
+	header("Location: login.php");
+	exit;
+}
+
+include_once 'partials/header.php';
+?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
 	<div class="hero hero--alt bg-base">
