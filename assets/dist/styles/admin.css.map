@@ -1,1 +1,0 @@
-{"version":3,"sources":["admin.scss"],"names":[],"mappings":"AACA,yBAEE,uBAAwB,CAF1B,0CAME,gBAAiB","file":"admin.css","sourcesContent":["// Shorten the height of ACF WYSIWYG editors\r\n.acf-editor-short {\r\n\tiframe {\r\n\t\theight: 150px !important; // sass-lint:disable-line no-important\r\n\t}\r\n\r\n\t.acf-editor-wrap iframe {\r\n\t\tmin-height: 150px;\r\n\t}\r\n}\r\n"]}
