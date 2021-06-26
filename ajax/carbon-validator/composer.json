@@ -1,0 +1,18 @@
+{
+    "name": "htmlburger/carbon-validator",
+    "description": "Basic Validator class implemented as a stand alone library. Inspired by Laravel Validation module.",
+    "type": "library",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "htmlburger",
+            "email": "info@htmlburger.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": [
+            "load.php"
+        ]
+    }
+}

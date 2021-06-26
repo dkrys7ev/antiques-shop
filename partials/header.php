@@ -37,7 +37,6 @@
 		<link rel="stylesheet" href="https://use.typekit.net/ycu6woa.css" />
 
 		<title>The Antiques Shop</title>
-		<meta name="description" content="" />
 
 		<link rel="stylesheet" href="assets/dist/styles/theme.css" />
 
@@ -68,7 +67,7 @@
 				<div class="header__inner">
 					<div class="header__head">
 						<div class="header__logo">
-							<a href="#" class="logo"> AntiqueShop </a>
+							<a href="index.php" class="logo"> AntiqueShop </a>
 						</div>
 						<!-- /.header__logo -->
 
@@ -128,11 +127,19 @@
 									</a>
 								</li>
 
-								<li class="js-nav-element">
-									<a href="login.php">
-										<span>Login</span>
-									</a>
-								</li>
+								<?php if ( ! isset( $_COOKIE['app_user_id'] ) ) : ?>
+									<li class="js-nav-element">
+										<a href="login.php">
+											<span>Login</span>
+										</a>
+									</li>
+								<?php else : ?>
+									<li class="js-nav-element js-logout">
+										<a href="#">
+											<span>Logout</span>
+										</a>
+									</li>
+								<?php endif; ?>
 							</ul>
 						</nav>
 						<!-- /.nav -->
@@ -151,15 +158,6 @@
 
 					<div class="header__foot">
 						<ul class="list-font-charger">
-							<li>
-								<a href="#" class="js-contast">
-									<img
-										src="assets/dist/images/ico-contrast.svg"
-										alt=""
-									/>
-								</a>
-							</li>
-
 							<li>
 								<a href="#" class="js-increase-font">
 									<img
@@ -187,7 +185,7 @@
 				<div class="header__outer">
 					<div class="header__head">
 						<div class="header__logo">
-							<a href="#" class="logo logo--rotate"> AS </a>
+							<a href="index.php" class="logo logo--rotate"> AS </a>
 						</div>
 						<!-- /.header__logo -->
 

@@ -1,11 +1,4 @@
-<?php
-if ( isset( $_COOKIE['app_user_id'] ) ) {
-	header("Location: shop.php");
-	exit;
-}
-
-include_once 'partials/header.php';
-?>
+<?php include_once 'partials/header.php'; ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
 	<div class="hero hero--alt bg-base">
@@ -13,7 +6,7 @@ include_once 'partials/header.php';
 		<!-- /.hero__bg -->
 
 		<div class="hero__content" data-aos="fade-up">
-			<h1 class="hero__title">Login</h1>
+			<h1 class="hero__title">Register</h1>
 			<!-- /.hero__title -->
 		</div>
 		<!-- /.hero__content -->
@@ -24,10 +17,22 @@ include_once 'partials/header.php';
 		<div class="shell">
 			<div class="section__content">
 				<div class="form">
-					<form action="?" method="post" class="js-login">
+					<form action="?" method="post" class="js-register">
 						<div class="form__body">
 							<div class="form__section">
 								<div class="form__group">
+									<div class="form__row">
+										<label class="form__label" for="field-name">
+											* Name
+										</label>
+
+										<div class="form__controls">
+											<input type="text" class="field" id="field-name" name="name" placeholder="Type your name" />
+										</div><!-- /.form__controls -->
+
+										<span class="form__notice form__notice--error hidden">This field is required</span>
+									</div><!-- /.form__row -->
+
 									<div class="form__row">
 										<label class="form__label" for="field-email">
 											* Email
@@ -50,24 +55,33 @@ include_once 'partials/header.php';
 										</div><!-- /.form__controls -->
 
 										<span class="form__notice form__notice--error hidden">Password is required</span>
+									</div><!-- /.form__row -->
 
-										<div class="form__error hidden">Wrong password or email address!</div>
+									<div class="form__row">
+										<label class="form__label" for="field-repeat-password">
+											* Repeat Password
+										</label>
+
+										<div class="form__controls">
+											<input type="password" class="field" id="field-repeat-password" name="repeat_password" placeholder="Type your password again" />
+										</div><!-- /.form__controls -->
+
+										<span class="form__notice form__notice--error hidden">Passwords doesn't match</span>
 									</div><!-- /.form__row -->
 								</div><!-- /.form__group -->
 							</div><!-- /.form__section -->
 						</div><!-- /.form__body -->
 
 						<div class="form__actions">
-
 							<button type="submit" class="btn btn--border-base form__btn form__btn--submit">
-								<span>Login</span>
+								<span>Register</span>
 
 								<img width="22" src="assets/dist/images/spinner.svg" alt="Spinner">
 							</button>
 
 							<div class="form__actions-content">
-								<a href="register.php">
-									No account yet? Click to register.
+								<a href="login.php">
+									Already registered? Click to login.
 								</a>
 							</div><!-- /.form__actions-content -->
 						</div><!-- /.form__actions -->

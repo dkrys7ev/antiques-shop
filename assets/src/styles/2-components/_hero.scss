@@ -62,6 +62,19 @@
 	min-height: 56rem;
 	display: flex;
 
+	.hero__title {
+		font-size: 10rem;
+
+		@include tablet-portrait {
+			text-align: center;
+			width: 100%;
+		}
+
+		@include mobile {
+			font-size: 5rem;
+		}
+	}
+
 	@include tablet-portrait {
 		flex-wrap: wrap;
 		flex-direction: column-reverse;

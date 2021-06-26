@@ -12,7 +12,7 @@
 		<!-- /.hero__bg -->
 
 		<div class="hero__content" data-aos="fade-up">
-			<h1 class="hero__title" style="font-family: 'Milestone'">Welcome to <br> AntiqueShop</h1>
+			<h1 class="hero__title" style="font-family: 'Milestone'">Welcome</h1>
 			<!-- /.hero__title -->
 		</div>
 		<!-- /.hero__content -->
@@ -23,7 +23,7 @@
 		<div class="shell">
 			<div class="section__content" data-aos="fade-up">
 				<h2 class="section__title h2">
-					Over 10 years of History
+					Over 10 years of experience
 				</h2>
 				<!-- /.section__title -->
 
@@ -43,8 +43,7 @@
 	<section class="section-cta" data-aos="fade-up">
 		<div class="shell">
 			<h2 class="section__title">
-				‘Our commitment’ will be a gateway if you are going
-				to include the same amount of text
+				Thousands of genuine antiques for sale, direct from trusted antique dealers at your local <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
 			</h2>
 			<!-- /.section__title -->
 
@@ -66,7 +65,7 @@
 						<div
 							class="slider__image"
 							style="
-								background-image: url(assets/dist/images/temp/slider-img-1.jpg);
+								background-image: url(assets/dist/images/temp/slide-image1.jpg);
 							"
 						></div>
 						<!-- /.slider__image -->
@@ -77,7 +76,7 @@
 						<div
 							class="slider__image"
 							style="
-								background-image: url(assets/dist/images/temp/slider-img-2.jpg);
+								background-image: url(assets/dist/images/temp/slide-image2.jpg);
 							"
 						></div>
 						<!-- /.slider__image -->
@@ -88,7 +87,106 @@
 						<div
 							class="slider__image"
 							style="
-								background-image: url(assets/dist/images/temp/slider-img-3.jpg);
+								background-image: url(assets/dist/images/temp/slide-image3.jpg);
+							"
+						></div>
+						<!-- /.slider__image -->
+					</div>
+					<!-- /.slider__slide -->
+
+					<div class="slider__slide carousel-cell">
+						<div
+							class="slider__image"
+							style="
+								background-image: url(assets/dist/images/temp/slide-image4.jpg);
+							"
+						></div>
+						<!-- /.slider__image -->
+					</div>
+					<!-- /.slider__slide -->
+
+					<div class="slider__slide carousel-cell">
+						<div
+							class="slider__image"
+							style="
+								background-image: url(assets/dist/images/temp/slide-image5.jpg);
+							"
+						></div>
+						<!-- /.slider__image -->
+					</div>
+					<!-- /.slider__slide -->
+
+					<div class="slider__slide carousel-cell">
+						<div
+							class="slider__image"
+							style="
+								background-image: url(assets/dist/images/temp/slide-image6.jpg);
+							"
+						></div>
+						<!-- /.slider__image -->
+					</div>
+					<!-- /.slider__slide -->
+
+					<div class="slider__slide carousel-cell">
+						<div
+							class="slider__image"
+							style="
+								background-image: url(assets/dist/images/temp/slide-image1.jpg);
+							"
+						></div>
+						<!-- /.slider__image -->
+					</div>
+					<!-- /.slider__slide -->
+
+					<div class="slider__slide carousel-cell">
+						<div
+							class="slider__image"
+							style="
+								background-image: url(assets/dist/images/temp/slide-image2.jpg);
+							"
+						></div>
+						<!-- /.slider__image -->
+					</div>
+					<!-- /.slider__slide -->
+
+					<div class="slider__slide carousel-cell">
+						<div
+							class="slider__image"
+							style="
+								background-image: url(assets/dist/images/temp/slide-image3.jpg);
+							"
+						></div>
+						<!-- /.slider__image -->
+					</div>
+					<!-- /.slider__slide -->
+
+					<div class="slider__slide carousel-cell">
+						<div
+							class="slider__image"
+							style="
+								background-image: url(assets/dist/images/temp/slide-image4.jpg);
+							"
+						></div>
+						<!-- /.slider__image -->
+					</div>
+					<!-- /.slider__slide -->
+
+					<div class="slider__slide carousel-cell">
+						<div
+							class="slider__image"
+							style="
+								background-image: url(assets/dist/images/temp/slide-image5.jpg);
+							"
+						></div>
+						<!-- /.slider__image -->
+					</div>
+					<!-- /.slider__slide -->
+
+					<div class="slider__slide carousel-cell">
+						<div
+							class="slider__image"
+							style="
+								background-image: url(assets/dist/images/temp/slide-image6.jpg);
 							"
 						></div>
 						<!-- /.slider__image -->

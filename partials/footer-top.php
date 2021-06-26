@@ -186,13 +186,23 @@
 					>
 				</li>
 
-				<li>
-					<a
-						href="login.php"
-						class="btn-info btn-info--size-1"
-						>Login</a
-					>
-				</li>
+				<?php if ( ! isset( $_COOKIE['app_user_id'] ) ) : ?>
+					<li>
+						<a
+							href="login.php"
+							class="btn-info btn-info--size-1"
+							>Login</a
+						>
+					</li>
+				<?php else : ?>
+					<li>
+						<a
+							href="#"
+							class="btn-info btn-info--size-1 js-logout"
+							>Logout</a
+						>
+					</li>
+				<?php endif; ?>
 			</ul>
 			<!-- /.list-buttons -->
 		</div>
