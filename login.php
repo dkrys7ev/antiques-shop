@@ -58,7 +58,6 @@ include_once 'partials/header.php';
 						</div><!-- /.form__body -->
 
 						<div class="form__actions">
-
 							<button type="submit" class="btn btn--border-base form__btn form__btn--submit">
 								<span>Login</span>
 

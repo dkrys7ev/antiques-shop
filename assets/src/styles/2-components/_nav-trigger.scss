@@ -21,6 +21,10 @@
 	span {
 		font: 600 3.2rem/1 $font-family-serif;
 	}
+
+	&.nav-trigger--active {
+		margin-bottom: 3rem;
+	}
 }
 
 .nav-trigger-mobile {

@@ -5,7 +5,13 @@
 .list-font-charger {
 	display: flex;
 	justify-content: space-between;
-	border-top: 0.1rem solid $c-purple-1;
+	margin-top: 20px;
+	border: 0.1rem solid $c-purple-1;
+
+	@include mobile {
+		border-top: none;
+		margin-top: 0;
+	}
 
 	li {
 		flex-grow: 1;

@@ -134,6 +134,12 @@
 										</a>
 									</li>
 								<?php else : ?>
+									<li class="js-nav-element">
+										<a href="profile.php">
+											<span>Profile</span>
+										</a>
+									</li>
+
 									<li class="js-nav-element js-logout">
 										<a href="#">
 											<span>Logout</span>
@@ -144,19 +150,6 @@
 						</nav>
 						<!-- /.nav -->
 
-						<a
-							href="#"
-							class="link-search js-open-search hidden-xs hidden-sm"
-						>
-							<img
-								src="assets/dist/images/ico-search-light.svg"
-								alt=""
-							/>
-						</a>
-					</div>
-					<!-- /.header__content -->
-
-					<div class="header__foot">
 						<ul class="list-font-charger">
 							<li>
 								<a href="#" class="js-increase-font">
@@ -176,7 +169,13 @@
 								</a>
 							</li>
 						</ul>
-						<!-- /.list-font-charger -->
+					</div>
+					<!-- /.header__content -->
+
+					<div class="header__foot">
+						<a href="#" class="nav-trigger nav-trigger--active js-collapse-header">
+							<img src="assets/dist/images/ico-close-dropdown.svg" alt="">
+						</a>
 					</div>
 					<!-- /.header__foot -->
 				</div>
@@ -196,6 +195,16 @@
 							/>
 
 							<span>CALL</span>
+						</a>
+
+						<a
+							href="#"
+							class="link-search js-open-search hidden-xs hidden-sm"
+						>
+							<img
+								src="assets/dist/images/ico-search-light.svg"
+								alt=""
+							/>
 						</a>
 					</div>
 					<!-- /.header__head -->

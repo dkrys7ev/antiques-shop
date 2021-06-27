@@ -1,0 +1,57 @@
+/* ------------------------------------------------------------ *\
+	Boxes
+\* ------------------------------------------------------------ */
+
+.boxes {
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: -20px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.box {
+	width: 33.33%;
+	padding: 20px;
+
+	@include tablet-portrait {
+		width: 50%;
+	}
+
+	@include mobile {
+		width: 100%;
+	}
+
+	.box__inner {
+		height: 100%;
+		display: flex;
+    	flex-wrap: wrap;
+	}
+
+	.box__image {
+		width: 100%;
+		height: 0;
+		margin-bottom: 20px;
+		padding-bottom: 100%;
+
+		img {
+			border-radius: 10px;
+		}
+	}
+
+	.box__content {
+		margin-bottom: 20px;
+
+		h4 {
+			margin-bottom: 20px;
+		}
+	}
+
+	.box__actions,
+	.box__price {
+		width: 100%;
+		margin-top: auto;
+	}
+}

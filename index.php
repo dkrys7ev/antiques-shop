@@ -6,7 +6,7 @@
 			class="hero__image"
 			data-aos="fade-up"
 			style="
-				background-image: url(assets/dist/images/temp/hero-img-2.jpg);
+				background-image: url(assets/dist/images/temp/junk-shop-1561897_1920.jpg);
 			"
 		></div>
 		<!-- /.hero__bg -->

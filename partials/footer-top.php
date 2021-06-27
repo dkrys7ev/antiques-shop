@@ -197,6 +197,14 @@
 				<?php else : ?>
 					<li>
 						<a
+							href="profile.php"
+							class="btn-info btn-info--size-1"
+							>Profile</a
+						>
+					</li>
+
+					<li>
+						<a
 							href="#"
 							class="btn-info btn-info--size-1 js-logout"
 							>Logout</a

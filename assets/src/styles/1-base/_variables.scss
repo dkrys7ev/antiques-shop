@@ -32,9 +32,9 @@ $c-gray-2: #c2c4c4;
 // Font Defaults
 $font-family-acumin-pro-cond: acumin-pro-semi-condensed, Arial, sans-serif !default;
 $font-family-acumin-pro: acumin-pro, Arial, sans-serif !default;
-$font-family-serif: le-monde-livre-std, 'Times New Roman', serif !default;
+$font-family-serif: le-monde-livre-std, "Times New Roman", serif !default;
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-	'Liberation Mono', 'Courier New', monospace !default;
+	"Liberation Mono", "Courier New", monospace !default;
 
 $font-family-base: $font-family-acumin-pro-cond;
 $font-size-base: 1.6rem !default; // Assumes the browser default, typically `16px`
