@@ -1,3 +1,5 @@
+<?php include_once 'app/includes/helpers.php'; ?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en-AU">
 	<head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb#">
@@ -67,7 +69,7 @@
 				<div class="header__inner">
 					<div class="header__head">
 						<div class="header__logo">
-							<a href="https://dkrystev.online/" class="logo"> AntiqueShop </a>
+							<a href="<?php echo app_get_page_url(); ?>" class="logo"> AntiqueShop </a>
 						</div>
 						<!-- /.header__logo -->
 
@@ -110,32 +112,32 @@
 						<nav class="nav">
 							<ul>
 								<li class="js-nav-element">
-									<a href="https://dkrystev.online/">
+									<a href="<?php echo app_get_page_url(); ?>">
 										<span>Home</span>
 									</a>
 								</li>
 
 								<li class="js-nav-element">
-									<a href="shop">
+									<a href="<?php echo app_get_page_url('shop'); ?>">
 										<span>Shop</span>
 									</a>
 								</li>
 
 								<li class="js-nav-element">
-									<a href="contact">
+									<a href="<?php echo app_get_page_url('contact'); ?>">
 										<span>Contact</span>
 									</a>
 								</li>
 
 								<?php if ( ! isset( $_COOKIE['app_user_id'] ) ) : ?>
 									<li class="js-nav-element">
-										<a href="login">
+										<a href="<?php echo app_get_page_url('login'); ?>">
 											<span>Login</span>
 										</a>
 									</li>
 								<?php else : ?>
 									<li class="js-nav-element">
-										<a href="profile">
+										<a href="<?php echo app_get_page_url('profile'); ?>">
 											<span>Profile</span>
 										</a>
 									</li>
@@ -184,7 +186,7 @@
 				<div class="header__outer">
 					<div class="header__head">
 						<div class="header__logo">
-							<a href="https://dkrystev.online/" class="logo logo--rotate"> AS </a>
+							<a href="<?php echo app_get_page_url(); ?>" class="logo logo--rotate"> AS </a>
 						</div>
 						<!-- /.header__logo -->
 

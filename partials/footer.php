@@ -1,3 +1,7 @@
+			<?php
+			include_once 'app/includes/helpers.php';
+			?>
+
 			<footer class="footer bg-base">
 				<div class="shell footer__shell">
 					<div
@@ -164,7 +168,7 @@
 						<ul class="list-buttons">
 							<li>
 								<a
-									href="https://dkrystev.online/"
+									href="<?php echo app_get_page_url(); ?>"
 									class="btn-info btn-info--size-1"
 									>Home</a
 								>
@@ -172,7 +176,7 @@
 
 							<li>
 								<a
-									href="shop"
+									href="<?php echo app_get_page_url('shop'); ?>"
 									class="btn-info btn-info--size-1"
 									>Shop</a
 								>
@@ -180,7 +184,7 @@
 
 							<li>
 								<a
-									href="contact"
+									href="<?php echo app_get_page_url('contact'); ?>"
 									class="btn-info btn-info--size-1"
 									>Contact</a
 								>
@@ -189,7 +193,7 @@
 							<?php if ( ! isset( $_COOKIE['app_user_id'] ) ) : ?>
 								<li>
 									<a
-										href="login"
+										href="<?php echo app_get_page_url('login'); ?>"
 										class="btn-info btn-info--size-1"
 										>Login</a
 									>
@@ -197,7 +201,7 @@
 							<?php else : ?>
 								<li>
 									<a
-										href="profile"
+										href="<?php echo app_get_page_url('profile'); ?>"
 										class="btn-info btn-info--size-1"
 										>Profile</a
 									>

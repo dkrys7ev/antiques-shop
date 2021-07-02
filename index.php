@@ -1,4 +1,6 @@
-<?php include_once 'partials/header.php'; ?>
+<?php
+include_once 'partials/header.php';
+?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
 	<div class="hero hero--alt bg-base">
@@ -48,7 +50,7 @@
 			<!-- /.section__title -->
 
 			<a
-				href="shop"
+				href="<?php echo app_get_page_url('shop'); ?>"
 				class="btn btn--border btn--border-white btn--size-1"
 				>Shop now</a
 			>

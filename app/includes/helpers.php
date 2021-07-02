@@ -1,11 +1,27 @@
 <?php
 function app_init_database() {
 	$host     = 'localhost';
-	$username = 'root';
-	$password = 'kuku';
-	$database = 'antique_shop';
+	$username = 'dkryqtqe_db';
+	$password = 'YKWQ^]#=vcw+';
+	$database = 'dkryqtqe_db';
+
+	if ( $_SERVER['HTTP_HOST'] === 'localhost' ) {
+		$username = 'root';
+		$password = 'kuku';
+		$database = 'antique_shop';
+	}
 
 	return @new mysqli($host, $username, $password, $database);
+}
+
+function app_get_page_url( $page = '' ) {
+	$page_url = "https://dkrystev.online/{$page}";
+
+	if ( $_SERVER['HTTP_HOST'] === 'localhost' ) {
+		$page_url = "http://localhost/projects/dkrystev/antiques-shop/html/{$page}";
+	}
+
+	return $page_url;
 }
 
 function app_register_user( $user ) {

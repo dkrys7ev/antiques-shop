@@ -1,4 +1,7 @@
-<?php include_once 'partials/header.php'; ?>
+<?php
+include_once 'partials/header.php';
+include_once 'app/includes/helpers.php';
+?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
 	<div class="hero hero--alt bg-base">

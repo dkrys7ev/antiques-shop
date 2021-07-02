@@ -5,6 +5,7 @@ if ( isset( $_COOKIE['app_user_id'] ) ) {
 }
 
 include_once 'partials/header.php';
+include_once 'app/includes/helpers.php';
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
