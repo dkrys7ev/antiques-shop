@@ -67,7 +67,7 @@
 				<div class="header__inner">
 					<div class="header__head">
 						<div class="header__logo">
-							<a href="index.php" class="logo"> AntiqueShop </a>
+							<a href="https://dkrystev.online/" class="logo"> AntiqueShop </a>
 						</div>
 						<!-- /.header__logo -->
 
@@ -110,32 +110,32 @@
 						<nav class="nav">
 							<ul>
 								<li class="js-nav-element">
-									<a href="index.php">
+									<a href="https://dkrystev.online/">
 										<span>Home</span>
 									</a>
 								</li>
 
 								<li class="js-nav-element">
-									<a href="shop.php">
+									<a href="shop">
 										<span>Shop</span>
 									</a>
 								</li>
 
 								<li class="js-nav-element">
-									<a href="contact.php">
+									<a href="contact">
 										<span>Contact</span>
 									</a>
 								</li>
 
 								<?php if ( ! isset( $_COOKIE['app_user_id'] ) ) : ?>
 									<li class="js-nav-element">
-										<a href="login.php">
+										<a href="login">
 											<span>Login</span>
 										</a>
 									</li>
 								<?php else : ?>
 									<li class="js-nav-element">
-										<a href="profile.php">
+										<a href="profile">
 											<span>Profile</span>
 										</a>
 									</li>
@@ -184,7 +184,7 @@
 				<div class="header__outer">
 					<div class="header__head">
 						<div class="header__logo">
-							<a href="index.php" class="logo logo--rotate"> AS </a>
+							<a href="https://dkrystev.online/" class="logo logo--rotate"> AS </a>
 						</div>
 						<!-- /.header__logo -->
 

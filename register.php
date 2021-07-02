@@ -80,7 +80,7 @@
 							</button>
 
 							<div class="form__actions-content">
-								<a href="login.php">
+								<a href="login">
 									Already registered? Click to login.
 								</a>
 							</div><!-- /.form__actions-content -->
@@ -99,7 +99,7 @@
 			<!-- /.section__title -->
 
 			<a
-			href="shop.php"
+			href="shop"
 			class="btn btn--border btn--border-white btn--size-1"
 			>Shop now</a
 			>

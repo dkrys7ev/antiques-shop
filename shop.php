@@ -89,7 +89,7 @@ $listings = app_get_listings();
 						There are no listings yet.
 					</h6>
 
-					<a href="profile.php" class="btn btn--border btn--border-base">
+					<a href="profile" class="btn btn--border btn--border-base">
 						<span>Create a listing</span>
 					</a>
 				<?php endif; ?>

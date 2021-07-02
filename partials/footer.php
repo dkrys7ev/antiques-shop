@@ -164,7 +164,7 @@
 						<ul class="list-buttons">
 							<li>
 								<a
-									href="index.php"
+									href="https://dkrystev.online/"
 									class="btn-info btn-info--size-1"
 									>Home</a
 								>
@@ -172,7 +172,7 @@
 
 							<li>
 								<a
-									href="shop.php"
+									href="shop"
 									class="btn-info btn-info--size-1"
 									>Shop</a
 								>
@@ -180,7 +180,7 @@
 
 							<li>
 								<a
-									href="contact.php"
+									href="contact"
 									class="btn-info btn-info--size-1"
 									>Contact</a
 								>
@@ -189,7 +189,7 @@
 							<?php if ( ! isset( $_COOKIE['app_user_id'] ) ) : ?>
 								<li>
 									<a
-										href="login.php"
+										href="login"
 										class="btn-info btn-info--size-1"
 										>Login</a
 									>
@@ -197,7 +197,7 @@
 							<?php else : ?>
 								<li>
 									<a
-										href="profile.php"
+										href="profile"
 										class="btn-info btn-info--size-1"
 										>Profile</a
 									>

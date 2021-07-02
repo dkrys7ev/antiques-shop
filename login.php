@@ -65,7 +65,7 @@ include_once 'partials/header.php';
 							</button>
 
 							<div class="form__actions-content">
-								<a href="register.php">
+								<a href="register">
 									No account yet? Click to register.
 								</a>
 							</div><!-- /.form__actions-content -->
@@ -84,7 +84,7 @@ include_once 'partials/header.php';
 			<!-- /.section__title -->
 
 			<a
-			href="shop.php"
+			href="shop"
 			class="btn btn--border btn--border-white btn--size-1"
 			>Shop now</a
 			>

@@ -111,7 +111,7 @@ $listings = app_get_user_listings( $user_id );
 			<!-- /.section__title -->
 
 			<a
-			href="shop.php"
+			href="shop"
 			class="btn btn--border btn--border-white btn--size-1"
 			>Shop now</a
 			>
