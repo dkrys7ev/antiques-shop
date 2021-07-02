@@ -423,7 +423,7 @@
 				$form.find(".form__btn").attr("disabled", false);
 
 				if (shouldRedirect) {
-					window.location.href = "shop.php";
+					window.location.href = "shop";
 				}
 			},
 		});
@@ -479,7 +479,7 @@
 				$form.find(".form__btn").attr("disabled", false);
 
 				if (shouldRedirect) {
-					window.location.href = "shop.php";
+					window.location.href = "shop";
 				}
 			},
 		});
@@ -545,7 +545,7 @@
 				$form.find(".form__btn").attr("disabled", false);
 
 				if (shouldRedirect) {
-					window.location.href = "profile.php";
+					window.location.href = "profile";
 				}
 			},
 		});
@@ -558,7 +558,7 @@
 			url: "app/logout.php",
 			method: "POST",
 			complete: function () {
-				window.location.href = "index.php";
+				window.location.href = "index";
 			},
 		});
 	});
@@ -667,7 +667,7 @@
 				$form.find(".form__btn").attr("disabled", false);
 
 				if (shouldRedirect) {
-					window.location.href = "thank-you.php";
+					window.location.href = "thank-you";
 				}
 			},
 		});
