@@ -50,7 +50,6 @@
 	.header__inner .header__head {
 		opacity: 1;
 		visibility: visible;
-		/* transform: translateX(0); */
 		transition: opacity 0.8s, visibility 0.8s, transform 0.8s;
 	}
 
@@ -65,14 +64,6 @@
 
 	.header__inner .header__foot {
 		@include tablet-portrait {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			background: rgba($white, 0.05);
-		}
-
-		@include mobile {
 			display: none !important;
 		}
 	}
@@ -99,7 +90,6 @@
 	.header__inner {
 		background-color: $c-base;
 		display: flex;
-		/* display: none; */
 		justify-content: space-between;
 		flex-flow: column;
 		height: 100%;

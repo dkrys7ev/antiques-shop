@@ -257,10 +257,8 @@ include_once 'partials/header.php';
 		<!-- /.slider js-slider -->
 	</section>
 	<!-- /.section -->
-
-	<?php include_once 'partials/footer-top.php'; ?>
 </div>
 <!-- /.wrapper__inner -->
 
 <?php
-include_once 'partials/footer-bottom.php';
+include_once 'partials/footer.php';

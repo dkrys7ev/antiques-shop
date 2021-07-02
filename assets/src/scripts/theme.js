@@ -497,7 +497,7 @@
 		var shouldRedirect = false;
 
 		Array.from($form.find("input[type=file]")[0].files).forEach((file) => {
-			formData.append('images[]', file, file.name);
+			formData.append("images[]", file, file.name);
 		});
 
 		$.ajax({
@@ -528,7 +528,10 @@
 					}
 
 					if (parsedResponse.db_error) {
-						$form.find(".form__error").text(parsedResponse.db_error).removeClass("hidden");
+						$form
+							.find(".form__error")
+							.text(parsedResponse.db_error)
+							.removeClass("hidden");
 					}
 				} else {
 					shouldRedirect = true;
@@ -580,17 +583,17 @@
 		event.preventDefault();
 
 		var $link = $(this);
-		var listingId = $link.data('listing');
-		var	shouldRemove = false;
+		var listingId = $link.data("listing");
+		var shouldRemove = false;
 
-		if ( listingId ) {
+		if (listingId) {
 			$.ajax({
 				url: "app/delete.php",
 				method: "POST",
 				data: {
 					listing_id: listingId,
 				},
-				success: function(response) {
+				success: function (response) {
 					var parsedResponse = JSON.parse(response);
 
 					if (parsedResponse.status === "ok") {
@@ -598,12 +601,12 @@
 					}
 				},
 				complete: function () {
-					if ( shouldRemove ) {
-						$link.closest('.box').remove();
+					if (shouldRemove) {
+						$link.closest(".box").remove();
 					}
 
-					if ( ! $('.box').length ) {
-						$('.js-boxes').html(`
+					if (!$(".box").length) {
+						$(".js-boxes").html(`
 							<h6>
 								You haven't created any listings yet.
 							</h6>
@@ -616,5 +619,57 @@
 				},
 			});
 		}
+	});
+
+	$doc.on("submit", ".js-contact", function (event) {
+		event.preventDefault();
+
+		if (ajaxLoading) {
+			return;
+		}
+
+		var $form = $(this);
+		var formData = $form.serializeArray();
+		var shouldRedirect = false;
+
+		$.ajax({
+			url: "app/contact.php",
+			method: "POST",
+			data: formData,
+			beforeSend: function () {
+				$form.find(".form__error").addClass("hidden");
+				$form.find(".field").removeClass("has-error");
+				$form.find(".form__notice").addClass("hidden");
+
+				ajaxLoading = true;
+				$form.find(".form__btn").attr("disabled", true);
+			},
+			success: function (response) {
+				var parsedResponse = JSON.parse(response);
+				if (parsedResponse.status === "failed") {
+					for (var field in parsedResponse.errors) {
+						$(`[name="${field}"]`)
+							.addClass("has-error")
+							.closest(".form__col")
+							.find(".form__notice")
+							.html(parsedResponse.errors[field])
+							.removeClass("hidden");
+					}
+				} else {
+					shouldRedirect = true;
+				}
+			},
+			error: function (error) {
+				console.error(error);
+			},
+			complete: function () {
+				ajaxLoading = false;
+				$form.find(".form__btn").attr("disabled", false);
+
+				if (shouldRedirect) {
+					window.location.href = "thank-you.php";
+				}
+			},
+		});
 	});
 })(jQuery, window, document);

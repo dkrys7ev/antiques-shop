@@ -121,4 +121,31 @@
 			}
 		}
 	}
+
+	.form__cols {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -20px;
+	}
+
+	.form__col {
+		width: 100%;
+		padding: 0 20px;
+
+		&.form__col--1of2 {
+			width: 50%;
+
+			@include mobile {
+				width: 100%;
+
+				& + .form__col--1of2 {
+					margin-top: 40px;
+				}
+			}
+		}
+
+		&-inner {
+			position: relative;
+		}
+	}
 }

@@ -6,13 +6,13 @@
 			class="hero__image"
 			data-aos="fade-up"
 			style="
-				background-image: url(assets/dist/images/temp/junk-shop-1561897_1920.jpg);
+				background-image: url(assets/dist/images/temp/hero-img-2.jpg);
 			"
 		></div>
 		<!-- /.hero__bg -->
 
 		<div class="hero__content" data-aos="fade-up">
-			<h1 class="hero__title" style="font-family: 'Milestone'">Welcome</h1>
+			<h1 class="hero__title">Contact</h1>
 			<!-- /.hero__title -->
 		</div>
 		<!-- /.hero__content -->
@@ -23,13 +23,13 @@
 		<div class="shell">
 			<div class="section__content" data-aos="fade-up">
 				<h2 class="section__title h2">
-					Over 10 years of experience
+					Thank you for getting in touch!
 				</h2>
 				<!-- /.section__title -->
 
 				<div class="section__entry">
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus nostrum totam libero perferendis non, mollitia! Eaque at perspiciatis vitae repudiandae quam distinctio cum incidunt laboriosam, odit alias animi, similique enim.
+						We appreciate you contacting us. We'll get back in touch with you soon!
 					</p>
 				</div>
 				<!-- /.section__entry -->
