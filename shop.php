@@ -13,11 +13,11 @@ $listings = app_get_listings();
 <div class="wrapper__inner is-large js-wrapper-page">
 	<div class="hero hero--alt bg-base">
 		<div
-			class="hero__image"
-			data-aos="fade-up"
-			style="
-				background-image: url(assets/dist/images/temp/ile-de-re-446692_1920.jpg);
-			"
+		class="hero__image"
+		data-aos="fade-up"
+		style="
+		background-image: url(assets/dist/images/temp/ile-de-re-446692_1920.jpg);
+		"
 		></div>
 		<!-- /.hero__bg -->
 
@@ -80,18 +80,63 @@ $listings = app_get_listings();
 											</a>
 										</div><!-- /.box__actions -->
 									</div><!-- /.box__inner -->
+
+									<div class="popup">
+										<div class="popup__inner">
+											<div class="popup__aside">
+												<div class="slider-popup">
+													<?php foreach( $images as $image ) :
+														$image_path = sprintf( 'uploads/%s', $image );
+														?>
+
+														<div class="slider__slide image-fit js-image-fit">
+															<img src="<?php echo $image_path; ?>" alt="">
+														</div>
+													<?php endforeach; ?>
+												</div>
+											</div><!-- /.popup__aside -->
+
+											<div class="popup__content">
+												<button type="button" class="popup__close js-close">
+													<span></span>
+													<span></span>
+												</button>
+
+												<h4>
+													<?php echo htmlspecialchars_decode($listing['title']); ?>
+												</h4>
+
+												<p>
+													<?php echo htmlspecialchars_decode($listing['description']); ?>
+												</p>
+
+												<h5>
+													<strong>
+														<?php echo sprintf( '$%s', number_format( $listing['price'], 2 ) ); ?>
+													</strong>
+												</h5>
+
+												<a href="#" class="btn btn--border btn--border-base js-add" data-listing="<?php echo $listing['ID']; ?>">
+													<span>Buy Now</span>
+												</a>
+											</div><!-- /.popup__content -->
+										</div><!-- /.popup__inner -->
+									</div><!-- /.popup -->
 								</li><!-- /.box -->
 							<?php endforeach; ?>
 						</ul>
 					</div><!-- /.boxes -->
-				<?php else : ?>
-					<h6>
-						There are no listings yet.
-					</h6>
+				<?php else :
+					?>
+					<div class="section__content-inner" data-aos="fade-up">
+						<h6>
+							There are no listings yet.
+						</h6>
 
-					<a href="profile" class="btn btn--border btn--border-base">
-						<span>Create a listing</span>
-					</a>
+						<a href="profile" class="btn btn--border btn--border-base">
+							<span>Create a listing</span>
+						</a>
+					</div><!-- /.section__content-inner -->
 				<?php endif; ?>
 			</div><!-- /.section__content -->
 		</div><!-- /.shell -->

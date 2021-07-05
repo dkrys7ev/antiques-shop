@@ -1,0 +1,20 @@
+/* ------------------------------------------------------------ *\
+	Link cart
+\* ------------------------------------------------------------ */
+
+.link-cart {
+	text-align: center;
+	display: block;
+
+	@include tablet-portrait {
+		padding-right: 2rem;
+	}
+
+	img {
+		width: 30px;
+
+		@include tablet-portrait {
+			width: 20px;
+		}
+	}
+}

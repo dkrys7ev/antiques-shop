@@ -11,14 +11,6 @@
 		}
 	}
 
-	.slider__clip {
-		padding-bottom: 7.9rem;
-
-		@include mobile {
-			padding-bottom: 3.9rem;
-		}
-	}
-
 	.slider__slide {
 		margin: 0 9.05rem;
 		opacity: 0.5;
@@ -63,6 +55,7 @@
 	}
 
 	.flickity-page-dots {
+		display: none !important;
 		bottom: -7.9rem;
 
 		@include mobile {

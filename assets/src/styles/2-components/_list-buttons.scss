@@ -17,6 +17,12 @@
 			margin-top: 1.5rem;
 		}
 	}
+
+	a:hover,
+	a:active,
+	a {
+		text-decoration: none !important;
+	}
 }
 
 .list-buttons--alt {

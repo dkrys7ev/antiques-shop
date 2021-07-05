@@ -184,6 +184,14 @@
 
 							<li>
 								<a
+									href="<?php echo app_get_page_url('cart'); ?>"
+									class="btn-info btn-info--size-1"
+									>Cart</a
+								>
+							</li>
+
+							<li>
+								<a
 									href="<?php echo app_get_page_url('contact'); ?>"
 									class="btn-info btn-info--size-1"
 									>Contact</a
@@ -225,8 +233,15 @@
 		</div><!-- /.wrapper -->
 
 		<!-- JS -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+		<script
+			type="text/javascript"
+			src="assets/dist/scripts/jquery.min.js"
+		></script>
+		<script
+			type="text/javascript"
+			src="assets/dist/scripts/theme.detectors.min.js"
+		></script>
+		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 		<script
 			type="text/javascript"

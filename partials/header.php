@@ -41,15 +41,7 @@
 		<title>The Antiques Shop</title>
 
 		<link rel="stylesheet" href="assets/dist/styles/theme.css" />
-
-		<script
-			type="text/javascript"
-			src="assets/dist/scripts/jquery.min.js"
-		></script>
-		<script
-			type="text/javascript"
-			src="assets/dist/scripts/theme.detectors.min.js"
-		></script>
+		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	</head>
 
 	<body>
@@ -97,6 +89,16 @@
 
 							<a
 								href="#"
+								class="link-cart hidden-lg hidden-md"
+							>
+								<img
+									src="assets/dist/images/ico-cart-light.svg"
+									alt=""
+								/>
+							</a>
+
+							<a
+								href="#"
 								class="nav-trigger-mobile js-nav-trigger-mobile hidden-lg hidden-md"
 							>
 								<span></span>
@@ -120,6 +122,12 @@
 								<li class="js-nav-element">
 									<a href="<?php echo app_get_page_url('shop'); ?>">
 										<span>Shop</span>
+									</a>
+								</li>
+
+								<li class="js-nav-element">
+									<a href="<?php echo app_get_page_url('cart'); ?>">
+										<span>Cart</span>
 									</a>
 								</li>
 
@@ -206,6 +214,16 @@
 							<img
 								src="assets/dist/images/ico-search-light.svg"
 								alt=""
+							/>
+						</a>
+
+						<a
+							href="<?php echo app_get_page_url('cart'); ?>"
+							class="link-cart hidden-xs hidden-sm"
+						>
+							<img
+								src="assets/dist/images/ico-cart-light.svg"
+								alt="ico-cart"
 							/>
 						</a>
 					</div>

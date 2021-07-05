@@ -74,4 +74,8 @@
 	&.is-active span:nth-child(3) {
 		transform: rotate(-45deg);
 	}
+
+	@include tablet-portrait {
+		width: 3.4rem !important;
+	}
 }

@@ -48,9 +48,6 @@
 					$(".js-nav-dropdown").slideUp();
 					var $link = $this.children("a");
 					$link.off().on("click", function (e) {
-						console.log($link);
-						e.preventDefault();
-
 						$this
 							.toggleClass("is-active")
 							.siblings()
@@ -558,7 +555,7 @@
 			url: "app/logout.php",
 			method: "POST",
 			complete: function () {
-				window.location.href = "index";
+				window.location.href = "https://dkrystev.online/";
 			},
 		});
 	});
@@ -577,6 +574,30 @@
 				"swing",
 				function () {}
 			);
+	});
+
+	$(".slider-popup").slick({
+		autoplay: true,
+		autoplaySpeed: 2000,
+	});
+
+	$doc.on("click", ".js-details", function (event) {
+		event.preventDefault();
+
+		var $link = $(this);
+		var $parent = $link.closest(".box");
+		var $target = $parent.find(".popup");
+
+		$target.addClass("is-active");
+	});
+
+	$doc.on("click", ".js-close", function (event) {
+		event.stopPropagation();
+
+		var $button = $(this);
+		var $target = $button.closest(".popup");
+
+		$target.removeClass("is-active");
 	});
 
 	$doc.on("click", ".js-delete", function (event) {
@@ -615,6 +636,76 @@
 								<span>Create a listing</span>
 							</a>
 						`);
+					}
+				},
+			});
+		}
+	});
+
+	$doc.on("click", ".js-add", function (event) {
+		event.preventDefault();
+
+		var $link = $(this);
+		var listingId = $link.data("listing");
+		var shouldRedirect = false;
+
+		if (listingId) {
+			$.ajax({
+				url: "app/add.php",
+				method: "POST",
+				data: {
+					listing_id: listingId,
+				},
+				success: function (response) {
+					var parsedResponse = JSON.parse(response);
+
+					if (parsedResponse.status === "ok") {
+						shouldRedirect = true;
+					}
+				},
+				complete: function () {
+					$('.popup').removeClass('is-active');
+
+					$link.closest('.box').remove();
+
+					if ( ! $('.box').length ) {
+						window.location.href = "cart";
+					}
+				},
+			});
+		}
+	});
+
+	$doc.on("click", ".js-remove", function (event) {
+		event.preventDefault();
+
+		var $link = $(this);
+		var listingId = $link.data("listing");
+		var shouldRemove = false;
+
+		if (listingId) {
+			$.ajax({
+				url: "app/remove.php",
+				method: "POST",
+				data: {
+					listing_id: listingId,
+				},
+				success: function (response) {
+					var parsedResponse = JSON.parse(response);
+
+					if (parsedResponse.status === "ok") {
+						shouldRemove = true;
+					}
+				},
+				complete: function () {
+					if (shouldRemove) {
+						$.ajax({
+							url: window.location.href,
+							success: function(response) {
+								var newCart = $(response).find('.js-cart').html();
+								$('.js-cart').html(newCart);
+							}
+						});
 					}
 				},
 			});

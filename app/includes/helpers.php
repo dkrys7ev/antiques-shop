@@ -222,6 +222,101 @@ function app_delete_listing( $listing_id ) {
 	return false;
 }
 
+function app_add_to_cart( $product_id ) {
+	$db      = app_init_database();
+	$user_id = isset( $_COOKIE["app_user_id"] ) ? $_COOKIE["app_user_id"] : false;
+
+	if ( ! $user_id || $db->connect_errno ) {
+		return false;
+	}
+
+	$sql_query = "
+		INSERT INTO `cart_items` (
+			user_id,
+			product_id
+		)
+		VALUES (
+			'{$user_id}',
+			'{$product_id}'
+		)
+	";
+
+	$cart_query = $db->query( $sql_query );
+
+	$sql_query = "
+		UPDATE `products`
+		SET `status` = 'cart'
+		WHERE `products`.`ID` = {$product_id};
+	";
+
+	$products_query = $db->query( $sql_query );
+
+	if ( $cart_query && $products_query ) {
+		return true;
+	}
+
+	return false;
+}
+
+function app_remove_from_cart( $product_id ) {
+	$db      = app_init_database();
+	$user_id = isset( $_COOKIE["app_user_id"] ) ? $_COOKIE["app_user_id"] : false;
+
+	if ( ! $user_id || $db->connect_errno ) {
+		return false;
+	}
+
+	$sql_query = "
+		DELETE FROM `cart_items`
+		WHERE `cart_items`.`product_id` = {$product_id}
+	";
+
+	$cart_query = $db->query( $sql_query );
+
+	$sql_query = "
+		UPDATE `products`
+		SET `status` = 'active'
+		WHERE `products`.`ID` = {$product_id};
+	";
+
+	$products_query = $db->query( $sql_query );
+
+	if ( $cart_query && $products_query ) {
+		return true;
+	}
+
+	return false;
+}
+
+function app_get_cart_items() {
+	$db         = app_init_database();
+	$user_id    = isset( $_COOKIE["app_user_id"] ) ? $_COOKIE["app_user_id"] : false;
+	$cart_items = array();
+
+	if ( ! $user_id || $db->connect_errno ) {
+		return $cart_items;
+	}
+
+	$sql_query = "
+		SELECT p.ID, p.title, p.description, p.images, p.price
+		FROM `cart_items` AS ci
+		INNER JOIN `products` as p ON (
+			ci.product_id = p.ID
+		)
+		WHERE ci.user_id = '{$user_id}'
+	";
+
+	$result = $db->query( $sql_query );
+
+	if ( $result->num_rows > 0 ) {
+		while ( $item = $result->fetch_assoc() ) {
+			array_push( $cart_items, $item );
+		}
+	}
+
+	return $cart_items;
+}
+
 function app_sanitize_text( $text ) {
 	$text = trim($text);
 	$text = strip_tags($text);
