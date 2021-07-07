@@ -42,6 +42,14 @@
 
 		<link rel="stylesheet" href="assets/dist/styles/theme.css" />
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+		<script type="text/javascript">
+			function maxLen(field, limit) {
+				if (field.value.length > limit) {
+					field.value = field.value.substring(0, limit);
+				}
+			}
+		</script>
 	</head>
 
 	<body>
@@ -261,7 +269,7 @@
 
 				<div class="search__content">
 					<div class="search__form">
-						<form action="?" method="get">
+						<form action="<?php echo app_get_page_url( 'shop' ) ?>" method="get">
 							<label for="field-search" class="hidden"
 								>Enter your search here…</label
 							>
@@ -274,7 +282,7 @@
 
 								<input
 									type="search"
-									name="field-search"
+									name="search"
 									id="field-search"
 									value=""
 									placeholder="Enter your search here…"

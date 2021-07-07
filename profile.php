@@ -11,6 +11,7 @@ include_once 'app/includes/helpers.php';
 $user_id  = isset( $_COOKIE['app_user_id'] ) ? $_COOKIE['app_user_id'] : false;
 $user     = app_get_user_info( $user_id );
 $listings = app_get_user_listings( $user_id );
+$orders   = app_get_user_orders( $user_id );
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
@@ -81,16 +82,24 @@ $listings = app_get_user_listings( $user_id );
 												</strong>
 											</h5>
 
-											<a href="#" class="btn btn--border btn--border-base js-delete" data-listing="<?php echo $listing['ID']; ?>">
-												<span>Delete</span>
-											</a>
+											<?php if ( $listing['status'] != 'sold' ): ?>
+												<a href="#" class="btn btn--border btn--border-base js-delete" data-listing="<?php echo $listing['ID']; ?>">
+													<span>Delete</span>
+												</a>
+											<?php else :
+												?>
+												<button type="button" class="btn btn--border btn--border-base" disabled>
+													Sold
+												</button>
+											<?php endif; ?>
 										</div><!-- /.box__actions -->
 									</div><!-- /.box__inner -->
 								</li><!-- /.box -->
 							<?php endforeach; ?>
 						</ul>
 					</div><!-- /.boxes -->
-				<?php else : ?>
+				<?php else :
+					?>
 					<h6>
 						You haven't created any listings yet.
 					</h6>
@@ -106,15 +115,158 @@ $listings = app_get_user_listings( $user_id );
 	<section class="section-cta" data-aos="fade-up">
 		<div class="shell">
 			<h2 class="section__title">
+				Your orders from
+
+				<br>
+
+				<br>
+
+				<span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
+			</h2>
+			<!-- /.section__title -->
+		</div>
+		<!-- /.shell -->
+	</section>
+	<!-- /.section-cta -->
+
+
+	<section class="section">
+		<div class="shell">
+			<div class="section__content">
+				<?php if ( ! empty( $orders ) ) : ?>
+					<div class="table">
+						<table>
+							<thead>
+								<tr class="table-headers">
+									<th>Order #</th>
+									<th>Date Created</th>
+									<th>Payment Type</th>
+									<th>Status</th>
+									<th>Total</th>
+									<th>Details</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<?php foreach( $orders as $order ) : ?>
+									<tr>
+										<td>
+											<?php echo $order['ID']; ?>
+										</td>
+
+										<th class="mobile-header">Date Created</th>
+
+										<td>
+											<?php echo $order['date_created']; ?>
+										</td>
+
+										<th class="mobile-header">Payment Type</th>
+
+										<td>
+											<?php echo ( $order['payment_type'] == 'cod') ? 'Cash on Delivery' : 'Credit Card'; ?>
+										</td>
+
+										<th class="mobile-header">Status</th>
+
+										<td>
+											<?php echo ucfirst( $order['status'] ); ?>
+										</td>
+
+										<th class="mobile-header">Total</th>
+
+										<td>
+											<?php echo sprintf( '$%s', number_format( $order['total'], 2 ) ); ?>
+										</td>
+
+										<th class="mobile-header">Details</th>
+
+										<td>
+											<button type="button" class="btn btn--border btn--border-base js-order-details" data-target="#order-<?php echo $order['ID']; ?>">View</button>
+										</td>
+									</tr>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
+					</div><!-- /.table -->
+
+					<?php foreach( $orders as $order ) : ?>
+						<div class="popup popup--checkout" id="<?php echo sprintf( 'order-%s', $order['ID'] ); ?>">
+							<div class="popup__inner">
+								<div class="popup__content">
+									<button type="button" class="popup__close js-close">
+										<span></span>
+										<span></span>
+									</button>
+
+									<h3>Order Items:</h3>
+
+									<div class="boxes">
+										<ul>
+											<?php
+											$products = unserialize($order['products']);
+
+											$styles = '';
+											if ( count( $products ) < 3 ) {
+												$styles = 'flex-grow: 1';
+											}
+
+											foreach( $products as $index => $listing ) :
+												$image_path = false;
+
+												if ( ! empty( $listing['images'] ) ) {
+													$images = unserialize( $listing['images'] );
+													$image = reset( $images );
+													$image_path = sprintf( 'uploads/%s', $image );
+												}
+												?>
+
+												<li class="box" style="<?php echo $styles; ?>">
+													<div class="box__inner">
+														<?php if ( $image_path ) : ?>
+															<div class="box__image image-fit js-image-fit">
+																<img src="<?php echo $image_path; ?>" alt="">
+															</div><!-- /.box__image -->
+														<?php endif; ?>
+
+														<div class="box__content">
+															<h4>
+																<?php echo htmlspecialchars_decode($listing['title']); ?>
+															</h4>
+														</div><!-- /.box__content -->
+
+														<div class="box__actions">
+															<h5>
+																<strong>
+																	<?php echo sprintf( '$%s', number_format( $listing['price'], 2 ) ); ?>
+																</strong>
+															</h5>
+														</div><!-- /.box__actions -->
+													</div><!-- /.box__inner -->
+												</li><!-- /.box -->
+											<?php endforeach; ?>
+										</ul>
+									</div><!-- /.boxes -->
+								</div><!-- /.popup__content -->
+							</div><!-- /.popup__inner -->
+						</div><!-- /.popup -->
+					<?php endforeach; ?>
+				<?php else : ?>
+					<h3 style="text-align: center;">
+						You haven't made any orders yet.
+					</h3>
+				<?php endif; ?>
+			</div><!-- /.section__content -->
+		</div><!-- /.shell -->
+	</section><!-- /.section -->
+
+	<section class="section-cta" data-aos="fade-up">
+		<div class="shell">
+			<h2 class="section__title">
 				Thousands of genuine antiques for sale, direct from trusted antique dealers at your local <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
 			</h2>
 			<!-- /.section__title -->
 
-			<a
-			href="shop"
-			class="btn btn--border btn--border-white btn--size-1"
-			>Shop now</a
-			>
+			<a href="shop" class="btn btn--border btn--border-white btn--size-1">Shop now</a>
 		</div>
 		<!-- /.shell -->
 	</section>

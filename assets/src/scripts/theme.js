@@ -4,7 +4,7 @@
 	var winST = $win.scrollTop();
 	var ajaxLoading = false;
 	var userAgent = window.navigator.userAgent;
-
+	var creditly = null;
 	var get = {
 		Scroll: 0,
 		WinWidth: 0,
@@ -355,6 +355,8 @@
 		uploadImages();
 		expandHeader();
 		collapseHeader();
+
+		Stripe.setPublishableKey("pk_test_KgMDNEklH2ZaGxfmL7YUOCR2");
 	});
 
 	$win.on("load", function () {
@@ -664,11 +666,11 @@
 					}
 				},
 				complete: function () {
-					$('.popup').removeClass('is-active');
+					$(".popup").removeClass("is-active");
 
-					$link.closest('.box').remove();
+					$link.closest(".box").remove();
 
-					if ( ! $('.box').length ) {
+					if (!$(".box").length) {
 						window.location.href = "cart";
 					}
 				},
@@ -701,15 +703,31 @@
 					if (shouldRemove) {
 						$.ajax({
 							url: window.location.href,
-							success: function(response) {
-								var newCart = $(response).find('.js-cart').html();
-								$('.js-cart').html(newCart);
-							}
+							success: function (response) {
+								var newCart = $(response)
+									.find(".js-cart")
+									.html();
+								$(".js-cart").html(newCart);
+							},
 						});
 					}
 				},
 			});
 		}
+	});
+
+	$doc.on("click", ".js-checkout", function (event) {
+		event.preventDefault();
+
+		$(".popup").addClass("is-active");
+	});
+
+	$doc.on("click", ".js-order-details", function (event) {
+		event.preventDefault();
+
+		var target = $(this).data('target');
+
+		$(target).addClass("is-active");
 	});
 
 	$doc.on("submit", ".js-contact", function (event) {
@@ -763,4 +781,249 @@
 			},
 		});
 	});
+
+	$doc.on("change", ".js-payment", function () {
+		var $select = $(this);
+		var selectedOption = $select.find("option:selected").val();
+
+		if (selectedOption == "cc") {
+			$(".credit-card-wrapper")
+				.html(
+					`
+				<div class="form__cols form__cols--cc">
+					<div class="form__col form__col--1of2">
+						<label class="form__label" for="field-number">
+							* Card Number
+						</label>
+
+						<div class="form__row__inner">
+							<div class="form__cols">
+								<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+									<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-1" id="card-group-1" class="field" placeholder="XXXX" required>
+								</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+								<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+									<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-2" id="card-group-2" class="field" placeholder="XXXX" required>
+								</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+								<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+									<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-3" id="card-group-3" class="field" placeholder="XXXX" required>
+								</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+								<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+									<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-4" id="card-group-4" class="field" placeholder="XXXX" required>
+								</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+								<input type="hidden" class="card-number" data-stripe="number">
+							</div><!-- /.form__cols -->
+						</div><!-- /.form__row__inner -->
+					</div><!-- /.form__col -->
+
+					<div class="form__col form__col--1of2">
+						<label class="form__label" for="field-holder">
+							* Name on Card
+						</label>
+
+						<div class="form__controls">
+							<input id="field-holder" class="field billing-address-name form-control"
+							type="text" name="name"
+							placeholder="John Smith">
+						</div><!-- /.form__controls -->
+					</div><!-- /.form__col -->
+
+					<div class="form__col form__col--1of2">
+						<label class="form__label">
+							* Expiry
+						</label>
+
+						<div class="form__row__inner">
+							<div class="form__cols">
+								<div class="form__controls form__controls--alt form__col form__col--1of2" style="margin-bottom: 0;">
+									<input type="number" onKeyDown="maxLen(this,2);" onKeyUp="maxLen(this,2);" name="month" id="month" class="field expiration-month-and-year" placeholder="MM" data-stripe="exp_month" required />
+								</div><!-- /.form__controls form__controls-/-alt form__col form__col-/-1of2 -->
+
+								<div class="form__controls form__controls--alt form__col form__col--1of2" style="margin-bottom: 0;">
+									<input type="number" onKeyDown="maxLen(this,2);" onKeyUp="maxLen(this,2);" name="year" id="year" class="field" placeholder="YY" data-stripe="exp_year" required />
+								</div><!-- /.form__controls form__controls-/-alt form__col form__col-/-1of2 -->
+							</div><!-- /.form__cols -->
+						</div><!-- /.form__row__inner -->
+					</div><!-- /.form__col -->
+
+					<div class="form__col form__col--1of2">
+						<label class="form__label" for="field-cvv">
+							* CVV
+						</label>
+
+						<div class="form__controls">
+							<input id="field-cvv" class="field security-code form-control"·
+							inputmode="numeric"
+							onKeyDown="maxLen(this,3);" onKeyUp="maxLen(this,3);"
+							type="text" name="security-code"
+							placeholder="&#149;&#149;&#149;">
+						</div><!-- /.form__controls -->
+					</div><!-- /.form__col -->
+
+					<div class="card-type hidden">
+					</div>
+
+					<span class="form__notice form__notice--error js-card-error hidden">Error!</span>
+				</div><!-- /.form__cols -->
+			`
+				)
+				.removeClass("hidden");
+		} else {
+			$(".credit-card-wrapper").html("").addClass("hidden");
+		}
+	});
+
+	$doc.on("submit", ".js-form-checkout", function (event) {
+		event.preventDefault();
+
+		var $form = $(this);
+		$(".js-card-error").html("").addClass("hidden");
+		var paymentType = $form.find("#field-payment-type").val();
+		var isValid = true;
+		var formData = $form.serializeArray();
+
+		if (paymentType == "cc") {
+			let cardNum1 = $("#card-group-1").val();
+			let cardNum2 = $("#card-group-2").val();
+			let cardNum3 = $("#card-group-3").val();
+			let cardNum4 = $("#card-group-4").val();
+
+			$form
+				.find(".card-number")
+				.val(`${cardNum1}${cardNum2}${cardNum3}${cardNum4}`);
+
+			Stripe.card.createToken($form, stripeResponseHandler);
+
+			return;
+		}
+
+		if (!isValid) {
+			return;
+		}
+
+		createOrder(formData);
+	});
+
+	function stripeResponseHandler(status, response) {
+		if (response.error) {
+			$(".js-card-error")
+				.html(response.error.message)
+				.removeClass("hidden");
+		} else {
+			var token = response.id;
+			var $form = $(".js-form-checkout");
+			var formData = $form.serializeArray();
+			var amount = $form.data("amount");
+			var email = $form.find('input[name="email"]').val();
+			var name =
+				$form.find('input[name="first"]').val() +
+				" " +
+				$form.find('input[name="last"]').val();
+			$form.append(
+				$('<input type="hidden" name="stripeToken">').val(token)
+			);
+
+			$.ajax({
+				url: "app/charge.php",
+				type: "POST",
+				data: {
+					stripe_token: token,
+					total_amount: amount,
+					email: email,
+					name: name,
+				},
+				beforeSend: function () {
+					$form.find(".form__error").addClass("hidden");
+					$form.find(".field").removeClass("has-error");
+					$form.find(".form__notice").addClass("hidden");
+					ajaxLoading = true;
+					$form.find(".form__btn").attr("disabled", true);
+				},
+				success: function (response) {
+					createOrder(formData);
+				},
+				complete: function () {
+					ajaxLoading = false;
+					$form.find(".form__btn").attr("disabled", false);
+				},
+			});
+		}
+	}
+
+	function createOrder(formData) {
+		var $form = $(".js-form-checkout");
+		var shouldRedirect = false;
+
+		$.ajax({
+			url: "app/order.php",
+			type: "POST",
+			data: formData,
+			beforeSend: function () {
+				ajaxLoading = true;
+
+				$form.find(".form__error").addClass("hidden");
+				$form.find(".field").removeClass("has-error");
+				$form.find(".form__notice").addClass("hidden");
+				$form.find(".form__btn").attr("disabled", true);
+			},
+			success: function (response) {
+				var parsedResponse = JSON.parse(response);
+				if (parsedResponse.status === "failed") {
+					for (var field in parsedResponse.errors) {
+						$(`[name="${field}"]`)
+							.addClass("has-error")
+							.closest(".form__col")
+							.find(".form__notice")
+							.html(parsedResponse.errors[field])
+							.removeClass("hidden");
+					}
+				} else {
+					shouldRedirect = true;
+				}
+			},
+			complete: function () {
+				ajaxLoading = false;
+				$form.find(".form__btn").attr("disabled", false);
+
+				if (shouldRedirect) {
+					window.location.href = "order";
+				}
+			},
+		});
+	}
+
+	if ($(".table").length) {
+		$(window)
+			.on("resize", function () {
+				if ($(this).width() < 760) {
+					$("tr td:first-child").click(function () {
+						$(this).siblings().css({ display: "inline-block" });
+
+						var $this = $(this);
+						setTimeout(function () {
+							$this.siblings().css("transform", "translateY(0)");
+						}, 0);
+
+						$("tr td:first-child")
+							.not($(this))
+							.siblings()
+							.css({
+								display: "none",
+								transform: "translateY(-9999px)",
+							});
+					});
+				} else if ($(this).width() > 760) {
+					//unbind click : name is not clickable when screen is > 700px
+					$("tr td:first-child").unbind("click");
+					//remove with jquery added styles
+					$("tr td:first-child")
+						.siblings()
+						.css({ display: "", transform: "" });
+				}
+			})
+			.resize();
+	}
 })(jQuery, window, document);

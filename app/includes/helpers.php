@@ -68,14 +68,13 @@ function app_get_user( $user ) {
 	extract( $user );
 
 	$password  = md5( $password );
-	$sql_query = "
+
+	$result = $db->query("
 		SELECT u.ID
 		FROM `users` AS u
 		WHERE u.email = '{$email}' AND
 			  u.password = '{$password}'
-	";
-
-	$result = $db->query( $sql_query );
+	");
 
 	if ( $result->num_rows > 0 ) {
 		$user    = $result->fetch_assoc();
@@ -94,13 +93,11 @@ function app_get_user_info( $user_id ) {
 		return false;
 	}
 
-	$sql_query = "
+	$result = $db->query("
 		SELECT *
 		FROM `users` AS u
 		WHERE u.ID = '{$user_id}'
-	";
-
-	$result = $db->query( $sql_query );
+	");
 
 	if ( $result->num_rows > 0 ) {
 		return $result->fetch_assoc();
@@ -117,14 +114,11 @@ function app_get_user_listings( $user_id ) {
 		return $listings;
 	}
 
-	$sql_query = "
+	$result = $db->query("
 		SELECT *
 		FROM `products` AS p
-		WHERE p.user_id = '{$user_id}' AND
-			  p.status  = 'active'
-	";
-
-	$result = $db->query( $sql_query );
+		WHERE p.user_id = '{$user_id}'
+	");
 
 	if ( $result->num_rows > 0 ) {
 		while ( $listing = $result->fetch_assoc() ) {
@@ -135,7 +129,30 @@ function app_get_user_listings( $user_id ) {
 	return $listings;
 }
 
-function app_get_listings() {
+function app_get_user_orders( $user_id ) {
+	$orders = array();
+	$db     = app_init_database();
+
+	if ( $db->connect_errno ) {
+		return $orders;
+	}
+
+	$result = $db->query("
+		SELECT *
+		FROM `orders` AS o
+		WHERE o.user_id = '{$user_id}'
+	");
+
+	if ( $result->num_rows > 0 ) {
+		while ( $order = $result->fetch_assoc() ) {
+			array_push( $orders, $order );
+		}
+	}
+
+	return $orders;
+}
+
+function app_get_listings( $search_query ) {
 	$listings = array();
 	$db       = app_init_database();
 
@@ -143,11 +160,21 @@ function app_get_listings() {
 		return $listings;
 	}
 
-	$sql_query = "
-		SELECT *
-		FROM `products` AS p
-		WHERE p.status = 'active'
-	";
+	if ( ! empty( $search_query ) ) {
+		$sql_query = "
+			SELECT *
+			FROM `products` AS p
+			WHERE p.status = 'active' AND
+			      p.title LIKE '%{$search_query}%'
+		";
+	} else {
+		$sql_query = "
+			SELECT *
+			FROM `products` AS p
+			WHERE p.status = 'active'
+		";
+	}
+
 
 	$result = $db->query( $sql_query );
 
@@ -230,7 +257,7 @@ function app_add_to_cart( $product_id ) {
 		return false;
 	}
 
-	$sql_query = "
+	$cart_query = $db->query("
 		INSERT INTO `cart_items` (
 			user_id,
 			product_id
@@ -239,17 +266,13 @@ function app_add_to_cart( $product_id ) {
 			'{$user_id}',
 			'{$product_id}'
 		)
-	";
+	");
 
-	$cart_query = $db->query( $sql_query );
-
-	$sql_query = "
+	$products_query = $db->query("
 		UPDATE `products`
 		SET `status` = 'cart'
 		WHERE `products`.`ID` = {$product_id};
-	";
-
-	$products_query = $db->query( $sql_query );
+	");
 
 	if ( $cart_query && $products_query ) {
 		return true;
@@ -266,20 +289,16 @@ function app_remove_from_cart( $product_id ) {
 		return false;
 	}
 
-	$sql_query = "
+	$cart_query = $db->query("
 		DELETE FROM `cart_items`
 		WHERE `cart_items`.`product_id` = {$product_id}
-	";
+	");
 
-	$cart_query = $db->query( $sql_query );
-
-	$sql_query = "
+	$products_query = $db->query("
 		UPDATE `products`
 		SET `status` = 'active'
 		WHERE `products`.`ID` = {$product_id};
-	";
-
-	$products_query = $db->query( $sql_query );
+	");
 
 	if ( $cart_query && $products_query ) {
 		return true;
@@ -297,16 +316,15 @@ function app_get_cart_items() {
 		return $cart_items;
 	}
 
-	$sql_query = "
+	$result = $db->query("
 		SELECT p.ID, p.title, p.description, p.images, p.price
 		FROM `cart_items` AS ci
 		INNER JOIN `products` as p ON (
 			ci.product_id = p.ID
 		)
-		WHERE ci.user_id = '{$user_id}'
-	";
-
-	$result = $db->query( $sql_query );
+		WHERE ci.user_id = '{$user_id}' AND
+			  p.status != 'sold'
+	");
 
 	if ( $result->num_rows > 0 ) {
 		while ( $item = $result->fetch_assoc() ) {
@@ -315,6 +333,83 @@ function app_get_cart_items() {
 	}
 
 	return $cart_items;
+}
+
+function app_create_order( $order_data ) {
+	$db         = app_init_database();
+	$user_id    = isset( $_COOKIE["app_user_id"] ) ? $_COOKIE["app_user_id"] : false;
+	$cart_items = array();
+
+	if ( ! $user_id || $db->connect_errno ) {
+		return false;
+	}
+
+	$result = $db->query("
+		SELECT p.ID, p.title, p.description, p.images, p.price
+		FROM `cart_items` AS ci
+		INNER JOIN `products` as p ON (
+			ci.product_id = p.ID
+		)
+		WHERE ci.user_id = '{$user_id}'
+	");
+
+	if ( $result->num_rows > 0 ) {
+		while ( $item = $result->fetch_assoc() ) {
+			array_push( $cart_items, $item );
+		}
+	}
+
+	if ( ! empty( $cart_items ) ) {
+		foreach ( $cart_items as $cart_item ) {
+			$product_id = $cart_item['ID'];
+
+			$db->query("
+				UPDATE `products`
+				SET `status` = 'sold'
+				WHERE `products`.`ID` = {$product_id};
+			");
+
+			$db->query("
+				DELETE FROM `cart_items`
+				WHERE `cart_items`.`product_id` = {$product_id}
+			");
+		}
+
+		extract( $_POST );
+
+		$products = serialize( $cart_items );
+
+		$db->query("
+			INSERT INTO `orders` (
+				user_id,
+				first_name,
+				last_name,
+				email_address,
+				delivery_address,
+				order_notes,
+				products,
+				total,
+				payment_type,
+				status
+			)
+			VALUES (
+				'{$user_id}',
+				'{$first}',
+				'{$last}',
+				'{$email}',
+				'{$delivery_address}',
+				'{$notes}',
+				'{$products}',
+				'{$total_amount}',
+				'{$payment_type}',
+				'pending'
+			)
+		");
+
+		return mysqli_insert_id( $db );
+	}
+
+	return false;
 }
 
 function app_sanitize_text( $text ) {

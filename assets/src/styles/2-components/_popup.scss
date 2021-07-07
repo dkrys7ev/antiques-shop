@@ -45,6 +45,7 @@
 
 	.popup__aside {
 		width: 60%;
+		align-self: stretch;
 
 		@include tablet-portrait {
 			width: 100%;
@@ -110,5 +111,12 @@
 		.slick-next {
 			display: none !important;
 		}
+	}
+}
+
+.popup--checkout {
+	.popup__content {
+		width: 100%;
+		text-align: left;
 	}
 }

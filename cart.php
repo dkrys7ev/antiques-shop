@@ -29,7 +29,7 @@ $cart_items = app_get_cart_items();
 	</div>
 	<!-- /.hero -->
 
-	<section class="section">
+	<section class="section section-checkout">
 		<div class="shell">
 			<div class="section__head">
 				<h2 class="section__title" data-aos="fade-up">
@@ -116,6 +116,138 @@ $cart_items = app_get_cart_items();
 							</a>
 						</div><!-- /.cart-items__total -->
 					</div><!-- /.cart-items -->
+
+					<div class="popup popup--checkout">
+						<div class="popup__inner">
+							<div class="popup__content">
+								<button type="button" class="popup__close js-close">
+									<span></span>
+									<span></span>
+								</button>
+
+								<div class="form">
+									<form action="?" method="post" class="js-form-checkout" data-amount="<?php echo (float) ( $subtotal * 1.2 ) + ( $subtotal * 0.05 ); ?>">
+										<div class="form__body">
+											<div class="form__section">
+												<div class="form__group">
+													<div class="form__row">
+														<div class="form__cols">
+															<div class="form__col form__col--1of2">
+																<div class="form__col-inner">
+																	<label class="form__label" for="field-first">
+																		* First Name
+																	</label>
+
+																	<div class="form__controls">
+																		<input type="text" class="field" id="field-first" name="first" placeholder="Your first name" />
+																	</div><!-- /.form__controls -->
+
+																	<span class="form__notice form__notice--error hidden">This field is required</span>
+																</div><!-- /.form__col-inner -->
+															</div><!-- /.form__col -->
+
+															<div class="form__col form__col--1of2">
+																<div class="form__col-inner">
+																	<label class="form__label" for="field-last">
+																		* Last Name
+																	</label>
+
+																	<div class="form__controls">
+																		<input type="text" class="field" id="field-last" name="last" placeholder="Your last name" />
+																	</div><!-- /.form__controls -->
+
+																	<span class="form__notice form__notice--error hidden">This field is required</span>
+																</div><!-- /.form__col-inner -->
+															</div><!-- /.form__col -->
+														</div><!-- /.form__cols -->
+													</div><!-- /.form__row -->
+
+													<div class="form__row">
+														<div class="form__cols">
+															<div class="form__col">
+																<label class="form__label" for="field-email">
+																	* Email
+																</label>
+
+																<div class="form__controls">
+																	<input type="email" class="field" id="field-email" name="email" placeholder="Your email address" />
+																</div><!-- /.form__controls -->
+
+																<span class="form__notice form__notice--error hidden">This field is required</span>
+															</div><!-- /.form__col -->
+														</div><!-- /.form__cols -->
+													</div><!-- /.form__row -->
+
+													<div class="form__row">
+														<div class="form__cols">
+															<div class="form__col">
+																<label class="form__label" for="field-payment-type">Payment Method</label>
+
+																<div class="form__controls">
+																	<div class="select">
+																		<select name="payment_type" id="field-payment-type" class="field js-payment">
+																			<option value="cod">Cash on delivery</option>
+
+																			<option value="cc">Credit Card</option>
+																		</select>
+																	</div><!-- /.select -->
+																</div><!-- /.form__controls -->
+															</div><!-- /.form__col -->
+														</div><!-- /.form__cols -->
+													</div><!-- /.form__row -->
+
+													<div class="form__row credit-card-wrapper hidden">
+
+													</div><!-- /.form__row -->
+
+													<div class="form__row">
+														<div class="form__cols">
+															<div class="form__col">
+																<label class="form__label" for="field-address-one">
+																	* Delivery Address
+																</label>
+
+																<div class="form__controls">
+																	<input type="text" class="field" id="field-address-one" name="delivery_address" placeholder="Your address" />
+																</div><!-- /.form__controls -->
+
+																<span class="form__notice form__notice--error hidden">This field is required</span>
+															</div><!-- /.form__col -->
+														</div><!-- /.form__cols -->
+													</div><!-- /.form__row -->
+
+													<div class="form__row">
+														<div class="form__cols">
+															<div class="form__col">
+																<label class="form__label" for="field-notes">
+																	Notes
+																</label>
+
+																<div class="form__controls">
+																	<textarea class="textarea" id="field-notes" name="notes" placeholder="Additional notes" cols="30" rows="10"></textarea>
+																</div><!-- /.form__controls -->
+															</div><!-- /.form__col -->
+														</div><!-- /.form__cols -->
+													</div><!-- /.form__row -->
+												</div><!-- /.form__group -->
+											</div><!-- /.form__section -->
+										</div><!-- /.form__body -->
+
+										<div class="form__actions">
+											<button type="submit" class="btn btn--border-base form__btn form__btn--submit">
+												<span>Order now</span>
+
+												<img width="22" src="assets/dist/images/spinner.svg" alt="Spinner">
+											</button>
+
+											<input type="hidden" class="card-number" data-stripe="number">
+											<input type="hidden" name="total_amount" value="<?php echo (float) ( $subtotal * 1.2 ) + ( $subtotal * 0.05 ); ?>">
+										</div><!-- /.form__actions -->
+									</form>
+								</div><!-- /.form -->
+							</div><!-- /.popup__content -->
+						</div><!-- /.popup__inner -->
+					</div><!-- /.popup -->
 				<?php endif; ?>
 			</div><!-- /.section__content -->
 		</div><!-- /.shell -->

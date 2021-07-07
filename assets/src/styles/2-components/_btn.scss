@@ -21,6 +21,17 @@
 	}
 }
 
+
+.btn[disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+
+	&:hover {
+		background: #fff;
+		color: $c-base;
+	}
+}
+
 .btn--border {
 	border: 0.2rem solid;
 }

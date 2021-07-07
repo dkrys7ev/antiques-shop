@@ -237,10 +237,12 @@
 			type="text/javascript"
 			src="assets/dist/scripts/jquery.min.js"
 		></script>
+
 		<script
 			type="text/javascript"
 			src="assets/dist/scripts/theme.detectors.min.js"
 		></script>
+
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 		<script
@@ -252,5 +254,7 @@
 			type="text/javascript"
 			src="assets/dist/scripts/theme.js"
 		></script>
+
+		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 	</body>
 </html>

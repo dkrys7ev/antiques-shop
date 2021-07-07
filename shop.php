@@ -7,7 +7,13 @@ if ( ! isset( $_COOKIE['app_user_id'] ) ) {
 include_once 'partials/header.php';
 include_once 'app/includes/helpers.php';
 
-$listings = app_get_listings();
+$search_query = '';
+
+if ( isset( $_GET['search'] ) && ! empty( $_GET['search'] ) ) {
+	$search_query = $_GET['search'];
+}
+
+$listings = app_get_listings( $search_query );
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
@@ -129,13 +135,23 @@ $listings = app_get_listings();
 				<?php else :
 					?>
 					<div class="section__content-inner" data-aos="fade-up">
-						<h6>
-							There are no listings yet.
-						</h6>
+						<?php if ( isset( $_GET['search'] ) && ! empty( $_GET['search'] ) ) : ?>
+							<h6>
+								There are no listings matching your search. <br><br> You can try a <a href="#" class="js-open-search"><strong>different search</strong></a> or
+							</h6>
 
-						<a href="profile" class="btn btn--border btn--border-base">
-							<span>Create a listing</span>
-						</a>
+							<a href="profile" class="btn btn--border btn--border-base">
+								<span>Create a listing</span>
+							</a>
+						<?php else : ?>
+							<h6>
+								There are no listings yet.
+							</h6>
+
+							<a href="profile" class="btn btn--border btn--border-base">
+								<span>Create a listing</span>
+							</a>
+						<?php endif ?>
 					</div><!-- /.section__content-inner -->
 				<?php endif; ?>
 			</div><!-- /.section__content -->
