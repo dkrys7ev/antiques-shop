@@ -1,17 +1,19 @@
 			<?php
 			include_once 'app/includes/helpers.php';
 
-			$footer_title      = app_get_localized_string( 'footer_title' );
-			$footer_address    = app_get_localized_string( 'footer_address' );
-			$company_name      = app_get_localized_string( 'company_name' );
-			$phone_number      = app_get_localized_string( 'phone_number' );
-			$nav_item_homepage = app_get_localized_string( 'nav_item_homepage' );
-			$nav_item_shop     = app_get_localized_string( 'nav_item_shop' );
-			$nav_item_cart     = app_get_localized_string( 'nav_item_cart' );
-			$nav_item_contact  = app_get_localized_string( 'nav_item_contact' );
-			$nav_item_login    = app_get_localized_string( 'nav_item_login' );
-			$nav_item_profile  = app_get_localized_string( 'nav_item_profile' );
-			$nav_item_logout   = app_get_localized_string( 'nav_item_logout' );
+			$footer_title            = app_get_localized_string( 'footer_title' );
+			$footer_address          = app_get_localized_string( 'footer_address' );
+			$company_name            = app_get_localized_string( 'company_name' );
+			$phone_number            = app_get_localized_string( 'phone_number' );
+			$nav_item_homepage       = app_get_localized_string( 'nav_item_homepage' );
+			$nav_item_shop           = app_get_localized_string( 'nav_item_shop' );
+			$nav_item_cart           = app_get_localized_string( 'nav_item_cart' );
+			$nav_item_contact        = app_get_localized_string( 'nav_item_contact' );
+			$nav_item_login          = app_get_localized_string( 'nav_item_login' );
+			$nav_item_profile        = app_get_localized_string( 'nav_item_profile' );
+			$nav_item_logout         = app_get_localized_string( 'nav_item_logout' );
+			$footer_credits_text_one = app_get_localized_string( 'footer_credits_text_one' );
+			$footer_credits_text_two = app_get_localized_string( 'footer_credits_text_two' );
 			?>
 
 			<footer class="footer bg-base">
@@ -104,6 +106,13 @@
 							<address>
 								<?php echo $footer_address; ?>
 							</address>
+
+							<br>
+
+							<p>
+								<?php echo $footer_credits_text_one; ?> <a href="https://pixabay.com/" target="_blank">Pixabay</a>. <br><br>
+								<a href="https://pixabay.com/service/license/" target="_blank"><?php echo $footer_credits_text_two; ?></a>
+							</p>
 						</div><!-- /.address -->
 					</div><!-- /.footer__content -->
 

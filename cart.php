@@ -36,6 +36,8 @@ $cart_items                        = app_get_cart_items();
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
+	<?php include_once 'partials/banner.php'; ?>
+
 	<div class="hero hero--alt bg-base">
 		<div
 		class="hero__image"

@@ -12,6 +12,8 @@ $home_cta_button_label    = app_get_localized_string( 'home_cta_button_label' );
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
+	<?php include_once 'partials/banner.php'; ?>
+
 	<div class="hero hero--alt bg-base">
 		<div
 			class="hero__image"

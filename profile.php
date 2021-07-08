@@ -46,6 +46,8 @@ $required_field_error           = app_get_localized_string( 'required_field_erro
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
+	<?php include_once 'partials/banner.php'; ?>
+
 	<div class="hero hero--alt bg-base">
 		<div class="hero__image" data-aos="fade-up" style=" background-image: url(assets/dist/images/temp/arizona-398686_1920.jpg);"></div><!-- /.hero__bg -->
 

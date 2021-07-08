@@ -23,6 +23,8 @@ $home_about_text                  = app_get_localized_string( 'home_about_text' 
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
+	<?php include_once 'partials/banner.php'; ?>
+
 	<div class="hero hero--alt bg-base">
 		<div class="hero__image" data-aos="fade-right" style="background-image: url(assets/dist/images/temp/hero-img-8.jpg);"></div>
 		<!-- /.hero__bg -->

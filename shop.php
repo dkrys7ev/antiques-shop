@@ -27,6 +27,8 @@ $shop_no_listings               = app_get_localized_string( 'shop_no_listings' )
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
+	<?php include_once 'partials/banner.php'; ?>
+
 	<div class="hero hero--alt bg-base">
 		<div class="hero__image" data-aos="fade-up" style=" background-image: url(assets/dist/images/temp/ile-de-re-446692_1920.jpg);"></div><!-- /.hero__bg -->
 

@@ -526,5 +526,17 @@
 	"thank_you_message_text" : {
 		"en": "We appreciate you contacting us. We'll get back in touch with you soon!",
 		"bg": "Оценяваме, че се свързахте с нас. Скоро ще се свържем с Вас!"
+	},
+	"banner_top_text" : {
+		"en": "This site was created for educational purposes only!",
+		"bg": "Този сайт е създаден с учебна цел!"
+	},
+	"footer_credits_text_one" : {
+		"en": "All pictures on this site are taken from",
+		"bg": "Всички картинки <br> на този сайт са взети от"
+	},
+	"footer_credits_text_two" : {
+		"en": "License - Free for commercial use",
+		"bg": "Лиценз - Безплатно за търговска употреба"
 	}
 }

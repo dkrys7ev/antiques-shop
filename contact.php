@@ -22,6 +22,8 @@ $form_contact_button_label   = app_get_localized_string( 'form_contact_button_la
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
+	<?php include_once 'partials/banner.php'; ?>
+
 	<div class="hero hero--alt bg-base">
 		<div class="hero__image" data-aos="fade-up" style="background-image: url(assets/dist/images/temp/hero-img-2.jpg);"></div><!-- /.hero__bg -->
 
