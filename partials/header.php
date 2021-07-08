@@ -117,7 +117,7 @@
 							</a>
 
 							<a
-								href="#"
+								href="<?php echo app_get_page_url('cart'); ?>"
 								class="link-cart hidden-lg hidden-md"
 							>
 								<img
