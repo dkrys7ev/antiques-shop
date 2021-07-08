@@ -2,16 +2,30 @@
 require "carbon-validator/load.php";
 require "includes/helpers.php";
 
-$error_messages = array(
-	'categories[].required' => 'Please select at least one category.',
-);
+$cv_title_error                  = app_get_localized_string( 'cv_title_error' );
+$cv_title_min_length_error       = app_get_localized_string( 'cv_title_min_length_error' );
+$cv_description_error            = app_get_localized_string( 'cv_description_error' );
+$cv_description_min_length_error = app_get_localized_string( 'cv_description_min_length_error' );
+$cv_categories_error             = app_get_localized_string( 'cv_categories_error' );
+$cv_images_error                 = app_get_localized_string( 'cv_images_error' );
+$cv_price_error                  = app_get_localized_string( 'cv_price_error' );
 
 $data = array_merge($_POST, array(
 	'images' => Carbon_FileUpload::make($_FILES['images'])
 ));
 
+$error_messages = array(
+	'title.required'                => $cv_title_error,
+	'title.string_min_length'       => $cv_title_min_length_error,
+	'description.required'          => $cv_description_error,
+	'description.string_min_length' => $cv_description_min_length_error,
+	'categories[].required'         => $cv_categories_error,
+	'images.required'               => $cv_images_error,
+	'price.required'                => $cv_price_error,
+);
+
 $validator = new Carbon_Validator( $data, array(
-	"title"        => "required",
+	"title"        => "required|string_min_length:3",
 	"description"  => "required|string_min_length:50",
 	"categories[]" => "required",
 	"images"       => "required",

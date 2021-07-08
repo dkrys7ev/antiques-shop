@@ -1,6 +1,14 @@
 <?php
 include_once 'partials/header.php';
 include_once 'app/includes/helpers.php';
+
+$order_hero_title         = app_get_localized_string( 'order_hero_title' );
+$order_thank_title        = app_get_localized_string( 'order_thank_title' );
+$order_thank_line_one     = app_get_localized_string( 'order_thank_line_one' );
+$order_thank_line_two     = app_get_localized_string( 'order_thank_line_two' );
+$order_thank_button_label = app_get_localized_string( 'order_thank_button_label' );
+$home_cta_title           = app_get_localized_string( 'home_cta_title' );
+$home_cta_button_label    = app_get_localized_string( 'home_cta_button_label' );
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
@@ -15,7 +23,9 @@ include_once 'app/includes/helpers.php';
 		<!-- /.hero__bg -->
 
 		<div class="hero__content" data-aos="fade-up">
-			<h1 class="hero__title">Order</h1>
+			<h1 class="hero__title">
+				<?php echo $order_hero_title; ?>
+			</h1>
 			<!-- /.hero__title -->
 		</div>
 		<!-- /.hero__content -->
@@ -26,17 +36,17 @@ include_once 'app/includes/helpers.php';
 		<div class="shell">
 			<div class="section__content" data-aos="fade-up">
 				<h2 class="section__title h2">
-					Thank you for your purchase from <br><br> <span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span><br><br>
+					<?php echo $order_thank_title; ?> <br><br> <span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span><br><br>
 				</h2>
 				<!-- /.section__title -->
 
 				<div class="section__entry" style="text-align: justify-all;">
 					<p>
-						Our employees will take care of shipping the order as soon as possible.
+						<?php echo $order_thank_line_one; ?>
 					</p>
 
 					<p>
-						Please let us know if we can do anything else to help by <a href="<?php echo app_get_page_url('contact'); ?>">contacting us</a>!
+						<?php echo $order_thank_line_two; ?> <a href="<?php echo app_get_page_url('contact'); ?>"><?php echo $order_thank_button_label; ?></a>!
 					</p>
 				</div>
 				<!-- /.section__entry -->
@@ -50,14 +60,14 @@ include_once 'app/includes/helpers.php';
 	<section class="section-cta" data-aos="fade-up">
 		<div class="shell">
 			<h2 class="section__title">
-				Thousands of genuine antiques for sale, direct from trusted antique dealers at your local <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
+				<?php echo $home_cta_title; ?> <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
 			</h2>
 			<!-- /.section__title -->
 
 			<a
 				href="shop"
 				class="btn btn--border btn--border-white btn--size-1"
-				>Shop now</a
+				><?php echo $home_cta_button_label; ?></a
 			>
 		</div>
 		<!-- /.shell -->

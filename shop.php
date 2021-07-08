@@ -13,33 +13,35 @@ if ( isset( $_GET['search'] ) && ! empty( $_GET['search'] ) ) {
 	$search_query = $_GET['search'];
 }
 
-$listings = app_get_listings( $search_query );
+$listings                       = app_get_listings( $search_query );
+$shop_hero_title                = app_get_localized_string( 'shop_hero_title' );
+$shop_section_title             = app_get_localized_string( 'shop_section_title' );
+$shop_learn_more_button_label   = app_get_localized_string( 'shop_learn_more_button_label' );
+$shop_cart_button_label         = app_get_localized_string( 'shop_cart_button_label' );
+$shop_search_no_results         = app_get_localized_string( 'shop_search_no_results' );
+$shop_search_button_first_half  = app_get_localized_string( 'shop_search_button_first_half' );
+$shop_search_button_second_half = app_get_localized_string( 'shop_search_button_second_half' );
+$shop_search_or                 = app_get_localized_string( 'shop_search_or' );
+$profile_listing_button_label   = app_get_localized_string( 'profile_listing_button_label' );
+$shop_no_listings               = app_get_localized_string( 'shop_no_listings' );
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
 	<div class="hero hero--alt bg-base">
-		<div
-		class="hero__image"
-		data-aos="fade-up"
-		style="
-		background-image: url(assets/dist/images/temp/ile-de-re-446692_1920.jpg);
-		"
-		></div>
-		<!-- /.hero__bg -->
+		<div class="hero__image" data-aos="fade-up" style=" background-image: url(assets/dist/images/temp/ile-de-re-446692_1920.jpg);"></div><!-- /.hero__bg -->
 
 		<div class="hero__content" data-aos="fade-up">
-			<h1 class="hero__title">Shop</h1>
-			<!-- /.hero__title -->
-		</div>
-		<!-- /.hero__content -->
-	</div>
-	<!-- /.hero -->
+			<h1 class="hero__title">
+				<?php echo $shop_hero_title; ?>
+			</h1><!-- /.hero__title -->
+		</div><!-- /.hero__content -->
+	</div><!-- /.hero -->
 
 	<section class="section">
 		<div class="shell">
 			<div class="section__head">
 				<h2 class="section__title" data-aos="fade-up">
-					Antiques for Sale
+					<?php echo $shop_section_title; ?>
 				</h2><!-- /.section__title -->
 			</div><!-- /.section__head -->
 
@@ -77,12 +79,14 @@ $listings = app_get_listings( $search_query );
 										<div class="box__actions">
 											<h5>
 												<strong>
-													<?php echo sprintf( '$%s', number_format( $listing['price'], 2 ) ); ?>
+													<?php echo sprintf( '€%s', number_format( $listing['price'], 2 ) ); ?>
 												</strong>
 											</h5>
 
 											<a href="#" class="btn btn--border btn--border-base js-details" data-listing="<?php echo $listing['ID']; ?>">
-												<span>Learn More</span>
+												<span>
+													<?php echo $shop_learn_more_button_label; ?>
+												</span>
 											</a>
 										</div><!-- /.box__actions -->
 									</div><!-- /.box__inner -->
@@ -118,12 +122,14 @@ $listings = app_get_listings( $search_query );
 
 												<h5>
 													<strong>
-														<?php echo sprintf( '$%s', number_format( $listing['price'], 2 ) ); ?>
+														<?php echo sprintf( '€%s', number_format( $listing['price'], 2 ) ); ?>
 													</strong>
 												</h5>
 
 												<a href="#" class="btn btn--border btn--border-base js-add" data-listing="<?php echo $listing['ID']; ?>">
-													<span>Buy Now</span>
+													<span>
+														<?php echo $shop_cart_button_label; ?>
+													</span>
 												</a>
 											</div><!-- /.popup__content -->
 										</div><!-- /.popup__inner -->
@@ -137,19 +143,23 @@ $listings = app_get_listings( $search_query );
 					<div class="section__content-inner" data-aos="fade-up">
 						<?php if ( isset( $_GET['search'] ) && ! empty( $_GET['search'] ) ) : ?>
 							<h6>
-								There are no listings matching your search. <br><br> You can try a <a href="#" class="js-open-search"><strong>different search</strong></a> or
+								<?php echo $shop_search_no_results; ?> <br><br> <?php echo $shop_search_button_first_half; ?> <a href="#" class="js-open-search"><strong><?php echo $shop_search_button_second_half; ?></strong></a> <?php echo $shop_search_or; ?>
 							</h6>
 
 							<a href="profile" class="btn btn--border btn--border-base">
-								<span>Create a listing</span>
+								<span>
+									<?php echo $profile_listing_button_label; ?>
+								</span>
 							</a>
 						<?php else : ?>
 							<h6>
-								There are no listings yet.
+								<?php echo $shop_no_listings; ?>
 							</h6>
 
 							<a href="profile" class="btn btn--border btn--border-base">
-								<span>Create a listing</span>
+								<span>
+									<?php echo $profile_listing_button_label; ?>
+								</span>
 							</a>
 						<?php endif ?>
 					</div><!-- /.section__content-inner -->

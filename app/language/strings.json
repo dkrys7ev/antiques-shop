@@ -1,0 +1,530 @@
+{
+	"footer_address": {
+		"en": "9020 Varna, Bulgaria <br />13 Tzar Svetoslav Terter street",
+		"bg": "9020 Варна, България <br />ул. Цар Светослав Тертер №13"
+	},
+	"company_name": {
+		"en": "AntiqueShop Ltd.",
+		"bg": "AntiqueShop ООД"
+	},
+	"phone_number": {
+		"en": "0700 1234 <span>(FREE CALL)</span>",
+		"bg": "0700 1234 <span>(БЕЗПЛАТНО ОБАЖДАНЕ)</span>"
+	},
+	"footer_title": {
+		"en": "Contact us",
+		"bg": "Свържи се с нас"
+	},
+	"nav_item_homepage": {
+		"en": "Home",
+		"bg": "Начало"
+	},
+	"nav_item_shop": {
+		"en": "Shop",
+		"bg": "Каталог"
+	},
+	"nav_item_cart": {
+		"en": "Cart",
+		"bg": "Кошница"
+	},
+	"nav_item_contact": {
+		"en": "Contact us",
+		"bg": "Контакти"
+	},
+	"nav_item_login": {
+		"en": "Login",
+		"bg": "Вход в системата"
+	},
+	"nav_item_profile": {
+		"en": "Profile",
+		"bg": "Вашия Профил"
+	},
+	"nav_item_logout": {
+		"en": "Logout",
+		"bg": "Излизане от системата"
+	},
+	"header_phone_text": {
+		"en": "CALL",
+		"bg": "ПОЗВЪНИ"
+	},
+	"header_search_close": {
+		"en": "Close",
+		"bg": "Затвори"
+	},
+	"header_search_label": {
+		"en": "Enter your search here…",
+		"bg": "Търси тук…"
+	},
+	"header_search_button_label": {
+		"en": "Search",
+		"bg": "Търси"
+	},
+	"cart_hero_title": {
+		"en": "Cart",
+		"bg": "Кошница"
+	},
+	"cart_section_title": {
+		"en": "Your order",
+		"bg": "Твоята поръчка"
+	},
+	"cart_empty_error": {
+		"en": "You have no items in your shopping cart",
+		"bg": "Нямаш нищо добавено в кошницата"
+	},
+	"cart_back_to_shop": {
+		"en": "Back to the Shop",
+		"bg": "Обратно към каталога"
+	},
+	"subtotal_label": {
+		"en": "Subtotal",
+		"bg": "Междинна сума"
+	},
+	"delivery_label": {
+		"en": "Delivery",
+		"bg": "Доставка"
+	},
+	"vat_label": {
+		"en": "VAT (+20%)",
+		"bg": "ДДС (+20%)"
+	},
+	"total_label": {
+		"en": "Total",
+		"bg": "Общо"
+	},
+	"checkout_button_label": {
+		"en": "Checkout",
+		"bg": "Плащане"
+	},
+	"required_field_error": {
+		"en": "This field is required",
+		"bg": "Това поле е задължително"
+	},
+	"form_first_name": {
+		"en": "First Name",
+		"bg": "Име"
+	},
+	"form_first_name_placeholder": {
+		"en": "Your first name",
+		"bg": "Въведи твоето име"
+	},
+	"form_last_name": {
+		"en": "Last Name",
+		"bg": "Фамилия"
+	},
+	"form_last_name_placeholder": {
+		"en": "Your last name",
+		"bg": "Въведи твоята фамилия"
+	},
+	"form_email_label": {
+		"en": "Email",
+		"bg": "Имейл адрес"
+	},
+	"form_email_placeholder": {
+		"en": "Your email address",
+		"bg": "Въведи твоя имейл адрес"
+	},
+	"form_password_label": {
+		"en": "Password",
+		"bg": "Парола"
+	},
+	"form_password_placeholder": {
+		"en": "Your password",
+		"bg": "Въведи твоята парола"
+	},
+	"form_repeat_password_label": {
+		"en": "Repeat Password",
+		"bg": "Повтори Парола"
+	},
+	"form_repeat_password_placeholder": {
+		"en": "Enter your password again",
+		"bg": "Въведи твоята парола отново"
+	},
+	"form_password_mismatch": {
+		"en": "Passwords doesn't match",
+		"bg": "Паролите не съвпадат"
+	},
+	"form_payment_type_label": {
+		"en": "Payment Method",
+		"bg": "Начин на плащане"
+	},
+	"cod_payment_label": {
+		"en": "Cash on delivery",
+		"bg": "Наложен платеж"
+	},
+	"cc_payment_label": {
+		"en": "Credit Card (Stripe)",
+		"bg": "Кредитна карта (Stripe)"
+	},
+	"form_delivery_address_label": {
+		"en": "Delivery Address",
+		"bg": "Адрес за доставка"
+	},
+	"form_delivery_address_placeholder": {
+		"en": "Your address",
+		"bg": "Въведи твоя адрес"
+	},
+	"form_notes_label": {
+		"en": "Notes",
+		"bg": "Бележки към поръчката"
+	},
+	"form_notes_placeholder": {
+		"en": "Additional notes",
+		"bg": "Въведи бележки към поръчката"
+	},
+	"order_button_label": {
+		"en": "Order now",
+		"bg": "Поръчай сега"
+	},
+	"contact_hero_title": {
+		"en": "Contact",
+		"bg": "Връзка с нас"
+	},
+	"contact_form_title": {
+		"en": "How may we help you today?",
+		"bg": "Как можем да бъдем полезни днес?"
+	},
+	"form_enquiry_label": {
+		"en": "Enquiry",
+		"bg": "Във връзка със"
+	},
+	"form_enquiry_reason_one": {
+		"en": "General",
+		"bg": "Общи проблеми"
+	},
+	"form_enquiry_reason_two": {
+		"en": "Payment Issues",
+		"bg": "Проблеми с разплащането"
+	},
+	"form_enquiry_reason_three": {
+		"en": "Feedback",
+		"bg": "Обратна връзка"
+	},
+	"form_enquiry_reason_four": {
+		"en": "Newsletter signup",
+		"bg": "Записване за оферти по имейл"
+	},
+	"form_message_label": {
+		"en": "Message",
+		"bg": "Съобщение"
+	},
+	"form_message_placeholder": {
+		"en": "Your message",
+		"bg": "Въведи твоето съобщение"
+	},
+	"form_contact_button_label": {
+		"en": "Send",
+		"bg": "Изпрати"
+	},
+	"form_login_error": {
+		"en": "Wrong password or email address!",
+		"bg": "Грешна парола или имейл адрес!"
+	},
+	"form_login_button_label": {
+		"en": "Login",
+		"bg": "Влизане"
+	},
+	"cv_message_error": {
+		"en": "The field \"Message\" is required.",
+		"bg": "Полето за \"Съобщение\" е задължително."
+	},
+	"cv_title_error": {
+		"en": "The field \"Title\" is required.",
+		"bg": "Полето за \"Заглавие\" е задължително."
+	},
+	"cv_title_min_length_error": {
+		"en": "Please enter at least 3 characters in the \"Title\" field.",
+		"bg": "Въведи поне 3 символа в полето за \"Заглавие\"."
+	},
+	"cv_description_error": {
+		"en": "The field \"Description\" is required.",
+		"bg": "Полето за \"Описание\" е задължително."
+	},
+	"cv_description_min_length_error": {
+		"en": "Please enter at least 50 characters in the \"Description\" field.",
+		"bg": "Въведи поне 50 символа в полето за \"Описание\"."
+	},
+	"cv_categories_error": {
+		"en": "Please select at least one category.",
+		"bg": "Изберете поне една категория."
+	},
+	"cv_images_error": {
+		"en": "The field \"Images\" is required.",
+		"bg": "Полето за \"Изображения\" е задължително."
+	},
+	"cv_price_error": {
+		"en": "The field \"Price\" is required.",
+		"bg": "Полето за \"Цена\" е задължително."
+	},
+	"cv_message_length_error": {
+		"en": "Please enter at least 25 characters in the \"Message\" field.",
+		"bg": "Въведи поне 25 символа в полето за \"Съобщение\"."
+	},
+	"cv_enquiry_error": {
+		"en": "The field \"Enquiry\" is required.",
+		"bg": "Полето за \"Във връзка със\" е задължително."
+	},
+	"cv_first_name_min_length_error": {
+		"en": "Please enter at least 2 characters in the \"First Name\" field.",
+		"bg": "Въведи поне 2 символа в полето за \"Име\"."
+	},
+	"cv_first_name_error": {
+		"en": "The field \"First Name\" is required.",
+		"bg": "Полето за \"Име\" е задължително."
+	},
+	"cv_first_name_only_text": {
+		"en": "The field \"First Name\" must contain only letters.",
+		"bg": "Полето за \"Име\" трябва да съдържа само букви."
+	},
+	"cv_last_name_min_length_error": {
+		"en": "Please enter at least 2 characters in the \"Last Name\" field.",
+		"bg": "Въведи поне 2 символа в полето за \"Фамилия\"."
+	},
+	"cv_last_name_error": {
+		"en": "The field \"Last Name\" is required.",
+		"bg": "Полето за \"Фамилия\" е задължително."
+	},
+	"cv_last_name_only_text": {
+		"en": "The field \"Last Name\" must contain only letters.",
+		"bg": "Полето за \"Фамилия\" трябва да съдържа само букви."
+	},
+	"cv_email_error": {
+		"en": "The field \"Email Address\" is required.",
+		"bg": "Полето за \"Имейл адрес\" е задължително."
+	},
+	"cv_email_error_valid": {
+		"en": "Please enter a valid email address in the \"Email Address\" field.",
+		"bg": "Въведи валиден имейл адрес в полето за \"Имейл адрес\"."
+	},
+	"cv_password_error": {
+		"en": "The field \"Password\" is required.",
+		"bg": "Полето за \"Парола\" е задължително."
+	},
+	"cv_password_min_length_error": {
+		"en": "Please enter at least 8 characters in the \"Password\" field.",
+		"bg": "Въведи поне 8 символа в полето за \"Парола\"."
+	},
+	"cv_delivery_address_error": {
+		"en": "The field \"Delivery Address\" is required.",
+		"bg": "Полето за \"Адрес за доставка\" е задължително."
+	},
+	"cv_repeat_password_error": {
+		"en": "The field \"Repeat Password\" is required or the two password aren't matching.",
+		"bg": "Полето за \"Повтори Парола\" е задължително или двете пароли не съвпадат."
+	},
+	"cv_repeat_password_min_length_error": {
+		"en": "Please enter at least 8 characters in the \"Repeat Password\" field.",
+		"bg": "Въведи поне 8 символа в полето за \"Повтори Парола\"."
+	},
+	"home_hero_title": {
+		"en": "Welcome",
+		"bg": "Добре дошли"
+	},
+	"home_about_title": {
+		"en": "Over 10 years of experience",
+		"bg": "Над 10 години опит в сферата"
+	},
+	"home_about_text": {
+		"en": "Welcome to AntiqueShop.com, one of the top antique websites to buy antiques, as well as sell antiques. No matter whether you're looking for antiques to buy or sell, we are a marketplace with a wide variety of antiques for sale online. All the antiques for sale on AntiqueShop.com are from certified dealers, and all listings are approved by our experienced, and knowledgeable team.",
+		"bg": "Добре дошли в AntiqueShop.com, един от най-добрите уеб сайтове за закупуване, както и за продажба на антики. Без значение дали търсите антики за покупка или продажба, ние сме пазар с голямо разнообразие от антики онлайн. Всички антики за продажба на AntiqueShop.com са от сертифицирани дилъри и всички обяви са одобрени от нашия опитен и обучен екип."
+	},
+	"home_cta_title": {
+		"en": "Thousands of genuine antiques for sale, direct from trusted antique dealers at your local",
+		"bg": "Хиляди оригинални антики за продажба, директно от доверени антикварни дилъри на местно ниво във Вашия"
+	},
+	"home_cta_button_label": {
+		"en": "Shop now",
+		"bg": "Разгледай каталога сега"
+	},
+	"login_hero_title": {
+		"en": "Login",
+		"bg": "Влизане в системата"
+	},
+	"form_login_cta_text": {
+		"en": "No account yet? Click to register.",
+		"bg": "Нямаш акаунт все още? Регистрирай се тук."
+	},
+	"order_hero_title": {
+		"en": "Order",
+		"bg": "Поръчка"
+	},
+	"order_thank_title": {
+		"en": "Thank you for your purchase from",
+		"bg": "Благодарим за Вашата покупка от"
+	},
+	"order_thank_line_one": {
+		"en": "Our employees will take care of shipping the order as soon as possible.",
+		"bg": "Нашите служители ще се погрижат за изпращането на поръчката възможно най-скоро."
+	},
+	"order_thank_line_two": {
+		"en": "Please let us know if we can do anything else to help by",
+		"bg": "Моля, уведомете ни, ако можем да направим нещо друго, за да помогнем като посетите страницата"
+	},
+	"order_thank_button_label": {
+		"en": "contacting us",
+		"bg": "за връзка с нас"
+	},
+	"profile_hero_title": {
+		"en": "Hello",
+		"bg": "Здравей"
+	},
+	"profile_listing_title": {
+		"en": "Your listings",
+		"bg": "Твоите артикули"
+	},
+	"profile_listing_error": {
+		"en": "You haven't created any listings yet.",
+		"bg": "Нямаш добавени артикули."
+	},
+	"profile_listing_button_label": {
+		"en": "Create a listing",
+		"bg": "Добави артикул"
+	},
+	"profile_orders_title": {
+		"en": "Your orders from",
+		"bg": "Твоите поръчки от"
+	},
+	"profile_table_order_number" : {
+		"en": "Order #",
+		"bg": "Поръчка №"
+	},
+	"profile_table_date_created" : {
+		"en": "Date Created",
+		"bg": "Дата на създаване"
+	},
+	"profile_table_payment_type" : {
+		"en": "Payment Type",
+		"bg": "Начин на плащане"
+	},
+	"profile_table_status" : {
+		"en": "Status",
+		"bg": "Статус"
+	},
+	"profile_table_total" : {
+		"en": "Total",
+		"bg": "Общо сума"
+	},
+	"profile_table_details" : {
+		"en": "Details",
+		"bg": "Детайли"
+	},
+	"profile_table_button_label" : {
+		"en": "View",
+		"bg": "Виж повече"
+	},
+	"profile_order_items_title" : {
+		"en": "Order Items:",
+		"bg": "Поръчани артикули:"
+	},
+	"profile_orders_error" : {
+		"en": "You haven't made any orders yet.",
+		"bg": "Нямаш направени поръчки."
+	},
+	"profile_form_title" : {
+		"en": "Add new listing",
+		"bg": "Добави нов артикул за продажба"
+	},
+	"profile_form_title_field" : {
+		"en": "Title",
+		"bg": "Заглавие"
+	},
+	"profile_form_title_placeholder" : {
+		"en": "Enter the listing title",
+		"bg": "Въведи заглавие на артикула"
+	},
+	"profile_form_desc_field" : {
+		"en": "Description",
+		"bg": "Описание"
+	},
+	"profile_form_desc_placeholder" : {
+		"en": "Enter the listing description",
+		"bg": "Въведи описание на артикула"
+	},
+	"profile_form_categories_label" : {
+		"en": "Categories",
+		"bg": "Избери от коя категория е артикула"
+	},
+	"profile_form_images_label" : {
+		"en": "Images",
+		"bg": "Изображения"
+	},
+	"profile_form_price_label" : {
+		"en": "Price",
+		"bg": "Цена"
+	},
+	"profile_form_price_placeholder" : {
+		"en": "Enter the listing price",
+		"bg": "Въведи продажна цена за артикула"
+	},
+	"profile_form_button_label" : {
+		"en": "Submit",
+		"bg": "Добави"
+	},
+	"profile_form_categories_one" : {
+		"en": "Еveryday things",
+		"bg": "Неща от всекидневието"
+	},
+	"profile_form_categories_two" : {
+		"en": "Historical artifacts",
+		"bg": "Предмет с историческа стойност"
+	},
+	"profile_form_categories_three" : {
+		"en": "Art and culture",
+		"bg": "Изкуство и култура"
+	},
+	"profile_form_categories_four" : {
+		"en": "Other",
+		"bg": "Други"
+	},
+	"register_hero_title" : {
+		"en": "Register",
+		"bg": "Регистрация"
+	},
+	"register_form_cta" : {
+		"en": "Already registered? Click to login.",
+		"bg": "Вече си регистриран? Логни се в системата от тук."
+	},
+	"shop_hero_title" : {
+		"en": "Shop",
+		"bg": "Каталог"
+	},
+	"shop_section_title" : {
+		"en": "Antiques for Sale",
+		"bg": "Антики за продажба"
+	},
+	"shop_learn_more_button_label" : {
+		"en": "Learn more",
+		"bg": "Научи повече"
+	},
+	"shop_cart_button_label" : {
+		"en": "Add to cart",
+		"bg": "Добави в кошницата"
+	},
+	"shop_search_no_results" : {
+		"en": "There are no listings matching your search.",
+		"bg": "Няма артикули които да отговарят на Вашето търсене."
+	},
+	"shop_search_button_first_half" : {
+		"en": "You can try a",
+		"bg": "Може да опитате с"
+	},
+	"shop_search_button_second_half" : {
+		"en": "different search",
+		"bg": "различно търсене"
+	},
+	"shop_search_or" : {
+		"en": "or",
+		"bg": "или"
+	},
+	"shop_no_listings" : {
+		"en": "There are no listings yet.",
+		"bg": "Няма добавени артикули към каталога."
+	},
+	"thank_you_message_title" : {
+		"en": "Thank you for getting in touch!",
+		"bg": "Благодарим Ви, че се свързахте с нас!"
+	},
+	"thank_you_message_text" : {
+		"en": "We appreciate you contacting us. We'll get back in touch with you soon!",
+		"bg": "Оценяваме, че се свързахте с нас. Скоро ще се свържем с Вас!"
+	}
+}

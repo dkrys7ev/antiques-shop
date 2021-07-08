@@ -1,20 +1,25 @@
 /* ------------------------------------------------------------ *\
-	Link cart
+	Link Language
 \* ------------------------------------------------------------ */
 
-.link-cart {
+.link-language {
 	text-align: center;
 	display: block;
+	padding: 3.3rem 3rem;
+	text-transform: uppercase;
 
 	@include tablet-portrait {
-		padding-right: 1rem;
+		padding: 0;
+		padding-right: 2rem;
 	}
 
-	img {
-		width: 30px;
+	span {
+		color: #d7cec6;
+		font-size: 24px;
+		font-weight: 700;
 
 		@include tablet-portrait {
-			width: 20px;
+			font-size: 18px;
 		}
 	}
 }

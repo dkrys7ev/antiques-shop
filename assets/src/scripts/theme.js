@@ -716,6 +716,36 @@
 		}
 	});
 
+	$doc.on("click", ".js-language", function (event) {
+		event.preventDefault();
+
+		var $link = $(this);
+		var langCode = $link.data("language");
+		var shouldReload = false;
+
+		if (langCode) {
+			$.ajax({
+				url: "app/language.php",
+				method: "POST",
+				data: {
+					language_code: langCode,
+				},
+				success: function (response) {
+					var parsedResponse = JSON.parse(response);
+
+					if (parsedResponse.status === "ok") {
+						shouldReload = true;
+					}
+				},
+				complete: function () {
+					if (shouldReload) {
+						window.location.reload();
+					}
+				},
+			});
+		}
+	});
+
 	$doc.on("click", ".js-checkout", function (event) {
 		event.preventDefault();
 
@@ -725,7 +755,7 @@
 	$doc.on("click", ".js-order-details", function (event) {
 		event.preventDefault();
 
-		var target = $(this).data('target');
+		var target = $(this).data("target");
 
 		$(target).addClass("is-active");
 	});
@@ -787,89 +817,179 @@
 		var selectedOption = $select.find("option:selected").val();
 
 		if (selectedOption == "cc") {
+			var creditCardHtml = "";
+			var currentLang = getCookie("app_lang");
+
+			if (!currentLang) {
+				currentLang = "en";
+			}
+
+			if (currentLang == "bg") {
+				creditCardHtml = `
+					<div class="form__cols form__cols--cc">
+						<div class="form__col form__col--1of2">
+							<label class="form__label" for="field-number">
+								* Номер на кредитната карта
+							</label>
+
+							<div class="form__row__inner">
+								<div class="form__cols">
+									<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-1" id="card-group-1" class="field" placeholder="XXXX" required>
+									</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+									<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-2" id="card-group-2" class="field" placeholder="XXXX" required>
+									</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+									<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-3" id="card-group-3" class="field" placeholder="XXXX" required>
+									</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+									<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-4" id="card-group-4" class="field" placeholder="XXXX" required>
+									</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+									<input type="hidden" class="card-number" data-stripe="number">
+								</div><!-- /.form__cols -->
+							</div><!-- /.form__row__inner -->
+						</div><!-- /.form__col -->
+
+						<div class="form__col form__col--1of2">
+							<label class="form__label" for="field-holder">
+								* Име изписано върху картата
+							</label>
+
+							<div class="form__controls">
+								<input id="field-holder" class="field billing-address-name form-control"
+								type="text" name="name"
+								placeholder="Въведи името изписано върху картата">
+							</div><!-- /.form__controls -->
+						</div><!-- /.form__col -->
+
+						<div class="form__col form__col--1of2">
+							<label class="form__label">
+								* Валидност на картата
+							</label>
+
+							<div class="form__row__inner">
+								<div class="form__cols">
+									<div class="form__controls form__controls--alt form__col form__col--1of2" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,2);" onKeyUp="maxLen(this,2);" name="month" id="month" class="field expiration-month-and-year" placeholder="MM" data-stripe="exp_month" required />
+									</div><!-- /.form__controls form__controls-/-alt form__col form__col-/-1of2 -->
+
+									<div class="form__controls form__controls--alt form__col form__col--1of2" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,2);" onKeyUp="maxLen(this,2);" name="year" id="year" class="field" placeholder="ГГ" data-stripe="exp_year" required />
+									</div><!-- /.form__controls form__controls-/-alt form__col form__col-/-1of2 -->
+								</div><!-- /.form__cols -->
+							</div><!-- /.form__row__inner -->
+						</div><!-- /.form__col -->
+
+						<div class="form__col form__col--1of2">
+							<label class="form__label" for="field-cvv">
+								* CVV
+							</label>
+
+							<div class="form__controls">
+								<input id="field-cvv" class="field security-code form-control"·
+								inputmode="numeric"
+								onKeyDown="maxLen(this,3);" onKeyUp="maxLen(this,3);"
+								type="text" name="security-code"
+								placeholder="&#149;&#149;&#149;">
+							</div><!-- /.form__controls -->
+						</div><!-- /.form__col -->
+
+						<div class="card-type hidden">
+						</div>
+
+						<span class="form__notice form__notice--error js-card-error hidden">Error!</span>
+					</div><!-- /.form__cols -->
+				`;
+			} else {
+				creditCardHtml = `
+					<div class="form__cols form__cols--cc">
+						<div class="form__col form__col--1of2">
+							<label class="form__label" for="field-number">
+								* Card Number
+							</label>
+
+							<div class="form__row__inner">
+								<div class="form__cols">
+									<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-1" id="card-group-1" class="field" placeholder="XXXX" required>
+									</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+									<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-2" id="card-group-2" class="field" placeholder="XXXX" required>
+									</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+									<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-3" id="card-group-3" class="field" placeholder="XXXX" required>
+									</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+									<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-4" id="card-group-4" class="field" placeholder="XXXX" required>
+									</div><!-- /.form__controls form__col form__col-/-1of4 -->
+
+									<input type="hidden" class="card-number" data-stripe="number">
+								</div><!-- /.form__cols -->
+							</div><!-- /.form__row__inner -->
+						</div><!-- /.form__col -->
+
+						<div class="form__col form__col--1of2">
+							<label class="form__label" for="field-holder">
+								* Name on Card
+							</label>
+
+							<div class="form__controls">
+								<input id="field-holder" class="field billing-address-name form-control"
+								type="text" name="name"
+								placeholder="John Smith">
+							</div><!-- /.form__controls -->
+						</div><!-- /.form__col -->
+
+						<div class="form__col form__col--1of2">
+							<label class="form__label">
+								* Expiry
+							</label>
+
+							<div class="form__row__inner">
+								<div class="form__cols">
+									<div class="form__controls form__controls--alt form__col form__col--1of2" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,2);" onKeyUp="maxLen(this,2);" name="month" id="month" class="field expiration-month-and-year" placeholder="MM" data-stripe="exp_month" required />
+									</div><!-- /.form__controls form__controls-/-alt form__col form__col-/-1of2 -->
+
+									<div class="form__controls form__controls--alt form__col form__col--1of2" style="margin-bottom: 0;">
+										<input type="number" onKeyDown="maxLen(this,2);" onKeyUp="maxLen(this,2);" name="year" id="year" class="field" placeholder="YY" data-stripe="exp_year" required />
+									</div><!-- /.form__controls form__controls-/-alt form__col form__col-/-1of2 -->
+								</div><!-- /.form__cols -->
+							</div><!-- /.form__row__inner -->
+						</div><!-- /.form__col -->
+
+						<div class="form__col form__col--1of2">
+							<label class="form__label" for="field-cvv">
+								* CVV
+							</label>
+
+							<div class="form__controls">
+								<input id="field-cvv" class="field security-code form-control"·
+								inputmode="numeric"
+								onKeyDown="maxLen(this,3);" onKeyUp="maxLen(this,3);"
+								type="text" name="security-code"
+								placeholder="&#149;&#149;&#149;">
+							</div><!-- /.form__controls -->
+						</div><!-- /.form__col -->
+
+						<div class="card-type hidden">
+						</div>
+
+						<span class="form__notice form__notice--error js-card-error hidden">Error!</span>
+					</div><!-- /.form__cols -->
+				`;
+			}
+
 			$(".credit-card-wrapper")
-				.html(
-					`
-				<div class="form__cols form__cols--cc">
-					<div class="form__col form__col--1of2">
-						<label class="form__label" for="field-number">
-							* Card Number
-						</label>
-
-						<div class="form__row__inner">
-							<div class="form__cols">
-								<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
-									<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-1" id="card-group-1" class="field" placeholder="XXXX" required>
-								</div><!-- /.form__controls form__col form__col-/-1of4 -->
-
-								<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
-									<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-2" id="card-group-2" class="field" placeholder="XXXX" required>
-								</div><!-- /.form__controls form__col form__col-/-1of4 -->
-
-								<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
-									<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-3" id="card-group-3" class="field" placeholder="XXXX" required>
-								</div><!-- /.form__controls form__col form__col-/-1of4 -->
-
-								<div class="form__controls form__col form__col--1of4" style="margin-bottom: 0;">
-									<input type="number" onKeyDown="maxLen(this,4);" onKeyUp="maxLen(this,4);" min="0" name="card-group-4" id="card-group-4" class="field" placeholder="XXXX" required>
-								</div><!-- /.form__controls form__col form__col-/-1of4 -->
-
-								<input type="hidden" class="card-number" data-stripe="number">
-							</div><!-- /.form__cols -->
-						</div><!-- /.form__row__inner -->
-					</div><!-- /.form__col -->
-
-					<div class="form__col form__col--1of2">
-						<label class="form__label" for="field-holder">
-							* Name on Card
-						</label>
-
-						<div class="form__controls">
-							<input id="field-holder" class="field billing-address-name form-control"
-							type="text" name="name"
-							placeholder="John Smith">
-						</div><!-- /.form__controls -->
-					</div><!-- /.form__col -->
-
-					<div class="form__col form__col--1of2">
-						<label class="form__label">
-							* Expiry
-						</label>
-
-						<div class="form__row__inner">
-							<div class="form__cols">
-								<div class="form__controls form__controls--alt form__col form__col--1of2" style="margin-bottom: 0;">
-									<input type="number" onKeyDown="maxLen(this,2);" onKeyUp="maxLen(this,2);" name="month" id="month" class="field expiration-month-and-year" placeholder="MM" data-stripe="exp_month" required />
-								</div><!-- /.form__controls form__controls-/-alt form__col form__col-/-1of2 -->
-
-								<div class="form__controls form__controls--alt form__col form__col--1of2" style="margin-bottom: 0;">
-									<input type="number" onKeyDown="maxLen(this,2);" onKeyUp="maxLen(this,2);" name="year" id="year" class="field" placeholder="YY" data-stripe="exp_year" required />
-								</div><!-- /.form__controls form__controls-/-alt form__col form__col-/-1of2 -->
-							</div><!-- /.form__cols -->
-						</div><!-- /.form__row__inner -->
-					</div><!-- /.form__col -->
-
-					<div class="form__col form__col--1of2">
-						<label class="form__label" for="field-cvv">
-							* CVV
-						</label>
-
-						<div class="form__controls">
-							<input id="field-cvv" class="field security-code form-control"·
-							inputmode="numeric"
-							onKeyDown="maxLen(this,3);" onKeyUp="maxLen(this,3);"
-							type="text" name="security-code"
-							placeholder="&#149;&#149;&#149;">
-						</div><!-- /.form__controls -->
-					</div><!-- /.form__col -->
-
-					<div class="card-type hidden">
-					</div>
-
-					<span class="form__notice form__notice--error js-card-error hidden">Error!</span>
-				</div><!-- /.form__cols -->
-			`
-				)
+				.html(creditCardHtml)
 				.removeClass("hidden");
 		} else {
 			$(".credit-card-wrapper").html("").addClass("hidden");
@@ -1007,13 +1127,10 @@
 							$this.siblings().css("transform", "translateY(0)");
 						}, 0);
 
-						$("tr td:first-child")
-							.not($(this))
-							.siblings()
-							.css({
-								display: "none",
-								transform: "translateY(-9999px)",
-							});
+						$("tr td:first-child").not($(this)).siblings().css({
+							display: "none",
+							transform: "translateY(-9999px)",
+						});
 					});
 				} else if ($(this).width() > 760) {
 					//unbind click : name is not clickable when screen is > 700px
@@ -1025,5 +1142,11 @@
 				}
 			})
 			.resize();
+	}
+
+	function getCookie(name) {
+		const value = `; ${document.cookie}`;
+		const parts = value.split(`; ${name}=`);
+		if (parts.length === 2) return parts.pop().split(";").shift();
 	}
 })(jQuery, window, document);

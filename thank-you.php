@@ -1,6 +1,12 @@
 <?php
 include_once 'partials/header.php';
 include_once 'app/includes/helpers.php';
+
+$contact_hero_title      = app_get_localized_string( 'contact_hero_title' );
+$home_cta_title          = app_get_localized_string( 'home_cta_title' );
+$home_cta_button_label   = app_get_localized_string( 'home_cta_button_label' );
+$thank_you_message_title = app_get_localized_string( 'thank_you_message_title' );
+$thank_you_message_text  = app_get_localized_string( 'thank_you_message_text' );
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
@@ -15,7 +21,9 @@ include_once 'app/includes/helpers.php';
 		<!-- /.hero__bg -->
 
 		<div class="hero__content" data-aos="fade-up">
-			<h1 class="hero__title">Contact</h1>
+			<h1 class="hero__title">
+				<?php echo $contact_hero_title; ?>
+			</h1>
 			<!-- /.hero__title -->
 		</div>
 		<!-- /.hero__content -->
@@ -26,13 +34,13 @@ include_once 'app/includes/helpers.php';
 		<div class="shell">
 			<div class="section__content" data-aos="fade-up">
 				<h2 class="section__title h2">
-					Thank you for getting in touch!
+					<?php echo $thank_you_message_title; ?>
 				</h2>
 				<!-- /.section__title -->
 
 				<div class="section__entry">
 					<p>
-						We appreciate you contacting us. We'll get back in touch with you soon!
+						<?php echo $thank_you_message_text; ?>
 					</p>
 				</div>
 				<!-- /.section__entry -->
@@ -46,14 +54,14 @@ include_once 'app/includes/helpers.php';
 	<section class="section-cta" data-aos="fade-up">
 		<div class="shell">
 			<h2 class="section__title">
-				Thousands of genuine antiques for sale, direct from trusted antique dealers at your local <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
+				<?php echo $home_cta_title; ?> <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
 			</h2>
 			<!-- /.section__title -->
 
 			<a
 				href="shop"
 				class="btn btn--border btn--border-white btn--size-1"
-				>Shop now</a
+				><?php echo $home_cta_button_label; ?></a
 			>
 		</div>
 		<!-- /.shell -->

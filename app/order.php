@@ -9,12 +9,30 @@ require "carbon-validator/load.php";
 require "includes/config.php";
 require "includes/helpers.php";
 
+$cv_first_name_error            = app_get_localized_string( 'cv_first_name_error' );
+$cv_first_name_min_length_error = app_get_localized_string( 'cv_first_name_min_length_error' );
+$cv_last_name_error             = app_get_localized_string( 'cv_last_name_error' );
+$cv_last_name_min_length_error  = app_get_localized_string( 'cv_last_name_min_length_error' );
+$cv_email_error                 = app_get_localized_string( 'cv_email_error' );
+$cv_email_error_valid           = app_get_localized_string( 'cv_email_error_valid' );
+$cv_delivery_address_error      = app_get_localized_string( 'cv_delivery_address_error' );
+
+$error_messages = array(
+	'first.required'            => $cv_first_name_error,
+	'first.string_min_length'   => $cv_first_name_min_length_error,
+	'last.required'             => $cv_last_name_error,
+	'last.string_min_length'    => $cv_last_name_min_length_error,
+	'email.required'            => $cv_email_error,
+	'email.email'               => $cv_email_error_valid,
+	'delivery_address.required' => $cv_delivery_address_error,
+);
+
 $validator = new Carbon_Validator( $_POST, array(
-	"first"            => "required",
-	"last"             => "required",
+	"first"            => "required|string_min_length:2",
+	"last"             => "required|string_min_length:2",
 	"email"            => "required|email",
 	"delivery_address" => "required",
-) );
+), $error_messages );
 
 $response  = array(
 	"status" => $validator->passes() ? "ok" : "failed"
@@ -57,7 +75,7 @@ if ( $validator->passes() ) {
 				$payment_type = 'Credit Card';
 			}
 
-			$total_amount  = sprintf( '$%s', number_format( $total_amount, 2 ) );
+			$total_amount  = sprintf( '€%s', number_format( $total_amount, 2 ) );
 
 			$mail->Subject = "[AntiqueShop] New Purchase Order";
 			$mail->Body    = "From:<br><strong>{$email_from}</strong><br><br>";

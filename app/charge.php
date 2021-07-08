@@ -21,12 +21,12 @@ $customer = \Stripe\Customer::create([
 	'source'      => $token,
 ]);
 
-$charge = \Stripe\Charge::create([
+$charge = \Stripe\Charge::create( [
 	'amount'      => $amount,
 	'customer'    => $customer->id,
-	'currency'    => 'usd',
+	'currency'    => 'eur',
 	'description' => 'AntiqueShop Purchase Order #' . uniqid(),
-]);
+] );
 
 echo json_encode( array(
 	"status" => $charge->status

@@ -1,6 +1,25 @@
 <?php
 include_once 'partials/header.php';
 include_once 'app/includes/helpers.php';
+
+$register_hero_title              = app_get_localized_string( 'register_hero_title' );
+$required_field_error             = app_get_localized_string( 'required_field_error' );
+$form_first_name                  = app_get_localized_string( 'form_first_name' );
+$form_first_name_placeholder      = app_get_localized_string( 'form_first_name_placeholder' );
+$form_last_name                   = app_get_localized_string( 'form_last_name' );
+$form_last_name_placeholder       = app_get_localized_string( 'form_last_name_placeholder' );
+$form_email_label                 = app_get_localized_string( 'form_email_label' );
+$form_email_placeholder           = app_get_localized_string( 'form_email_placeholder' );
+$form_password_label              = app_get_localized_string( 'form_password_label' );
+$form_password_placeholder        = app_get_localized_string( 'form_password_placeholder' );
+$form_repeat_password_label       = app_get_localized_string( 'form_repeat_password_label' );
+$form_repeat_password_placeholder = app_get_localized_string( 'form_repeat_password_placeholder' );
+$form_password_mismatch           = app_get_localized_string( 'form_password_mismatch' );
+$register_form_cta                = app_get_localized_string( 'register_form_cta' );
+$home_cta_title                   = app_get_localized_string( 'home_cta_title' );
+$home_cta_button_label            = app_get_localized_string( 'home_cta_button_label' );
+$home_about_title                 = app_get_localized_string( 'home_about_title' );
+$home_about_text                  = app_get_localized_string( 'home_about_text' );
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
@@ -9,7 +28,9 @@ include_once 'app/includes/helpers.php';
 		<!-- /.hero__bg -->
 
 		<div class="hero__content" data-aos="fade-up">
-			<h1 class="hero__title">Register</h1>
+			<h1 class="hero__title">
+				<?php echo $register_hero_title; ?>
+			</h1>
 			<!-- /.hero__title -->
 		</div>
 		<!-- /.hero__content -->
@@ -25,51 +46,65 @@ include_once 'app/includes/helpers.php';
 							<div class="form__section">
 								<div class="form__group">
 									<div class="form__row">
-										<label class="form__label" for="field-name">
-											* Name
+										<label class="form__label" for="field-first">
+											* <?php echo $form_first_name; ?>
 										</label>
 
 										<div class="form__controls">
-											<input type="text" class="field" id="field-name" name="name" placeholder="Type your name" />
+											<input type="text" class="field" id="field-first" name="first" placeholder="<?php echo $form_first_name_placeholder; ?>" />
 										</div><!-- /.form__controls -->
 
-										<span class="form__notice form__notice--error hidden">This field is required</span>
+										<span class="form__notice form__notice--error hidden"><?php echo $required_field_error; ?></span>
+									</div><!-- /.form__row -->
+
+									<div class="form__row">
+										<label class="form__label" for="field-last">
+											* <?php echo $form_last_name; ?>
+										</label>
+
+										<div class="form__controls">
+											<input type="text" class="field" id="field-last" name="last" placeholder="<?php echo $form_last_name_placeholder; ?>" />
+										</div><!-- /.form__controls -->
+
+										<span class="form__notice form__notice--error hidden"><?php echo $required_field_error; ?></span>
 									</div><!-- /.form__row -->
 
 									<div class="form__row">
 										<label class="form__label" for="field-email">
-											* Email
+											* <?php echo $form_email_label; ?>
 										</label>
 
 										<div class="form__controls">
-											<input type="email" class="field" id="field-email" name="email" placeholder="Type your email address" />
+											<input type="email" class="field" id="field-email" name="email" placeholder="<?php echo $form_email_placeholder; ?>" />
 										</div><!-- /.form__controls -->
 
-										<span class="form__notice form__notice--error hidden">Please enter valid email address</span>
+										<span class="form__notice form__notice--error hidden"></span>
 									</div><!-- /.form__row -->
 
 									<div class="form__row">
 										<label class="form__label" for="field-password">
-											* Password
+											* <?php echo $form_password_label; ?>
 										</label>
 
 										<div class="form__controls">
-											<input type="password" class="field" id="field-password" name="password" placeholder="Type your password" />
+											<input type="password" class="field" id="field-password" name="password" placeholder="<?php echo $form_password_placeholder; ?>" />
 										</div><!-- /.form__controls -->
 
-										<span class="form__notice form__notice--error hidden">Password is required</span>
+										<span class="form__notice form__notice--error hidden"></span>
 									</div><!-- /.form__row -->
 
 									<div class="form__row">
 										<label class="form__label" for="field-repeat-password">
-											* Repeat Password
+											* <?php echo $form_repeat_password_label; ?>
 										</label>
 
 										<div class="form__controls">
-											<input type="password" class="field" id="field-repeat-password" name="repeat_password" placeholder="Type your password again" />
+											<input type="password" class="field" id="field-repeat-password" name="repeat_password" placeholder="<?php echo $form_repeat_password_placeholder; ?>" />
 										</div><!-- /.form__controls -->
 
-										<span class="form__notice form__notice--error hidden">Passwords doesn't match</span>
+										<span class="form__notice form__notice--error hidden">
+											<?php echo $form_password_mismatch; ?>
+										</span>
 									</div><!-- /.form__row -->
 								</div><!-- /.form__group -->
 							</div><!-- /.form__section -->
@@ -77,14 +112,16 @@ include_once 'app/includes/helpers.php';
 
 						<div class="form__actions">
 							<button type="submit" class="btn btn--border-base form__btn form__btn--submit">
-								<span>Register</span>
+								<span>
+									<?php echo $register_hero_title; ?>
+								</span>
 
 								<img width="22" src="assets/dist/images/spinner.svg" alt="Spinner">
 							</button>
 
 							<div class="form__actions-content">
-								<a href="login">
-									Already registered? Click to login.
+								<a href="<?php echo app_get_page_url('login'); ?>">
+									<?php echo $register_form_cta; ?>
 								</a>
 							</div><!-- /.form__actions-content -->
 						</div><!-- /.form__actions -->
@@ -97,14 +134,14 @@ include_once 'app/includes/helpers.php';
 	<section class="section-cta" data-aos="fade-up">
 		<div class="shell">
 			<h2 class="section__title">
-				Thousands of genuine antiques for sale, direct from trusted antique dealers at your local <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
+				<?php echo $home_cta_title; ?> <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
 			</h2>
 			<!-- /.section__title -->
 
 			<a
-			href="shop"
-			class="btn btn--border btn--border-white btn--size-1"
-			>Shop now</a
+				href="shop"
+				class="btn btn--border btn--border-white btn--size-1"
+				><?php echo $home_cta_button_label; ?></a
 			>
 		</div>
 		<!-- /.shell -->
@@ -115,13 +152,13 @@ include_once 'app/includes/helpers.php';
 		<div class="shell">
 			<div class="section__content" data-aos="fade-up">
 				<h2 class="section__title h2">
-					Lorem ipsum dolor sit amet.
+					<?php echo $home_about_title; ?>
 				</h2>
 				<!-- /.section__title -->
 
 				<div class="section__entry">
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus nostrum totam libero perferendis non, mollitia! Eaque at perspiciatis vitae repudiandae quam distinctio cum incidunt laboriosam, odit alias animi, similique enim.
+						<?php echo $home_about_text; ?>
 					</p>
 				</div>
 				<!-- /.section__entry -->

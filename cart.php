@@ -7,7 +7,32 @@ if ( ! isset( $_COOKIE['app_user_id'] ) ) {
 include_once 'partials/header.php';
 include_once 'app/includes/helpers.php';
 
-$cart_items = app_get_cart_items();
+$cart_hero_title                   = app_get_localized_string( 'cart_hero_title' );
+$cart_section_title                = app_get_localized_string( 'cart_section_title' );
+$cart_empty_error                  = app_get_localized_string( 'cart_empty_error' );
+$cart_back_to_shop                 = app_get_localized_string( 'cart_back_to_shop' );
+$subtotal_label                    = app_get_localized_string( 'subtotal_label' );
+$delivery_label                    = app_get_localized_string( 'delivery_label' );
+$vat_label                         = app_get_localized_string( 'vat_label' );
+$total_label                       = app_get_localized_string( 'total_label' );
+$checkout_button_label             = app_get_localized_string( 'checkout_button_label' );
+$required_field_error              = app_get_localized_string( 'required_field_error' );
+$form_first_name                   = app_get_localized_string( 'form_first_name' );
+$form_first_name_placeholder       = app_get_localized_string( 'form_first_name_placeholder' );
+$form_last_name                    = app_get_localized_string( 'form_last_name' );
+$form_last_name_placeholder        = app_get_localized_string( 'form_last_name_placeholder' );
+$form_email_label                  = app_get_localized_string( 'form_email_label' );
+$form_email_placeholder            = app_get_localized_string( 'form_email_placeholder' );
+$form_payment_type_label           = app_get_localized_string( 'form_payment_type_label' );
+$cod_payment_label                 = app_get_localized_string( 'cod_payment_label' );
+$cc_payment_label                  = app_get_localized_string( 'cc_payment_label' );
+$form_delivery_address_label       = app_get_localized_string( 'form_delivery_address_label' );
+$form_delivery_address_placeholder = app_get_localized_string( 'form_delivery_address_placeholder' );
+$form_notes_label                  = app_get_localized_string( 'form_notes_label' );
+$form_notes_placeholder            = app_get_localized_string( 'form_notes_placeholder' );
+$order_button_label                = app_get_localized_string( 'order_button_label' );
+
+$cart_items                        = app_get_cart_items();
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
@@ -22,7 +47,9 @@ $cart_items = app_get_cart_items();
 		<!-- /.hero__bg -->
 
 		<div class="hero__content" data-aos="fade-up">
-			<h1 class="hero__title">Cart</h1>
+			<h1 class="hero__title">
+				<?php echo $cart_hero_title; ?>
+			</h1>
 			<!-- /.hero__title -->
 		</div>
 		<!-- /.hero__content -->
@@ -33,17 +60,21 @@ $cart_items = app_get_cart_items();
 		<div class="shell">
 			<div class="section__head">
 				<h2 class="section__title" data-aos="fade-up">
-					Your order
+					<?php echo $cart_section_title; ?>
 				</h2><!-- /.section__title -->
 			</div><!-- /.section__head -->
 
-			<div class="section__content js-cart" style="text-align: center;">
+			<div class="section__content js-cart" data-aos="fade-up" style="text-align: center;">
 				<?php if ( empty( $cart_items ) ) : ?>
-					<h4>You have no items in your shopping cart</h4>
+					<h4>
+						<?php echo $cart_empty_error; ?>
+					</h4>
 
 					<p>
 						<a href="<?php echo app_get_page_url('shop'); ?>" class="btn btn--border btn--border-base">
-							<span>Back to the Shop</span>
+							<span>
+								<?php echo $cart_back_to_shop; ?>
+							</span>
 						</a>
 					</p>
 				<?php else :
@@ -80,7 +111,7 @@ $cart_items = app_get_cart_items();
 											</button>
 
 											<h6>
-												<?php echo sprintf( '%s - $%s', htmlspecialchars_decode( $item['title'] ), number_format( $item['price'], 2 ) ); ?>
+												<?php echo sprintf( '%s - €%s', htmlspecialchars_decode( $item['title'] ), number_format( $item['price'], 2 ) ); ?>
 											</h6>
 
 											<p>
@@ -95,24 +126,26 @@ $cart_items = app_get_cart_items();
 						<div class="cart-items__total">
 							<ul>
 								<li>
-									<small>Subtotal: <?php echo sprintf( '$%s', number_format( $subtotal, 2 ) ); ?></small>
+									<small><?php echo $subtotal_label; ?>: <?php echo sprintf( '€%s', number_format( $subtotal, 2 ) ); ?></small>
 								</li>
 
 								<li>
-									<small>Delivery: <?php echo sprintf( '$%s', number_format( $subtotal * 0.05, 2 ) ); ?></small>
+									<small><?php echo $delivery_label; ?>: <?php echo sprintf( '€%s', number_format( $subtotal * 0.05, 2 ) ); ?></small>
 								</li>
 
 								<li>
-									<small>VAT (+20%): <?php echo sprintf( '$%s', number_format( $subtotal * 0.2, 2 ) ); ?></small>
+									<small><?php echo $vat_label; ?>: <?php echo sprintf( '€%s', number_format( $subtotal * 0.2, 2 ) ); ?></small>
 								</li>
 							</ul>
 
 							<h6>
-								Total: $<?php echo number_format( ( $subtotal * 1.2 ) + ( $subtotal * 0.05 ), 2 ); ?>
+								<?php echo $total_label; ?>: €<?php echo number_format( ( $subtotal * 1.2 ) + ( $subtotal * 0.05 ), 2 ); ?>
 							</h6>
 
 							<a href="#" class="btn btn--border btn--border-base js-checkout">
-								<span>Checkout</span>
+								<span>
+									<?php echo $checkout_button_label; ?>
+								</span>
 							</a>
 						</div><!-- /.cart-items__total -->
 					</div><!-- /.cart-items -->
@@ -135,28 +168,32 @@ $cart_items = app_get_cart_items();
 															<div class="form__col form__col--1of2">
 																<div class="form__col-inner">
 																	<label class="form__label" for="field-first">
-																		* First Name
+																		* <?php echo $form_first_name; ?>
 																	</label>
 
 																	<div class="form__controls">
-																		<input type="text" class="field" id="field-first" name="first" placeholder="Your first name" />
+																		<input type="text" class="field" id="field-first" name="first" placeholder="<?php echo $form_first_name_placeholder; ?>" />
 																	</div><!-- /.form__controls -->
 
-																	<span class="form__notice form__notice--error hidden">This field is required</span>
+																	<span class="form__notice form__notice--error hidden">
+																		<?php echo $required_field_error; ?>
+																	</span>
 																</div><!-- /.form__col-inner -->
 															</div><!-- /.form__col -->
 
 															<div class="form__col form__col--1of2">
 																<div class="form__col-inner">
 																	<label class="form__label" for="field-last">
-																		* Last Name
+																		* <?php echo $form_last_name; ?>
 																	</label>
 
 																	<div class="form__controls">
-																		<input type="text" class="field" id="field-last" name="last" placeholder="Your last name" />
+																		<input type="text" class="field" id="field-last" name="last" placeholder="<?php echo $form_last_name_placeholder; ?>" />
 																	</div><!-- /.form__controls -->
 
-																	<span class="form__notice form__notice--error hidden">This field is required</span>
+																	<span class="form__notice form__notice--error hidden">
+																		<?php echo $required_field_error; ?>
+																	</span>
 																</div><!-- /.form__col-inner -->
 															</div><!-- /.form__col -->
 														</div><!-- /.form__cols -->
@@ -166,14 +203,16 @@ $cart_items = app_get_cart_items();
 														<div class="form__cols">
 															<div class="form__col">
 																<label class="form__label" for="field-email">
-																	* Email
+																	* <?php echo $form_email_label; ?>
 																</label>
 
 																<div class="form__controls">
-																	<input type="email" class="field" id="field-email" name="email" placeholder="Your email address" />
+																	<input type="email" class="field" id="field-email" name="email" placeholder="<?php echo $form_email_placeholder; ?>" />
 																</div><!-- /.form__controls -->
 
-																<span class="form__notice form__notice--error hidden">This field is required</span>
+																<span class="form__notice form__notice--error hidden">
+																	<?php echo $required_field_error; ?>
+																</span>
 															</div><!-- /.form__col -->
 														</div><!-- /.form__cols -->
 													</div><!-- /.form__row -->
@@ -181,14 +220,20 @@ $cart_items = app_get_cart_items();
 													<div class="form__row">
 														<div class="form__cols">
 															<div class="form__col">
-																<label class="form__label" for="field-payment-type">Payment Method</label>
+																<label class="form__label" for="field-payment-type">
+																	<?php echo $form_payment_type_label; ?>
+																</label>
 
 																<div class="form__controls">
 																	<div class="select">
 																		<select name="payment_type" id="field-payment-type" class="field js-payment">
-																			<option value="cod">Cash on delivery</option>
+																			<option value="cod">
+																				<?php echo $cod_payment_label; ?>
+																			</option>
 
-																			<option value="cc">Credit Card</option>
+																			<option value="cc">
+																				<?php echo $cc_payment_label; ?>
+																			</option>
 																		</select>
 																	</div><!-- /.select -->
 																</div><!-- /.form__controls -->
@@ -197,21 +242,22 @@ $cart_items = app_get_cart_items();
 													</div><!-- /.form__row -->
 
 													<div class="form__row credit-card-wrapper hidden">
-
 													</div><!-- /.form__row -->
 
 													<div class="form__row">
 														<div class="form__cols">
 															<div class="form__col">
 																<label class="form__label" for="field-address-one">
-																	* Delivery Address
+																	* <?php echo $form_delivery_address_label; ?>
 																</label>
 
 																<div class="form__controls">
-																	<input type="text" class="field" id="field-address-one" name="delivery_address" placeholder="Your address" />
+																	<input type="text" class="field" id="field-address-one" name="delivery_address" placeholder="<?php echo $form_delivery_address_placeholder; ?>" />
 																</div><!-- /.form__controls -->
 
-																<span class="form__notice form__notice--error hidden">This field is required</span>
+																<span class="form__notice form__notice--error hidden">
+																	<?php echo $required_field_error; ?>
+																</span>
 															</div><!-- /.form__col -->
 														</div><!-- /.form__cols -->
 													</div><!-- /.form__row -->
@@ -220,11 +266,11 @@ $cart_items = app_get_cart_items();
 														<div class="form__cols">
 															<div class="form__col">
 																<label class="form__label" for="field-notes">
-																	Notes
+																	<?php echo $form_notes_label; ?>
 																</label>
 
 																<div class="form__controls">
-																	<textarea class="textarea" id="field-notes" name="notes" placeholder="Additional notes" cols="30" rows="10"></textarea>
+																	<textarea class="textarea" id="field-notes" name="notes" placeholder="<?php echo $form_notes_placeholder; ?>" cols="30" rows="10"></textarea>
 																</div><!-- /.form__controls -->
 															</div><!-- /.form__col -->
 														</div><!-- /.form__cols -->
@@ -235,7 +281,9 @@ $cart_items = app_get_cart_items();
 
 										<div class="form__actions">
 											<button type="submit" class="btn btn--border-base form__btn form__btn--submit">
-												<span>Order now</span>
+												<span>
+													<?php echo $order_button_label; ?>
+												</span>
 
 												<img width="22" src="assets/dist/images/spinner.svg" alt="Spinner">
 											</button>

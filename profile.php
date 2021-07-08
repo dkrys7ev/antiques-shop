@@ -8,39 +8,62 @@ if ( ! isset( $_COOKIE['app_user_id'] ) ) {
 include_once 'partials/header.php';
 include_once 'app/includes/helpers.php';
 
-$user_id  = isset( $_COOKIE['app_user_id'] ) ? $_COOKIE['app_user_id'] : false;
-$user     = app_get_user_info( $user_id );
-$listings = app_get_user_listings( $user_id );
-$orders   = app_get_user_orders( $user_id );
+$user_id                        = isset( $_COOKIE['app_user_id'] ) ? $_COOKIE['app_user_id'] : false;
+$user                           = app_get_user_info( $user_id );
+$listings                       = app_get_user_listings( $user_id );
+$orders                         = app_get_user_orders( $user_id );
+$profile_hero_title             = app_get_localized_string( 'profile_hero_title' );
+$profile_listing_title          = app_get_localized_string( 'profile_listing_title' );
+$profile_listing_error          = app_get_localized_string( 'profile_listing_error' );
+$profile_listing_button_label   = app_get_localized_string( 'profile_listing_button_label' );
+$profile_orders_title           = app_get_localized_string( 'profile_orders_title' );
+$profile_table_order_number     = app_get_localized_string( 'profile_table_order_number' );
+$profile_table_date_created     = app_get_localized_string( 'profile_table_date_created' );
+$profile_table_payment_type     = app_get_localized_string( 'profile_table_payment_type' );
+$profile_table_status           = app_get_localized_string( 'profile_table_status' );
+$profile_table_total            = app_get_localized_string( 'profile_table_total' );
+$profile_table_details          = app_get_localized_string( 'profile_table_details' );
+$profile_table_button_label     = app_get_localized_string( 'profile_table_button_label' );
+$profile_order_items_title      = app_get_localized_string( 'profile_order_items_title' );
+$profile_orders_error           = app_get_localized_string( 'profile_orders_error' );
+$home_cta_title                 = app_get_localized_string( 'home_cta_title' );
+$home_cta_button_label          = app_get_localized_string( 'home_cta_button_label' );
+$profile_form_title             = app_get_localized_string( 'profile_form_title' );
+$profile_form_title_field       = app_get_localized_string( 'profile_form_title_field' );
+$profile_form_title_placeholder = app_get_localized_string( 'profile_form_title_placeholder' );
+$profile_form_desc_field        = app_get_localized_string( 'profile_form_desc_field' );
+$profile_form_desc_placeholder  = app_get_localized_string( 'profile_form_desc_placeholder' );
+$profile_form_categories_label  = app_get_localized_string( 'profile_form_categories_label' );
+$profile_form_categories_one    = app_get_localized_string( 'profile_form_categories_one' );
+$profile_form_categories_two    = app_get_localized_string( 'profile_form_categories_two' );
+$profile_form_categories_three  = app_get_localized_string( 'profile_form_categories_three' );
+$profile_form_categories_four   = app_get_localized_string( 'profile_form_categories_four' );
+$profile_form_images_label      = app_get_localized_string( 'profile_form_images_label' );
+$profile_form_price_label       = app_get_localized_string( 'profile_form_price_label' );
+$profile_form_price_placeholder = app_get_localized_string( 'profile_form_price_placeholder' );
+$profile_form_button_label      = app_get_localized_string( 'profile_form_button_label' );
+$required_field_error           = app_get_localized_string( 'required_field_error' );
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
 	<div class="hero hero--alt bg-base">
-		<div
-		class="hero__image"
-		data-aos="fade-up"
-		style="
-		background-image: url(assets/dist/images/temp/arizona-398686_1920.jpg);
-		"
-		></div>
-		<!-- /.hero__bg -->
+		<div class="hero__image" data-aos="fade-up" style=" background-image: url(assets/dist/images/temp/arizona-398686_1920.jpg);"></div><!-- /.hero__bg -->
 
 		<div class="hero__content" data-aos="fade-up">
-			<h1 class="hero__title" style="font-family: 'Milestone'">
-				Hello, <br>
+			<h1 class="hero__title">
+				<?php echo $profile_hero_title; ?>, <br>
 				<?php echo $user['name']; ?>
 			</h1>
 			<!-- /.hero__title -->
 		</div>
 		<!-- /.hero__content -->
-	</div>
-	<!-- /.hero -->
+	</div><!-- /.hero -->
 
 	<section class="section">
 		<div class="shell">
 			<div class="section__head">
 				<h2 class="section__title" data-aos="fade-up">
-					Your listings
+					<?php echo $profile_listing_title; ?>
 				</h2><!-- /.section__title -->
 			</div><!-- /.section__head -->
 
@@ -78,7 +101,7 @@ $orders   = app_get_user_orders( $user_id );
 										<div class="box__actions">
 											<h5>
 												<strong>
-													<?php echo sprintf( '$%s', number_format( $listing['price'], 2 ) ); ?>
+													<?php echo sprintf( '€%s', number_format( $listing['price'], 2 ) ); ?>
 												</strong>
 											</h5>
 
@@ -100,13 +123,17 @@ $orders   = app_get_user_orders( $user_id );
 					</div><!-- /.boxes -->
 				<?php else :
 					?>
-					<h6>
-						You haven't created any listings yet.
-					</h6>
+					<div class="section__content-inner" data-aos="fade-up" style="text-align: center;">
+						<h6>
+							<?php echo $profile_listing_error; ?>
+						</h6>
 
-					<a href="#form-listing" class="btn btn--border btn--border-base js-scroll">
-						<span>Create a listing</span>
-					</a>
+						<a href="#form-listing" class="btn btn--border btn--border-base js-scroll">
+							<span>
+								<?php echo $profile_listing_button_label; ?>
+							</span>
+						</a>
+					</div><!-- /.section__content-inner -->
 				<?php endif; ?>
 			</div><!-- /.section__content -->
 		</div><!-- /.shell -->
@@ -115,20 +142,19 @@ $orders   = app_get_user_orders( $user_id );
 	<section class="section-cta" data-aos="fade-up">
 		<div class="shell">
 			<h2 class="section__title">
-				Your orders from
+				<?php echo $profile_orders_title; ?>
 
 				<br>
 
 				<br>
 
-				<span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
+				<span style="font-size: 7rem; font-family: 'Milestone'">AntiqueShop</span>
 			</h2>
 			<!-- /.section__title -->
 		</div>
 		<!-- /.shell -->
 	</section>
 	<!-- /.section-cta -->
-
 
 	<section class="section">
 		<div class="shell">
@@ -138,12 +164,12 @@ $orders   = app_get_user_orders( $user_id );
 						<table>
 							<thead>
 								<tr class="table-headers">
-									<th>Order #</th>
-									<th>Date Created</th>
-									<th>Payment Type</th>
-									<th>Status</th>
-									<th>Total</th>
-									<th>Details</th>
+									<th><?php echo $profile_table_order_number; ?></th>
+									<th><?php echo $profile_table_date_created; ?></th>
+									<th><?php echo $profile_table_payment_type; ?></th>
+									<th><?php echo $profile_table_status; ?></th>
+									<th><?php echo $profile_table_total; ?></th>
+									<th><?php echo $profile_table_details; ?></th>
 								</tr>
 							</thead>
 
@@ -154,34 +180,46 @@ $orders   = app_get_user_orders( $user_id );
 											<?php echo $order['ID']; ?>
 										</td>
 
-										<th class="mobile-header">Date Created</th>
+										<th class="mobile-header">
+											<?php echo $profile_table_date_created; ?>
+										</th>
 
 										<td>
 											<?php echo $order['date_created']; ?>
 										</td>
 
-										<th class="mobile-header">Payment Type</th>
+										<th class="mobile-header">
+											<?php echo $profile_table_payment_type; ?>
+										</th>
 
 										<td>
 											<?php echo ( $order['payment_type'] == 'cod') ? 'Cash on Delivery' : 'Credit Card'; ?>
 										</td>
 
-										<th class="mobile-header">Status</th>
+										<th class="mobile-header">
+											<?php echo $profile_table_status; ?>
+										</th>
 
 										<td>
 											<?php echo ucfirst( $order['status'] ); ?>
 										</td>
 
-										<th class="mobile-header">Total</th>
+										<th class="mobile-header">
+											<?php echo $profile_table_total; ?>
+										</th>
 
 										<td>
-											<?php echo sprintf( '$%s', number_format( $order['total'], 2 ) ); ?>
+											<?php echo sprintf( '€%s', number_format( $order['total'], 2 ) ); ?>
 										</td>
 
-										<th class="mobile-header">Details</th>
+										<th class="mobile-header">
+											<?php echo $profile_table_details; ?>
+										</th>
 
 										<td>
-											<button type="button" class="btn btn--border btn--border-base js-order-details" data-target="#order-<?php echo $order['ID']; ?>">View</button>
+											<button type="button" class="btn btn--border btn--border-base js-order-details" data-target="#order-<?php echo $order['ID']; ?>">
+												<?php echo $profile_table_button_label; ?>
+											</button>
 										</td>
 									</tr>
 								<?php endforeach; ?>
@@ -198,7 +236,9 @@ $orders   = app_get_user_orders( $user_id );
 										<span></span>
 									</button>
 
-									<h3>Order Items:</h3>
+									<h3>
+										<?php echo $profile_order_items_title; ?>
+									</h3>
 
 									<div class="boxes">
 										<ul>
@@ -237,7 +277,7 @@ $orders   = app_get_user_orders( $user_id );
 														<div class="box__actions">
 															<h5>
 																<strong>
-																	<?php echo sprintf( '$%s', number_format( $listing['price'], 2 ) ); ?>
+																	<?php echo sprintf( '€%s', number_format( $listing['price'], 2 ) ); ?>
 																</strong>
 															</h5>
 														</div><!-- /.box__actions -->
@@ -251,8 +291,8 @@ $orders   = app_get_user_orders( $user_id );
 						</div><!-- /.popup -->
 					<?php endforeach; ?>
 				<?php else : ?>
-					<h3 style="text-align: center;">
-						You haven't made any orders yet.
+					<h3 style="text-align: center;" data-aos="fade-up">
+						<?php echo $profile_orders_error; ?>
 					</h3>
 				<?php endif; ?>
 			</div><!-- /.section__content -->
@@ -262,11 +302,13 @@ $orders   = app_get_user_orders( $user_id );
 	<section class="section-cta" data-aos="fade-up">
 		<div class="shell">
 			<h2 class="section__title">
-				Thousands of genuine antiques for sale, direct from trusted antique dealers at your local <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
+				<?php echo $home_cta_title; ?> <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
 			</h2>
 			<!-- /.section__title -->
 
-			<a href="shop" class="btn btn--border btn--border-white btn--size-1">Shop now</a>
+			<a href="<?php echo app_get_page_url( 'shop' ); ?>" class="btn btn--border btn--border-white btn--size-1">
+				<?php echo $home_cta_button_label; ?>
+			</a>
 		</div>
 		<!-- /.shell -->
 	</section>
@@ -276,7 +318,7 @@ $orders   = app_get_user_orders( $user_id );
 		<div class="shell">
 			<div class="section__head">
 				<h2 class="section__title" id="form-listing">
-					Add new listing
+					<?php echo $profile_form_title; ?>
 				</h2><!-- /.section__title -->
 			</div><!-- /.section__head -->
 
@@ -288,65 +330,79 @@ $orders   = app_get_user_orders( $user_id );
 								<div class="form__group">
 									<div class="form__row">
 										<label class="form__label" for="field-title">
-											* Title
+											* <?php echo $profile_form_title_field; ?>
 										</label>
 
 										<div class="form__controls">
-											<input type="text" class="field" id="field-title" name="title" placeholder="Enter the listing title" />
+											<input type="text" class="field" id="field-title" name="title" placeholder="<?php echo $profile_form_title_placeholder; ?>" />
 										</div><!-- /.form__controls -->
 
-										<span class="form__notice form__notice--error hidden">This field is required</span>
+										<span class="form__notice form__notice--error hidden">
+											<?php echo $required_field_error; ?>
+										</span>
 									</div><!-- /.form__row -->
 
 									<div class="form__row">
 										<label class="form__label" for="field-description">
-											* Description
+											* <?php echo $profile_form_desc_field; ?>
 										</label>
 
 										<div class="form__controls">
-											<textarea class="textarea" id="field-description" name="description" placeholder="Enter the listing description" cols="30" rows="10"></textarea>
+											<textarea class="textarea" id="field-description" name="description" placeholder="<?php echo $profile_form_desc_placeholder; ?>" cols="30" rows="10"></textarea>
 										</div><!-- /.form__controls -->
 
-										<span class="form__notice form__notice--error hidden">This field is required</span>
+										<span class="form__notice form__notice--error hidden">
+											<?php echo $required_field_error; ?>
+										</span>
 									</div><!-- /.form__row -->
 
 									<div class="form__row">
 										<label class="form__label">
-											* Categories
+											* <?php echo $profile_form_categories_label; ?>
 										</label>
 
 										<div class="form__controls">
 											<div class="checkbox">
 												<input type="checkbox" name="categories[]" value="everyday" />
 
-												<label>Еveryday things</label>
+												<label>
+													<?php echo $profile_form_categories_one; ?>
+												</label>
 											</div><!-- /.checkbox -->
 
 											<div class="checkbox">
 												<input type="checkbox" name="categories[]" value="historical" />
 
-												<label>Historical artifacts</label>
+												<label>
+													<?php echo $profile_form_categories_two; ?>
+												</label>
 											</div><!-- /.checkbox -->
 
 											<div class="checkbox">
 												<input type="checkbox" name="categories[]" value="art" />
 
-												<label>Аrt and culture</label>
+												<label>
+													<?php echo $profile_form_categories_three; ?>
+												</label>
 											</div><!-- /.checkbox -->
 
 											<div class="checkbox">
 												<input type="checkbox" name="categories[]" value="other" />
 
-												<label>Other</label>
+												<label>
+													<?php echo $profile_form_categories_four; ?>
+												</label>
 											</div><!-- /.checkbox -->
 										</div><!-- /.form__controls -->
 
-										<span class="form__notice form__notice--error hidden">This field is required</span>
+										<span class="form__notice form__notice--error hidden">
+											<?php echo $required_field_error; ?>
+										</span>
 									</div><!-- /.form__row -->
 
 									<div class="form__row">
 										<label class="form__label" for="field-images">
-											* Images
+											* <?php echo $profile_form_images_label; ?>
 										</label>
 
 										<div class="form__controls">
@@ -358,19 +414,23 @@ $orders   = app_get_user_orders( $user_id );
 											</div><!-- /.form__thumbnails -->
 										</div><!-- /.form__controls -->
 
-										<span class="form__notice form__notice--error hidden">This field is required</span>
+										<span class="form__notice form__notice--error hidden">
+											<?php echo $required_field_error; ?>
+										</span>
 									</div><!-- /.form__row -->
 
 									<div class="form__row">
 										<label class="form__label" for="field-price">
-											* Price
+											* <?php echo $profile_form_price_label; ?>
 										</label>
 
 										<div class="form__controls">
-											<input type="number" class="field" id="field-price" name="price" step="0.01" placeholder="Enter the listing price" />
+											<input type="number" class="field" id="field-price" name="price" step="0.01" placeholder="<?php echo $profile_form_price_placeholder; ?>" />
 										</div><!-- /.form__controls -->
 
-										<span class="form__notice form__notice--error hidden">This field is required</span>
+										<span class="form__notice form__notice--error hidden">
+											<?php echo $required_field_error; ?>
+										</span>
 
 										<div class="form__error hidden"></div>
 									</div><!-- /.form__row -->
@@ -380,7 +440,9 @@ $orders   = app_get_user_orders( $user_id );
 
 						<div class="form__actions">
 							<button type="submit" class="btn btn--border-base form__btn form__btn--submit">
-								<span>Submit</span>
+								<span>
+									<?php echo $profile_form_button_label; ?>
+								</span>
 
 								<img width="22" src="assets/dist/images/spinner.svg" alt="Spinner">
 							</button>
@@ -390,8 +452,7 @@ $orders   = app_get_user_orders( $user_id );
 			</div><!-- /.section__content -->
 		</div><!-- /.shell -->
 	</section><!-- /.section -->
-</div>
-<!-- /.wrapper__inner -->
+</div><!-- /.wrapper__inner -->
 
 <?php
 include_once 'partials/footer.php';

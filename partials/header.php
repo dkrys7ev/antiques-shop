@@ -1,5 +1,3 @@
-<?php include_once 'app/includes/helpers.php'; ?>
-
 <!DOCTYPE html>
 <html class="no-js" lang="en-AU">
 	<head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb#">
@@ -61,6 +59,29 @@
 			</p>
 		<![endif]-->
 
+		<?php
+		include_once 'app/includes/helpers.php';
+
+		$nav_item_homepage          = app_get_localized_string( 'nav_item_homepage' );
+		$nav_item_shop              = app_get_localized_string( 'nav_item_shop' );
+		$nav_item_cart              = app_get_localized_string( 'nav_item_cart' );
+		$nav_item_contact           = app_get_localized_string( 'nav_item_contact' );
+		$nav_item_login             = app_get_localized_string( 'nav_item_login' );
+		$nav_item_profile           = app_get_localized_string( 'nav_item_profile' );
+		$nav_item_logout            = app_get_localized_string( 'nav_item_logout' );
+		$header_phone_text          = app_get_localized_string( 'header_phone_text' );
+		$header_search_close        = app_get_localized_string( 'header_search_close' );
+		$header_search_label        = app_get_localized_string( 'header_search_label' );
+		$header_search_button_label = app_get_localized_string( 'header_search_button_label' );
+
+		$current_language  = isset( $_COOKIE['app_lang'] ) ? $_COOKIE['app_lang'] : 'en';
+		if ( $current_language == 'en' ) {
+			$data_language = 'bg';
+		} else {
+			$data_language = 'en';
+		}
+		?>
+
 		<div class="wrapper">
 			<header class="header is-small">
 				<div class="header__bg js-header-bg"></div>
@@ -107,6 +128,16 @@
 
 							<a
 								href="#"
+								class="link-language hidden-lg hidden-md js-language"
+								data-language="<?php echo $data_language; ?>"
+							>
+								<span>
+									<?php echo $data_language; ?>
+								</span>
+							</a>
+
+							<a
+								href="#"
 								class="nav-trigger-mobile js-nav-trigger-mobile hidden-lg hidden-md"
 							>
 								<span></span>
@@ -123,44 +154,58 @@
 							<ul>
 								<li class="js-nav-element">
 									<a href="<?php echo app_get_page_url(); ?>">
-										<span>Home</span>
+										<span>
+											<?php echo $nav_item_homepage; ?>
+										</span>
 									</a>
 								</li>
 
 								<li class="js-nav-element">
 									<a href="<?php echo app_get_page_url('shop'); ?>">
-										<span>Shop</span>
+										<span>
+											<?php echo $nav_item_shop; ?>
+										</span>
 									</a>
 								</li>
 
 								<li class="js-nav-element">
 									<a href="<?php echo app_get_page_url('cart'); ?>">
-										<span>Cart</span>
+										<span>
+											<?php echo $nav_item_cart; ?>
+										</span>
 									</a>
 								</li>
 
 								<li class="js-nav-element">
 									<a href="<?php echo app_get_page_url('contact'); ?>">
-										<span>Contact</span>
+										<span>
+											<?php echo $nav_item_contact; ?>
+										</span>
 									</a>
 								</li>
 
 								<?php if ( ! isset( $_COOKIE['app_user_id'] ) ) : ?>
 									<li class="js-nav-element">
 										<a href="<?php echo app_get_page_url('login'); ?>">
-											<span>Login</span>
+											<span>
+												<?php echo $nav_item_login; ?>
+											</span>
 										</a>
 									</li>
 								<?php else : ?>
 									<li class="js-nav-element">
 										<a href="<?php echo app_get_page_url('profile'); ?>">
-											<span>Profile</span>
+											<span>
+												<?php echo $nav_item_profile; ?>
+											</span>
 										</a>
 									</li>
 
 									<li class="js-nav-element js-logout">
 										<a href="#">
-											<span>Logout</span>
+											<span>
+												<?php echo $nav_item_logout; ?>
+											</span>
 										</a>
 									</li>
 								<?php endif; ?>
@@ -212,7 +257,9 @@
 								alt=""
 							/>
 
-							<span>CALL</span>
+							<span>
+								<?php echo $header_phone_text; ?>
+							</span>
 						</a>
 
 						<a
@@ -234,6 +281,16 @@
 								alt="ico-cart"
 							/>
 						</a>
+
+						<a
+							href="#"
+							class="link-language hidden-xs hidden-sm js-language"
+							data-language="<?php echo $data_language; ?>"
+						>
+							<span>
+								<?php echo $data_language; ?>
+							</span>
+						</a>
 					</div>
 					<!-- /.header__head -->
 
@@ -252,7 +309,9 @@
 
 			<div class="search js-search-popup">
 				<a href="#" class="search__close js-close-search hidden-xs">
-					<span>Close</span>
+					<span>
+						<?php echo $header_search_close; ?>
+					</span>
 
 					<img src="assets/dist/images/ico-close-search.svg" alt="" />
 				</a>
@@ -270,9 +329,9 @@
 				<div class="search__content">
 					<div class="search__form">
 						<form action="<?php echo app_get_page_url( 'shop' ) ?>" method="get">
-							<label for="field-search" class="hidden"
-								>Enter your search here…</label
-							>
+							<label for="field-search" class="hidden">
+								<?php echo $header_search_label; ?>
+							</label>
 
 							<div class="search__field">
 								<img
@@ -285,14 +344,14 @@
 									name="search"
 									id="field-search"
 									value=""
-									placeholder="Enter your search here…"
+									placeholder="<?php echo $header_search_label; ?>"
 								/>
 							</div>
 							<!-- /.search__field -->
 
 							<input
 								type="submit"
-								value="Search"
+								value="<?php echo $header_search_button_label; ?>"
 								class="search__btn btn btn--border btn--border-base"
 							/>
 						</form>

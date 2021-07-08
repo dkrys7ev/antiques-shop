@@ -1,4 +1,11 @@
 <?php
+require dirname(__DIR__, 1) . "/carbon-validator/load.php";
+
+Carbon_Validator::extend( 'string_only_text', 'app_validate_text' );
+function app_validate_text( $string ) {
+	return !preg_match( '~[^a-zA-Z]+~', $string );
+}
+
 function app_init_database() {
 	$host     = 'localhost';
 	$username = 'dkryqtqe_db';
@@ -32,6 +39,8 @@ function app_register_user( $user ) {
 	}
 
 	extract( $user );
+
+	$name = $first . ' ' . $last;
 
 	$password  = md5( $password );
 	$sql_query = "
@@ -421,4 +430,19 @@ function app_sanitize_text( $text ) {
 	$text = htmlentities($text, ENT_QUOTES,'UTF-8');
 
 	return $text;
+}
+
+function app_get_localized_string( $key ) {
+	$current_language = isset( $_COOKIE['app_lang'] ) ? $_COOKIE['app_lang'] : 'en';
+	$string_json      = file_get_contents( dirname(__DIR__, 1) . DIRECTORY_SEPARATOR .'language/strings.json' );
+
+	if ( $string_json ) {
+		$decoded_json = json_decode( $string_json, true );
+	}
+
+	return $decoded_json[ $key ][ $current_language ];
+}
+
+function app_change_language( $language_code ) {
+	return setcookie('app_lang', $language_code, time() + (86400 * 7), '/');
 }

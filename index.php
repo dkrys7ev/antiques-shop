@@ -1,5 +1,12 @@
 <?php
 include_once 'partials/header.php';
+include_once 'app/includes/helpers.php';
+
+$home_hero_title       = app_get_localized_string( 'home_hero_title' );
+$home_about_title      = app_get_localized_string( 'home_about_title' );
+$home_about_text       = app_get_localized_string( 'home_about_text' );
+$home_cta_title        = app_get_localized_string( 'home_cta_title' );
+$home_cta_button_label = app_get_localized_string( 'home_cta_button_label' );
 ?>
 
 <div class="wrapper__inner is-large js-wrapper-page">
@@ -14,7 +21,9 @@ include_once 'partials/header.php';
 		<!-- /.hero__bg -->
 
 		<div class="hero__content" data-aos="fade-up">
-			<h1 class="hero__title" style="font-family: 'Milestone'">Welcome</h1>
+			<h1 class="hero__title" style="font-family: 'Milestone'">
+				<?php echo $home_hero_title; ?>
+			</h1>
 			<!-- /.hero__title -->
 		</div>
 		<!-- /.hero__content -->
@@ -25,13 +34,13 @@ include_once 'partials/header.php';
 		<div class="shell">
 			<div class="section__content" data-aos="fade-up">
 				<h2 class="section__title h2">
-					Over 10 years of experience
+					<?php echo $home_about_title; ?>
 				</h2>
 				<!-- /.section__title -->
 
 				<div class="section__entry">
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus nostrum totam libero perferendis non, mollitia! Eaque at perspiciatis vitae repudiandae quam distinctio cum incidunt laboriosam, odit alias animi, similique enim.
+						<?php echo $home_about_text; ?>
 					</p>
 				</div>
 				<!-- /.section__entry -->
@@ -45,14 +54,14 @@ include_once 'partials/header.php';
 	<section class="section-cta" data-aos="fade-up">
 		<div class="shell">
 			<h2 class="section__title">
-				Thousands of genuine antiques for sale, direct from trusted antique dealers at your local <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
+				<?php echo $home_cta_title; ?> <br><br><span style="font-size: 7rem;	font-family: 'Milestone'">AntiqueShop</span>
 			</h2>
 			<!-- /.section__title -->
 
 			<a
 				href="<?php echo app_get_page_url('shop'); ?>"
 				class="btn btn--border btn--border-white btn--size-1"
-				>Shop now</a
+				><?php echo $home_cta_button_label; ?></a
 			>
 		</div>
 		<!-- /.shell -->
