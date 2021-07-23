@@ -143,6 +143,10 @@ $form_contact_button_label   = app_get_localized_string( 'form_contact_button_la
 											</div><!-- /.form__col -->
 										</div><!-- /.form__cols -->
 									</div><!-- /.form__row -->
+
+									<div class="form__row">
+										<div id="html_element"></div>
+									</div><!-- /.form__row -->
 								</div><!-- /.form__group -->
 							</div><!-- /.form__section -->
 						</div><!-- /.form__body -->

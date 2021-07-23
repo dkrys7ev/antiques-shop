@@ -436,6 +436,10 @@ $required_field_error           = app_get_localized_string( 'required_field_erro
 
 										<div class="form__error hidden"></div>
 									</div><!-- /.form__row -->
+
+									<div class="form__row">
+										<div id="html_element"></div>
+									</div><!-- /.form__row -->
 								</div><!-- /.form__group -->
 							</div><!-- /.form__section -->
 						</div><!-- /.form__body -->

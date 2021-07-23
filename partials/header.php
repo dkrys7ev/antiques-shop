@@ -48,6 +48,14 @@
 				}
 			}
 		</script>
+
+			<script type="text/javascript">
+				var onloadCallback = function() {
+					grecaptcha.render('html_element', {
+						'sitekey' : '6LfH-LYbAAAAANnjT_w7oNjn1vGnJwcGMoU8MNc7'
+					});
+				};
+			</script>
 	</head>
 
 	<body>

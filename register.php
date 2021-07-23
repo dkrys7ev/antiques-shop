@@ -108,6 +108,10 @@ $home_about_text                  = app_get_localized_string( 'home_about_text' 
 											<?php echo $form_password_mismatch; ?>
 										</span>
 									</div><!-- /.form__row -->
+
+									<div class="form__row">
+										<div id="html_element"></div>
+									</div><!-- /.form__row -->
 								</div><!-- /.form__group -->
 							</div><!-- /.form__section -->
 						</div><!-- /.form__body -->

@@ -71,6 +71,10 @@ $form_login_cta_text       = app_get_localized_string( 'form_login_cta_text' );
 
 										<div class="form__error hidden"><?php echo $form_login_error; ?></div>
 									</div><!-- /.form__row -->
+
+									<div class="form__row">
+										<div id="html_element"></div>
+									</div><!-- /.form__row -->
 								</div><!-- /.form__group -->
 							</div><!-- /.form__section -->
 						</div><!-- /.form__body -->
